@@ -50,15 +50,35 @@ html {
 	box-shadow: 0px 0px 5px 0px rgba(150, 8, 39, 0.37);
 
 	text-align: center;
-	text-decoration: underline;
+
 	font-size: 1.4em;
 	background-color: #c33c54;
-	color: white;
 
 	padding: 0px;
 	padding-bottom: 9px;
 	padding-top: 9px;
 	margin: 0px;
+}
+
+.nav-item.active {
+	text-decoration: underline;
+}
+
+.nav-item a:hover {
+	border-radius: 25px;
+	background-color: rgba(173, 216, 230, 0.747);
+	color: rgb(180, 70, 43);
+}
+
+.covidWarning span {
+	color: white;
+	text-decoration: underline;
+	text-decoration-color: white;
+}
+
+.covidWarning span:hover {
+	color: khaki;
+	text-decoration-color: khaki;
 }
 
 .alert-danger {
