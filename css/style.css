@@ -12,6 +12,12 @@ html {
 	overflow-x: hidden;
 }
 
+.persona-icons{
+	width:80px;
+	height:auto;
+	padding-bottom:5px;
+}
+
 #covid-logo {
 	width: 7%;
 	height: auto;
@@ -668,6 +674,7 @@ a:focus {
 }
 
 .feature-item {
+
 	flex-basis: 33.33%;
 	margin: 0px 10px;
 	padding: 40px 30px;
@@ -677,6 +684,7 @@ a:focus {
 }
 
 .feature-item .feature-icon i {
+	
 	font-size: 50px;
 	color: #223a66;
 }
