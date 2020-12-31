@@ -13,7 +13,7 @@ html {
 }
 
 .persona-icons{
-	width:80px;
+	width:100px;
 	height:auto;
 	padding-bottom:5px;
 }
@@ -147,6 +147,10 @@ input[type="tel"]:focus {
 
 .py-7 {
 	padding: 7rem 0px;
+}
+
+.persona-button{
+	width:100%;
 }
 
 .btn {
@@ -539,8 +543,9 @@ a:focus {
 	overflow: hidden;
 	background: #fff;
 	background: url("../images/homepage/workforce2.jpg") no-repeat;
-	background-size: cover;
+	background-size:cover;
 	min-height: 550px;
+	width: auto;
 }
 
 .banner .block {
@@ -674,7 +679,9 @@ a:focus {
 }
 
 .feature-item {
-
+	display:flex;
+	flex-direction:column;
+	align-items:center;
 	flex-basis: 33.33%;
 	margin: 0px 10px;
 	padding: 40px 30px;
@@ -684,7 +691,7 @@ a:focus {
 }
 
 .feature-item .feature-icon i {
-	
+
 	font-size: 50px;
 	color: #223a66;
 }
