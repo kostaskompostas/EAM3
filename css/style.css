@@ -42,8 +42,9 @@ html {
 }
 
 #covid-logo {
-	width: 7%;
+	width: 4%;
 	height: auto;
+	margin: 0px 30px;
 }
 
 .covidWarning {
@@ -516,7 +517,6 @@ a:focus {
 
 .navbar-brand {
 	width: 30%;
-	length: auto;
 }
 
 .dropdown .dropdown-menu {
