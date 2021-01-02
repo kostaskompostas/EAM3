@@ -19,8 +19,8 @@ html {
 	margin-top: 20px;
 }
 
-.appointment {
-	margin-top: 8px;
+a.appointment {
+	margin-top: 0px;
 }
 
 .persona-icons {
@@ -752,9 +752,11 @@ a:focus {
 	flex-basis: 33.33%;
 	margin: 0px 10px;
 	padding: 40px 30px;
-	background-color: #fff;
+	background-color: #d3d8eb;
 	border-radius: 15px 15px 15px 15px;
 	box-shadow: 0px 0px 30px 0px rgba(0, 42, 106, 0.26);
+	border-style: solid;
+	border-color: #152440;
 }
 
 .feature-item .feature-icon i {

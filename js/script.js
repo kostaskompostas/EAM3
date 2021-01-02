@@ -109,13 +109,13 @@
 	});
 
 	$('.testimonial-wrap-2').slick({
-		slidesToShow: 2,
-		slidesToScroll: 2,
+		slidesToShow: 3,
+		slidesToScroll: 3,
 		infinite: true,
 		dots: true,
 		arrows:false,
 		autoplay: true,
-		autoplaySpeed: 6000,
+		autoplaySpeed: 9000,
 		responsive: [
 		    {
 		      breakpoint: 1024,
