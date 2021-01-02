@@ -12,6 +12,9 @@ html {
 	overflow-x: hidden;
 }
 
+.slick-track{
+	margin-top:20px;
+}
 
 .appointment{
 	margin-top:8px;
@@ -25,6 +28,7 @@ html {
 }
 
 .persona-box {
+	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -738,7 +742,10 @@ a:focus {
 	margin-top: -160px;
 }
 
+
+
 .feature-item {
+	width:220px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1003,8 +1010,6 @@ a:focus {
 .testimonial {
 	position: relative;
 	margin-top:0px;
-	
-	
 }
 .testimonial-2{
 	background: #487294;
