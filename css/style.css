@@ -12,6 +12,9 @@ html {
 	overflow-x: hidden;
 }
 
+.comms-h4{
+	color:#b9ccd0;
+}
 .slick-track{
 	margin-top:20px;
 }
@@ -606,7 +609,7 @@ a:focus {
 	background-size: cover;
 	min-height: 550px;
 	width: auto;
-}
+	box-shadow: inset 0 -7px 10px -7px rgba(0,0,0,0.4);}
 
 .banner .block {
 	padding: 80px 0px 160px;
@@ -1012,9 +1015,8 @@ a:focus {
 	margin-top:0px;
 }
 .testimonial-2{
-	background: #487294;
 	background: rgb(255,255,255);
-	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(72,114,148,1) 100%);
+	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(72,114,148,1) 200%);
 }
 
 .testimonial:before {
@@ -1532,11 +1534,22 @@ a:focus {
 
 .footer {
 	padding-bottom: 10px;
+	background-color:#333C47;
 }
+
+
 
 .footer .copyright a {
 	font-weight: 600;
 }
+
+.footer .h4{
+	color:#b9ccd0;
+}
+
+
+
+
 
 .lh-35 {
 	line-height: 35px;
@@ -1559,12 +1572,16 @@ a:focus {
 	height: 3px;
 }
 
+.widget p{
+	color: #b9ccd0;
+}
+
 .widget h4 {
-	color: #223a66;
+	color: #b9ccd0;
 }
 
 .widget .footer-menu a {
-	color: #6f8ba4;
+	color:#D8CEC8;
 }
 
 .widget .footer-menu a:hover {
@@ -1573,7 +1590,11 @@ a:focus {
 
 .footer-contact-block span {
 	font-weight: 400;
-	color: #6f8ba4;
+	color:#D8CEC8
+}
+
+.footer-contact-block a{
+	color:#ECDE92;
 }
 
 .footer-contact-block i {
@@ -1581,7 +1602,7 @@ a:focus {
 }
 
 .footer-btm {
-	border-top: 1px solid rgba(0, 0, 0, 0.06);
+	border-top: 1px solid #b9ccd0;
 }
 
 .footer-socials li a {
