@@ -12,16 +12,15 @@ html {
 	overflow-x: hidden;
 }
 
-.comms-h4{
-	color:#b9ccd0;
+.comms-h4 {
+	color: #b9ccd0;
 }
-.slick-track{
-	margin-top:20px;
+.slick-track {
+	margin-top: 20px;
 }
 
-.appointment{
-	margin-top:8px;
-
+.appointment {
+	margin-top: 8px;
 }
 
 .persona-icons {
@@ -31,7 +30,6 @@ html {
 }
 
 .persona-box {
-	
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -609,7 +607,8 @@ a:focus {
 	background-size: cover;
 	min-height: 550px;
 	width: auto;
-	box-shadow: inset 0 -7px 10px -7px rgba(0,0,0,0.4);}
+	box-shadow: inset 0 -7px 10px -7px rgba(0, 0, 0, 0.4);
+}
 
 .banner .block {
 	padding: 80px 0px 160px;
@@ -640,8 +639,8 @@ a:focus {
 	height: 5px;
 	background: #e12454;
 }
-.divider.news{
-	width:200px;
+.divider.news {
+	width: 200px;
 }
 
 @media (max-width: 480px) {
@@ -741,14 +740,12 @@ a:focus {
 }
 
 .features {
-	background:white;
+	background: white;
 	margin-top: -160px;
 }
 
-
-
 .feature-item {
-	width:220px;
+	width: 220px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1012,11 +1009,15 @@ a:focus {
 
 .testimonial {
 	position: relative;
-	margin-top:0px;
+	margin-top: 0px;
 }
-.testimonial-2{
-	background: rgb(255,255,255);
-	background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(72,114,148,1) 200%);
+.testimonial-2 {
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(72, 114, 148, 1) 200%
+	);
 }
 
 .testimonial:before {
@@ -1533,23 +1534,18 @@ a:focus {
 }
 
 .footer {
-	padding-bottom: 10px;
-	background-color:#333C47;
+	padding-top: 23px;
+	padding-bottom: 0px;
+	background-color: #333c47;
 }
-
-
 
 .footer .copyright a {
 	font-weight: 600;
 }
 
-.footer .h4{
-	color:#b9ccd0;
+.footer .h4 {
+	color: #b9ccd0;
 }
-
-
-
-
 
 .lh-35 {
 	line-height: 35px;
@@ -1572,7 +1568,7 @@ a:focus {
 	height: 3px;
 }
 
-.widget p{
+.widget p {
 	color: #b9ccd0;
 }
 
@@ -1581,7 +1577,7 @@ a:focus {
 }
 
 .widget .footer-menu a {
-	color:#D8CEC8;
+	color: #d8cec8;
 }
 
 .widget .footer-menu a:hover {
@@ -1590,11 +1586,11 @@ a:focus {
 
 .footer-contact-block span {
 	font-weight: 400;
-	color:#D8CEC8
+	color: #d8cec8;
 }
 
-.footer-contact-block a{
-	color:#ECDE92;
+.footer-contact-block a {
+	color: #ecde92;
 }
 
 .footer-contact-block i {
