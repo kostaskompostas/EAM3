@@ -42,9 +42,13 @@ html {
 }
 
 #covid-logo {
-	width: 4%;
+	width: 70px;
 	height: auto;
 	margin: 0px 30px;
+}
+
+#covidWarning-content {
+	margin-right: 130px;
 }
 
 .covidWarning {
