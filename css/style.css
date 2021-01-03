@@ -744,7 +744,15 @@ a:focus {
 }
 
 .features.categoryFeatures {
-	margin: 100px 0px;
+	margin: 0px;
+	padding: 100px 0px;
+
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(72, 114, 148, 1) 200%
+	);
 }
 
 .features {
@@ -778,6 +786,33 @@ a.category-button {
 	padding: 10px;
 	width: 250px;
 	height: 60px;
+}
+
+a.requires-login {
+	background-color: #c74e48;
+	border-color: #c74e48;
+}
+
+.color-explaination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+
+	margin-top: 40px;
+	color: black;
+}
+
+.color-explaination h4 {
+	margin: 0px 10px;
+}
+
+#redText {
+	color: #c74e48;
+}
+
+#blueText {
+	color: #223a66;
 }
 
 .feature-item {
