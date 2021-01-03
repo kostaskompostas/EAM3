@@ -224,10 +224,13 @@ input[type="tel"]:focus {
 	letter-spacing: 0.5px;
 	padding: 0.75rem 0em;
 	font-family: "Exo", sans-serif;
-	text-transform: uppercase;
 	border-radius: 5px;
 	border: 2px solid transparent;
 	transition: all 0.35s ease;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .btn.btn-icon i {
@@ -772,7 +775,9 @@ a:focus {
 
 a.category-button {
 	margin-top: 30px;
+	padding: 10px;
 	width: 250px;
+	height: 60px;
 }
 
 .feature-item {
