@@ -12,13 +12,13 @@ html {
 	overflow-x: hidden;
 }
 
-.breadcrumb{
-	background:none;
-	margin-bottom:0px;
+.breadcrumb {
+	background: none;
+	margin-bottom: 0px;
 }
 
-.comms-options{
-	height:500px;
+.comms-options {
+	height: 500px;
 }
 
 .comms-h4 {
@@ -212,6 +212,10 @@ input[type="tel"]:focus {
 	border-radius: 0;
 }
 
+#message {
+	background-color: #e3ebf0;
+}
+
 .form-control:focus {
 	box-shadow: none;
 	border: 1px solid #223a66;
@@ -225,8 +229,13 @@ input[type="tel"]:focus {
 	width: 100%;
 }
 
+.appointment-btn {
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 .btn {
-	display: inline-block;
 	font-size: 14px;
 	font-size: 0.8125rem;
 	font-weight: 700;
@@ -754,9 +763,8 @@ a:focus {
 
 .features.categoryFeatures {
 	margin: 0px;
-	padding-bottom:100px;
-	padding-top:50px;
-	
+	padding-bottom: 100px;
+	padding-top: 50px;
 
 	background: rgb(255, 255, 255);
 	background: linear-gradient(
@@ -835,11 +843,10 @@ a.requires-login {
 	margin: 0px 10px;
 	padding: 40px 30px;
 	/*background-color: #d3d8eb;*/
-	background-color:white;
+	background-color: white;
 	border-radius: 15px 15px 15px 15px;
 	box-shadow: 0px 0px 30px 0px rgba(0, 42, 106, 0.26);
-	border:5px solid  #152440;
-	
+	border: 5px solid #152440;
 }
 
 .feature-item .feature-icon i {
@@ -1231,7 +1238,7 @@ a.requires-login {
 	border: 1px solid #eef2f6;
 	box-shadow: none;
 	width: 100%;
-	background: #f4f9fc;
+	background: #e3ebf0;
 }
 
 .contact-form-wrap .form-group-2 {
@@ -1271,10 +1278,11 @@ a.requires-login {
 .contact-block {
 	text-align: center;
 	/*border: 15px solid #152440;*/
-	border: 5px solid #eef2f6;
+	border: 5px solid #152440;
+	border-radius: 15px 15px 15px 15px;
 
 	padding: 50px 25px;
-	height:400px;
+	height: 400px;
 }
 
 .contact-block i {
