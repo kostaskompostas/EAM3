@@ -12,6 +12,11 @@ html {
 	overflow-x: hidden;
 }
 
+.breadcrumb{
+	background:none;
+	margin-bottom:0px;
+}
+
 .comms-h4 {
 	color: #b9ccd0;
 }
@@ -745,7 +750,9 @@ a:focus {
 
 .features.categoryFeatures {
 	margin: 0px;
-	padding: 100px 0px;
+	padding-bottom:100px;
+	padding-top:50px;
+	
 
 	background: rgb(255, 255, 255);
 	background: linear-gradient(

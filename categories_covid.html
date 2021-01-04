@@ -30,15 +30,18 @@
 
 	<body id="top">
 		<header>
-			<div class="covidWarning">
-				<span id="covidWarning-content">
-					<img id="covid-logo" src="images/nav/covid2.png" />
-					<a href="#">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
-				</span>
-			</div>
+			<!--
 
+				<div class="covidWarning">
+					<span id="covidWarning-content">
+						<img id="covid-logo" src="images/nav/covid2.png" />
+						<a href="categories_covid.html">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
+					</span>
+				</div>
+			-->
+				
 			<nav class="navbar navbar-expand-lg navigation" id="navbar">
-				<div class="container">
+				<div class="container border-bottom">
 					<a class="navbar-brand" href="index.html">
 						<img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
 					</a>
@@ -57,7 +60,7 @@
 
 					<div class="collapse navbar-collapse" id="navbarmain">
 						<ul class="navbar-nav ml-auto">
-							<li class="nav-item active">
+							<li class="nav-item">
 								<a class="nav-link" href="index.html">Αρχική</a>
 							</li>
 							<li class="nav-item">
@@ -76,16 +79,35 @@
 			</nav>
 		</header>
 
-		<!-- Slider Start -->
 
+
+		<!--breadcrumbs-->
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="index.html">Αρχική</a></li>
+					<li class="breadcrumb-item active" aria-current="page">COVID-2019</li>
+				</ol>
+			</nav>
+		</div>
+
+		
+		<!-- Slider Start -->
+		
 		<section class="features categoryFeatures">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 persona-box">
+					<div class="col-lg-13 persona-box">
+						<h3 class="mb-5">
+							<img id="covid-logo" src="images/nav/covid2.png" />
+							Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019 στον εργασιακό χώρο
+							<img id="covid-logo" src="images/nav/covid2.png" />
+						</h3>
+
 						<div class="feature-block d-lg-flex">
 							<div class="feature-item mb-5 mb-lg-0 categoryFeatureItem">
 								<img
-									src="images/homepage/unemployed.png"
+									src="images/covid/gia_olous.png"
 									class="persona-icons-category"
 								/>
 								<h3>Για όλους</h3>
