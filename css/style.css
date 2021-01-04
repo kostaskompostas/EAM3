@@ -17,6 +17,10 @@ html {
 	margin-bottom:0px;
 }
 
+.comms-options{
+	height:500px;
+}
+
 .comms-h4 {
 	color: #b9ccd0;
 }
@@ -830,11 +834,12 @@ a.requires-login {
 	flex-basis: 33.33%;
 	margin: 0px 10px;
 	padding: 40px 30px;
-	background-color: #d3d8eb;
+	/*background-color: #d3d8eb;*/
+	background-color:white;
 	border-radius: 15px 15px 15px 15px;
 	box-shadow: 0px 0px 30px 0px rgba(0, 42, 106, 0.26);
-	border-style: solid;
-	border-color: #152440;
+	border:5px solid  #152440;
+	
 }
 
 .feature-item .feature-icon i {
@@ -1256,7 +1261,7 @@ a.requires-login {
 
 .google-map #map {
 	width: 100%;
-	height: 500px;
+	height: 200px;
 }
 
 .mt-90 {
@@ -1265,8 +1270,11 @@ a.requires-login {
 
 .contact-block {
 	text-align: center;
+	/*border: 15px solid #152440;*/
 	border: 5px solid #eef2f6;
+
 	padding: 50px 25px;
+	height:400px;
 }
 
 .contact-block i {
