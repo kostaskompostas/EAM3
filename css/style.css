@@ -1229,11 +1229,52 @@ a.requires-login {
 	}
 }
 
+.form-group i {
+	position: absolute;
+	top: 51px;
+	right: 30px;
+
+	font-size: 1.4em;
+
+	visibility: hidden;
+}
+
+.form-group small {
+	font-size: 0.9em;
+
+	visibility: hidden;
+}
+
+.form-group.success .form-control {
+	border-color: #2ecc71;
+	border-width: 2px;
+}
+
+.form-group.error .form-control {
+	border-color: #e74c3c;
+	border-width: 2px;
+}
+
+.form-group.success .icofont-check {
+	color: #2ecc71;
+	visibility: visible;
+}
+
+.form-group.error .icofont-exclamation-circle {
+	color: #e74c3c;
+	visibility: visible;
+}
+
+.form-group.error small {
+	color: #e74c3c;
+	visibility: visible;
+}
+
 .contact-form-wrap .form-group {
 	margin-bottom: 20px;
 }
 
-.contact-form-wrap .form-group .form-control {
+.contact-form-wrap .form-group input {
 	height: 60px;
 	border: 1px solid #eef2f6;
 	box-shadow: none;

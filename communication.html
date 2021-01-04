@@ -118,7 +118,9 @@
 					<div class="contact-block mb-4 mb-lg-0">
 						<i class="icofont-location-pin"></i>
 						<h5>Τοποθεσία υπουργείου</h5>
-						<a href="https://www.google.com/maps/place/Ministry+of+Labour+and+Social+Affairs/@37.9804215,23.728891,17z/data=!3m1!4b1!4m5!3m4!1s0x14a1bd3bad145a41:0x6db1fc0cbb58a00a!8m2!3d37.9804173!4d23.7310797">Σταδίου 29, Αθήνα 105 59</a>><br>
+						<a
+							href="https://www.google.com/maps/place/Ministry+of+Labour+and+Social+Affairs/@37.9804215,23.728891,17z/data=!3m1!4b1!4m5!3m4!1s0x14a1bd3bad145a41:0x6db1fc0cbb58a00a!8m2!3d37.9804173!4d23.7310797">Σταδίου
+							29, Αθήνα 105 59</a>><br>
 						<i class="icofont-clock-time mt-3"></i>
 						<h5>Ώρες λειτουργίας υπουργείου</h5>
 						Δευτερα-Σάββατο: 8:00-20:00<br>
@@ -154,54 +156,79 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
-									Ονοματεπώνυμο
-									<input name="name" id="name" type="text" class="form-control"
-										>
+									<label>
+										Ονοματεπώνυμο
+									</label>
+									<input name="name" id="name" type="text" class="form-control" maxlength="65">
+									<i class="icofont-check"></i>
+									<i class="icofont-exclamation-circle"></i>
+									<small>Σφάλμα</small>
 								</div>
 							</div>
 
 							<div class="col-lg-6">
 								<div class="form-group">
-									Το e-mail σας
-									<input name="email" id="email" type="email" class="form-control"
-										>
+									<label>
+										Το e-mail σας
+									</label>
+									<input name="email" id="email" type="email" class="form-control" maxlength="65">
+									<i class="icofont-check"></i>
+									<i class="icofont-exclamation-circle"></i>
+									<small>Σφάλμα</small>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									Ημερομηνία
-									<input name="name" id="name" type="date" class="form-control"
-										>
+									<label>
+										Ημερομηνία
+									</label>
+									<input name="date" id="date" type="date" class="form-control">
+									<i class="icofont-check"></i>
+									<i class="icofont-exclamation-circle"></i>
+									<small>Σφάλμα</small>
 								</div>
 							</div>
 
 							<div class="col-lg-6">
 								<div class="form-group">
-									Ώρα
-									<input name="email" id="email" type="time" class="form-control"
-										>
+									<label>
+										Ώρα
+									</label>
+									<input name="time" id="time" type="time" class="form-control">
+									<i class="icofont-check"></i>
+									<i class="icofont-exclamation-circle"></i>
+									<small>Σφάλμα</small>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									Το θέμα σας
-									<input name="subject" id="subject" type="text" class="form-control"
-										>
+									<label>
+										Το θέμα σας
+									</label>
+									<input name="subject" id="subject" type="text" class="form-control" maxlength="65">
+									<i class="icofont-check"></i>
+									<i class="icofont-exclamation-circle"></i>
+									<small>Σφάλμα</small>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<div class="form-group">
-									Τηλέφωνο
-									<input name="phone" id="phone" type="tel" class="form-control"
-										>
+									<label>
+										Τηλέφωνο
+									</label>
+									<input name="phone" id="phone" type="tel" class="form-control">
+									<i class="icofont-check"></i>
+									<i class="icofont-exclamation-circle"></i>
+									<small>Σφάλμα</small>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group-2 mb-4">
-							Αιτία ραντεβού
-							<textarea name="message" id="message" class="form-control" rows="8"
-								></textarea>
+							<label>
+							Σύντομη περιγραφή λόγου αίτησης ραντεβού (προαιρετικό)
+							</label>
+							<textarea name="message" id="message" class="form-control" rows="8"></textarea>
 						</div>
 
 						<div class="text-center">
@@ -318,6 +345,7 @@
 
 	<script src="js/script.js"></script>
 	<script src="js/contact.js"></script>
+	<script src="js/appointment.js"></script>
 </body>
 
 </html>
