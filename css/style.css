@@ -246,6 +246,17 @@ input[type="tel"]:focus {
 	border: 1px solid #223a66;
 }
 
+div.form-group input.form-control,
+div.form-group-2 textarea#message.form-control {
+	background-color: white;
+	border: 3px solid #152440;
+}
+
+div.form-group label,
+div.form-group-2 label {
+	color: black;
+}
+
 .form-control {
 	box-shadow: none;
 	border-radius: 0;
@@ -1179,6 +1190,8 @@ a.requires-login {
 .testimonial-block {
 	position: relative;
 	margin-bottom: 20px;
+
+	border: 3px solid #152440;
 }
 
 .testimonial-block p {
@@ -1335,6 +1348,15 @@ a.requires-login {
 .form-group,
 .form-group-2 {
 	margin: 0px 30px;
+}
+
+.contact-form-wrap {
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(72, 114, 148, 1) 200%
+	);
 }
 
 .contact-form-wrap .form-group-2 {
