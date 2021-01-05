@@ -86,6 +86,17 @@ a.appointment {
 	margin: 0px;
 }
 
+.nav-item a.nav-link.active {
+	border-color: #152440;
+	border-bottom-style: none;
+	border-width: 3px;
+}
+
+.nav.nav-tabs {
+	border-color: #152440;
+	border-width: 3px;
+}
+
 .nav-tabs .nav-item.active {
 	padding: 0px;
 	margin: 0px;
@@ -95,9 +106,9 @@ a.appointment {
 	border-left-style: solid;
 	border-right-style: solid;
 	border-bottom-style: solid;
-	border-color: #dee2e6 #dee2e6 #dee2e6;
+	border-color: #152440 #152440 #152440;
 
-	border-width: 1px;
+	border-width: 3px;
 
 	padding-top: 15px;
 	padding-bottom: 15px;
