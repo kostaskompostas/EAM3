@@ -86,11 +86,38 @@ a.appointment {
 	margin: 0px;
 }
 
+.nav-tabs .nav-item.active {
+	padding: 0px;
+	margin: 0px;
+}
+
+.tabBox {
+	border-left-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-color: #dee2e6 #dee2e6 #dee2e6;
+
+	border-width: 1px;
+
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-bottom: 100px;
+}
+
+.tabBox p {
+	padding: 20px;
+}
+
+.tabBox h3 {
+	padding-left: 20px;
+	padding-bottom: 0px;
+}
+
 .nav-item.active {
 	text-decoration: underline;
 }
 
-.nav-item a:hover {
+.navbar .nav-item a:hover {
 	border-radius: 25px;
 	background-color: rgba(173, 216, 230, 0.747);
 	color: rgb(180, 70, 43);
