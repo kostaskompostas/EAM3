@@ -64,11 +64,13 @@ function checkInputs(){
         setSuccessFor(date);
     }
 
-    var day = new Date(dateValue).getUTCDay();
-    if([6,0].includes(day)){
-        setErrorFor(date, "Συμπληρώστε μιαμερα εντός των ημερών λειτουργίας");
-    }else{
-        setSuccessFor(date);
+    if(dateValue !== ''){
+        var day = new Date(dateValue).getUTCDay();
+        if([6,0].includes(day)){
+            setErrorFor(date, "Συμπληρώστε μιαμερα εντός των ημερών λειτουργίας");
+        }else{
+            setSuccessFor(date);
+        }
     }
 
     if(timeValue === ''){
