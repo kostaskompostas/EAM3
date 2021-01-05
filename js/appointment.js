@@ -6,7 +6,6 @@ const timeAp = document.getElementById("time");
 const subject = document.getElementById("subject");
 const phone = document.getElementById("phone");
 
-
 setInputFilter(phone, function(value) {
     return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
   });
@@ -14,23 +13,10 @@ setInputFilter(phone, function(value) {
 form.addEventListener("submit", (e)=> {
     e.preventDefault();
 
-    checkInputs();
+    if(checkInputs()){
+        window.location = "confirmation.html";
+    }
 });
-
-function setMinDateToToday(){
-    var today = new Date();
-    var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
-    var yyyy = today.getFullYear();
-    if(dd<10){
-            dd='0'+dd
-    }if(mm<10){
-            mm='0'+mm
-    } 
-    
-    today = yyyy+'-'+mm+'-'+dd;
-    date.setAttribute("min", today);
-}
 
 function checkInputs(){
     const name_lastNameValue = name_lastName.value.trim();
@@ -40,40 +26,66 @@ function checkInputs(){
     const subjectValue = subject.value.trim();
     const phoneValue = phone.value.trim();
 
+    var everythingGood = true;
+
     if(name_lastNameValue === ''){
+        everythingGood = false;
         setErrorFor(name_lastName, "Συμπληρώστε το ονοματεπώνυμο σας");
     } else{
         setSuccessFor(name_lastName);
     }
 
     if(emailValue === ''){
+        everythingGood = false;
         setErrorFor(email, "Συμπληρώστε το email σας");
     } else{
         setSuccessFor(email);
     }
 
+    if(emailValue !== ''){
+        if(!validateEmail(emailValue)){
+            everythingGood = false;
+            setErrorFor(email, "Συμπληρώστε το email σας σε μορφή name@mail.com");
+        }else{
+            setSuccessFor(email);
+        }
+    }
+
     if(subjectValue === ''){
+        everythingGood = false;
         setErrorFor(subject, "Περιγράψτε με εναν τίτλο το πρόβλημα σας");
     } else{
         setSuccessFor(subject);
     }
 
     if(dateValue === ''){
+        everythingGood = false;
         setErrorFor(date, "Συμπληρώστε την ημέρα που επιθυμείτε");
     } else{
         setSuccessFor(date);
     }
 
     if(dateValue !== ''){
-        var day = new Date(dateValue).getUTCDay();
+        var formDate = new Date(dateValue);
+        var day = formDate.getUTCDay();
         if([6,0].includes(day)){
-            setErrorFor(date, "Συμπληρώστε μιαμερα εντός των ημερών λειτουργίας");
+            everythingGood = false;
+            setErrorFor(date, "Συμπληρώστε μια μερα εντός των ημερών λειτουργίας");
+        }else{
+            setSuccessFor(date);
+        }
+
+        var today = new Date();
+        if(formDate < today){
+            everythingGood = false;
+            setErrorFor(date, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
         }else{
             setSuccessFor(date);
         }
     }
 
     if(timeValue === ''){
+        everythingGood = false;
         setErrorFor(timeAp, "Συμπληρώστε την ώρα που επιθυμείτε");
     } else{
         setSuccessFor(timeAp);
@@ -84,13 +96,12 @@ function checkInputs(){
         var time = timeValue.split(":");
         
         var hour = parseInt(time[0]);
-        console.log(hour);
         var min = parseInt(time[1]);
         
-        console.log(time);
         var timeInMin = 60*hour + min;
 
         if (timeInMin > 1200 || timeInMin < 480) {
+            everythingGood = false;
             setErrorFor(timeAp, "Συμπληρώστε μια ώρα εντός του ωράριου λειτουργίας");
         } else {
             setSuccessFor(timeAp);
@@ -98,11 +109,18 @@ function checkInputs(){
     }
     
     if(phoneValue === ''){
+        everythingGood = false;
         setErrorFor(phone, "Συμπληρώστε το τηλεφωνό σας");
     } else{
         setSuccessFor(phone);
     }
 
+    return everythingGood;
+}
+
+function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
 }
 
 function setErrorFor(input, message){
