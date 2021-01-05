@@ -66,21 +66,26 @@ function checkInputs(){
     }
 
     if(dateValue !== ''){
+        var dateIsValid = true;
+
         var formDate = new Date(dateValue);
         var day = formDate.getUTCDay();
         if([6,0].includes(day)){
             everythingGood = false;
+            dateIsValid = false;
             setErrorFor(date, "Συμπληρώστε μια μερα εντός των ημερών λειτουργίας");
         }else{
             setSuccessFor(date);
         }
 
-        var today = new Date();
-        if(formDate < today){
-            everythingGood = false;
-            setErrorFor(date, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
-        }else{
-            setSuccessFor(date);
+        if(dateIsValid){
+            var today = new Date();
+            if(formDate < today){
+                everythingGood = false;
+                setErrorFor(date, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
+            }else{
+                setSuccessFor(date);
+            }
         }
     }
 

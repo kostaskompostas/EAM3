@@ -101,7 +101,8 @@ a.appointment {
 
 	padding-top: 15px;
 	padding-bottom: 15px;
-	margin-bottom: 100px;
+
+	background-color: white;
 }
 
 .tabBox p {
@@ -799,6 +800,17 @@ a:focus {
 		rgba(255, 255, 255, 1) 0%,
 		rgba(72, 114, 148, 1) 200%
 	);
+}
+
+.tabsGroup {
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(72, 114, 148, 1) 200%
+	);
+
+	padding-bottom: 100px;
 }
 
 .features {
