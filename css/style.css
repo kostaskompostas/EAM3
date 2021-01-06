@@ -134,12 +134,14 @@ a.appointment {
 
 .tabBox p,
 .simple-box p,
-.simple-box ul li {
+.simple-box ul li,
+.simple-box ol li {
 	padding: 20px;
 	color: rgb(77, 90, 105);
 }
 
-.simple-box ul {
+.simple-box ul,
+.simple-box ol {
 	padding-top: 20px;
 }
 
