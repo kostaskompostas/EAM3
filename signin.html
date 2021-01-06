@@ -34,15 +34,10 @@
 
 
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
-            <div class="container border-bottom">
+            <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
                 </a>
-
-                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
-                    aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icofont-navigation-menu"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarmain">
                     <ul class="navbar-nav ml-auto">
@@ -61,6 +56,33 @@
                         </li>
                     </ul>
                 </div>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="signin.html" class="nav-link">
+                            Σύνδεση
+                            <i class="icofont-login"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup.html" class="nav-link">
+                            Εγραφή
+                            <i class="icofont-notepad"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <button
+                    class="navbar-toggler collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarmain"
+                    aria-controls="navbarmain"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="icofont-navigation-menu"></span>
+                </button>
             </div>
         </nav>
     </header>
@@ -70,7 +92,7 @@
         <div class="container">
             <div class="row justify-content-center">
 
-            <form id="contact-form" class="contact__form" method="post" action="#">
+            <form id="login-form" class="login__form" method="post" action="#">
 
                 <div class="section-title text-center mb-5">
                     <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
@@ -210,7 +232,9 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
     <script src="js/script.js"></script>
-    <script src="js/appointment.js"></script>
+
+    <script src="js/formUtil.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
