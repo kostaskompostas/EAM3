@@ -102,6 +102,22 @@ a.appointment {
 	margin: 0px;
 }
 
+.simple-box {
+	border-style: solid;
+	border-color: #152440;
+
+	border-width: 3px;
+
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	background-color: white;
+}
+
+.simple-box .embed-responsive-item {
+	padding: 30px;
+}
+
 .tabBox {
 	border-left-style: solid;
 	border-right-style: solid;
@@ -116,11 +132,27 @@ a.appointment {
 	background-color: white;
 }
 
-.tabBox p {
+.tabBox p,
+.simple-box p,
+.simple-box ul li {
 	padding: 20px;
+	color: rgb(77, 90, 105);
 }
 
-.tabBox h3 {
+.simple-box ul {
+	padding-top: 20px;
+}
+
+.simple-box ul li {
+	padding-top: 0px;
+}
+
+.simple-box a {
+	color: #dc3545;
+}
+
+.tabBox h3,
+.simple-box h3 {
 	padding-left: 20px;
 	padding-bottom: 0px;
 }
