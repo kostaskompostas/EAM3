@@ -1874,6 +1874,17 @@ a.requires-login {
 	position: relative;
 }
 
+select.form-control,
+select.form-control:focus {
+	height: 60px;
+	border-color: #152440;
+	border-width: 3px;
+}
+
+div.form-group#companySection {
+	display: none;
+}
+
 .subscribe .form-control {
 	border-radius: 50px;
 	height: 60px;
