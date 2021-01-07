@@ -1,10 +1,12 @@
 const form = document.getElementById("login-form");
 const username = document.getElementById("name");
+const nameLastName = document.getElementById("nameLastName");
 const password = document.getElementById("password");
 const afm = document.getElementById("afm");
 const companyName = document.getElementById("companyName");
 const typeOfUser = document.getElementById("typeOfUser");
 const companySection = document.getElementById("companySection");
+const email = document.getElementById("email");
 
 isOwner = false;
 
@@ -31,7 +33,9 @@ function checkInputs() {
 	const name_Value = username.value.trim();
 	const passValue = password.value.trim();
 	const afmValue = afm.value.trim();
-	const companyNameValue = companyName.value.trim();
+    const companyNameValue = companyName.value.trim();
+    const emailValue = email.value.trim();
+    const nameLastNameValue = nameLastName.value.trim();
 
 	var everythingGood = true;
 
@@ -40,6 +44,13 @@ function checkInputs() {
 		setErrorFor(username, "Συμπληρώστε το όνομα χρήστη σας");
 	} else {
 		setSuccessFor(username);
+    }
+    
+    if (nameLastNameValue === "") {
+		everythingGood = false;
+		setErrorFor(nameLastName, "Συμπληρώστε το Ονοματεπώνυμό σας");
+	} else {
+		setSuccessFor(nameLastName);
 	}
 
 	if (passValue === "") {
@@ -54,13 +65,29 @@ function checkInputs() {
 		setErrorFor(afm, "Συμπληρώστε τον κωδικό σας");
 	} else {
 		setSuccessFor(afm);
-	}
+    }
+    
+    
+    if(emailValue === ''){
+        everythingGood = false;
+        setErrorFor(email, "Συμπληρώστε το email σας");
+    } else{
+        setSuccessFor(email);
+    }
+
+    if(emailValue !== ''){
+        if(!validateEmail(emailValue)){
+            everythingGood = false;
+            setErrorFor(email, "Συμπληρώστε το email σας σε μορφή name@mail.com");
+        }else{
+            setSuccessFor(email);
+        }
+    }
 
 	if (isOwner) {
-        console.log("jdklfdjfklsdj;fkld");
 		if (companyNameValue === "") {
 			everythingGood = false;
-			setErrorFor(companyName, "Συμπληρώστε το όνομα της εταιρεία σας");
+			setErrorFor(companyName, "Συμπληρώστε το όνομα της εταιρείας σας");
 		} else {
 			setSuccessFor(companyName);
 		}
