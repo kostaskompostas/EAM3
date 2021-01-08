@@ -72,15 +72,8 @@
                     </li>
                 </ul>
 
-                <button
-                    class="navbar-toggler collapsed"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarmain"
-                    aria-controls="navbarmain"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+                    aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icofont-navigation-menu"></span>
                 </button>
             </div>
@@ -92,92 +85,97 @@
         <div class="container">
             <div class="row justify-content-center">
 
-            <form id="login-form" class="login__form" method="post" action="#">
+                <form id="login-form" class="login__form" method="post" action="#">
 
-                <div class="section-title text-center mb-5">
-                    <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
-                    <div class="divider mx-auto my-4"></div>
-                </div>
+                    <div class="section-title text-center mb-5">
+                        <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
+                        <div class="divider mx-auto my-4"></div>
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        Όνομα χρήστη
-                    </label>
-                    <input name="name" id="name" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
+                    <div class="form-group">
+                        <label>
+                            Όνομα χρήστη
+                        </label>
+                        <input name="name" id="name" type="text" class="form-control" maxlength="65">
+                        <i class="icofont-check"></i>
+                        <i class="icofont-exclamation-circle"></i>
+                        <small>Σφάλμα</small>
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        Ονοματεπώνυμο
-                    </label>
-                    <input name="nameLastName" id="nameLastName" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
+                    <div class="form-group">
+                        <label>
+                            Ο κωδικός σας
+                        </label>
+                        <input name="password" id="password" type="password" class="form-control" maxlength="65">
+                        <i class="icofont-check"></i>
+                        <i class="icofont-exclamation-circle"></i>
+                        <small>Σφάλμα</small>
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        Ο κωδικός σας
-                    </label>
-                    <input name="password" id="password" type="password" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
+                    <div class="form-group">
+                        <label>
+                            Το e-mail σας
+                        </label>
+                        <input name="email" id="email" type="text" class="form-control" maxlength="65">
+                        <i class="icofont-check"></i>
+                        <i class="icofont-exclamation-circle"></i>
+                        <small>Σφάλμα</small>
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        Το e-mail σας
-                    </label>
-                    <input name="email" id="email" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
 
-                <div class="form-group">
-                    <label>
-                        ΑΦΜ
-                    </label>
-                    <input name="afm" id="afm" type="number" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="form-group">
+                            <label>
+                                Ονοματεπώνυμο
+                            </label>
+                            <input name="nameLastName" id="nameLastName" type="text" class="form-control"
+                                maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
 
-                <div class="form-group">
-                    <label>
-                        Ιδιότητα
-                    </label>
-                    <select class="form-control" id="typeOfUser" onchange="typeOfUserSelected()">
-                        <option>Εργαζόμενος</option>
-                        <option>Εργοδότης</option>
-                        </select>
-                </div>
+                        <div class="form-group">
+                            <label>
+                                ΑΦΜ
+                            </label>
+                            <input name="afm" id="afm" type="number" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
 
-                <div class="form-group" id="companySection">
-                    <label>
-                        Όνομα της εταιρείας σας
-                    </label>
-                    <input name="companyName" id="companyName" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
 
-                <div class="text-center">
-                    <input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit" type="submit"
-                        value="Εγραφή"></input>
-                </div>
+                        <div class="form-group">
+                            <label>
+                                Ιδιότητα
+                            </label>
+                            <select class="form-control" id="typeOfUser" onchange="typeOfUserSelected()">
+                                <option>Εργαζόμενος</option>
+                                <option>Εργοδότης</option>
+                            </select>
+                        </div>
+                    </div>
 
-                
-            </form>
-        </div>
-        
+                    <div class="form-group" id="companySection">
+                        <label>
+                            Όνομα της εταιρείας σας
+                        </label>
+                        <input name="companyName" id="companyName" type="text" class="form-control" maxlength="65">
+                        <i class="icofont-check"></i>
+                        <i class="icofont-exclamation-circle"></i>
+                        <small>Σφάλμα</small>
+                    </div>
+
+                    <div class="text-center">
+                        <input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit" type="submit"
+                            value="Εγραφή"></input>
+                    </div>
+
+
+                </form>
+            </div>
+
         </div>
     </section>
 
