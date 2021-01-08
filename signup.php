@@ -29,40 +29,25 @@
 
 <body id="top">
     <header>
-        <?php
-			if (isset($_SESSION['username'])){
-				echo $_SESSION['username'];
-				echo <<< logout
-					<div class="row">
-						<div class="col">
-							<div class="text-center">
-								<form>
-								<input class="btn btn-main btn-round-full appointment-btn mt-5" name="logout_btn" type="submit" formaction="logout.php"
-									value="Αποσύνδεση"></input>
-							</div>
-						</div>
-					</div>
-				logout;
-			}	
-		?>
+
         <div class="covidWarning">
             <span id="covidWarning-content">
                 <img id="covid-logo" src="images/nav/covid2.png" />
-                <a href="categories_covid.html">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
+                <a href="categories_covid.php">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
             </span>
         </div>
 
 
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarmain">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Αρχική</a>
+                            <a class="nav-link" href="index.php">Αρχική</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ανακοινώσεις</a>
@@ -72,24 +57,46 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="communication.html">Επικοινωνία</a>
+                            <a class="nav-link" href="communication.php">Επικοινωνία</a>
                         </li>
                     </ul>
                 </div>
-
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a href="signin.html" class="nav-link">
-                            Σύνδεση
-                            <i class="icofont-login"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="signup.html" class="nav-link">
-                            Εγραφή
-                            <i class="icofont-notepad"></i>
-                        </a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION['username'])){
+                            //echo 
+                            $name = $_SESSION['username'];
+                            
+                            echo <<< account
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ο λογαριασμός μου
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Οι δηλώσεις μου</a>
+                                    <a class="dropdown-item" href="#">Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="logout.inc.php">logout</a>
+                                </div>
+                            </div>
+                            account;
+                        }else{
+                            echo <<< enter
+                            <li class="nav-item">
+                                <a href="signin.php" class="nav-link">
+                                    Σύνδεση
+                                    <i class="icofont-login"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="signup.php" class="nav-link">
+                                    Εγραφή
+                                    <i class="icofont-notepad"></i>
+                                </a>
+                            </li>
+                            enter;
+                        }        
+                    ?>
                 </ul>
 
                 <button
@@ -113,7 +120,7 @@
         <div class="container">
             <div class="row justify-content-center">
     
-                <form id="login-form" class="login__form" method="post" action="signup.inc.php"  onsubmit="return mysubmit()" >
+                <form id="login-form" class="login__form" method="post" action="php_includes/signup.inc.php"  onsubmit="return mysubmit()" >
 
                     <div class="section-title text-center mb-5">
                         <h2 class="text-md mb-2">Δημιουργήστε τον λογαριασμό σας</h2>
@@ -233,10 +240,10 @@
                                 <label>
                                     Ιδιότητα
                                 </label>
-                                <select class="form-control" id="typeOfUser" onchange="typeOfUserSelected()">
+                                <select name="typeOfUser" id="typeOfUser" class="form-control"  onchange="typeOfUserSelected()">
                                     <option>Εργαζόμενος</option>
                                     <option>Εργοδότης</option>
-                                    </select>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -333,7 +340,7 @@
                             </div>
                         </div>
 
-                        <a href="communication.html" class="btn btn-main-2 btn-round-full appointment">Κλειστε
+                        <a href="communication.php" class="btn btn-main-2 btn-round-full appointment">Κλειστε
                             ραντεβου</a>
                     </div>
                 </div>

@@ -1,3 +1,9 @@
+<?php
+	session_start();
+	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="zxx">
 	<head>
@@ -8,33 +14,32 @@
 		/>
 		<meta name="author" content="themefisher.com" />
 
-		<title>Υπουργείο εργασίας - Covid</title>
+		<title>Υπουργείο εργασίας - Επιτυχία ραντεβού</title>
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+		<link rel="shortcut icon" type="image/x-icon" .php="/images/favicon.ico" />
 
 		<!-- bootstrap.min css -->
-		<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" .php="plugins/bootstrap/css/bootstrap.min.css" />
 		<!-- Icon Font Css -->
-		<link rel="stylesheet" href="plugins/icofont/icofont.min.css" />
+		<link rel="stylesheet" .php="plugins/icofont/icofont.min.css" />
 		<!-- Slick Slider  CSS -->
-		<link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css" />
+		<link rel="stylesheet" .php="plugins/slick-carousel/slick/slick.css" />
 		<link
 			rel="stylesheet"
-			href="plugins/slick-carousel/slick/slick-theme.css"
+			.php="plugins/slick-carousel/slick/slick-theme.css"
 		/>
 
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" .php="css/style.css" />
 	</head>
 
 	<body id="top">
 		<header>
-			<!---->
 			<div class="covidWarning">
 				<span id="covidWarning-content">
 					<img id="covid-logo" src="images/nav/covid2.png" />
-					<a href="categories_covid.html"
+					<a .php="categories_covid.php"
 						>Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a
 					>
 				</span>
@@ -42,42 +47,65 @@
 
 			<nav class="navbar navbar-expand-lg navigation" id="navbar">
 				<div class="container">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" .php="index.php">
 						<img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
 					</a>
 
 					<div class="collapse navbar-collapse" id="navbarmain">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">Αρχική</a>
+								<a class="nav-link" .php="index.php">Αρχική</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Ανακοινώσεις</a>
+								<a class="nav-link" .php="#">Ανακοινώσεις</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Εργασιακά Θέματα</a>
+								<a class="nav-link" .php="#">Εργασιακά Θέματα</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link" href="communication.html">Επικοινωνία</a>
+								<a class="nav-link" .php="communication.php">Επικοινωνία</a>
 							</li>
 						</ul>
 					</div>
 
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a href="signin.html" class="nav-link">
-								Σύνδεση
-								<i class="icofont-login"></i>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="signup.html" class="nav-link">
-								Εγραφή
-								<i class="icofont-notepad"></i>
-							</a>
-						</li>
-					</ul>
+                    <?php
+                        if (isset($_SESSION['username'])){
+                            //echo 
+                            $name = $_SESSION['username'];
+                            
+                            echo <<< account
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ο λογαριασμός μου
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Οι δηλώσεις μου</a>
+                                    <a class="dropdown-item" href="#">Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="php_includes/logout.inc.php">logout</a>
+                                </div>
+                            </div>
+                            account;
+                        }else{
+                            echo <<< enter
+                            <li class="nav-item">
+                                <a href="signin.php" class="nav-link">
+                                    Σύνδεση
+                                    <i class="icofont-login"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="signup.php" class="nav-link">
+                                    Εγραφή
+                                    <i class="icofont-notepad"></i>
+                                </a>
+                            </li>
+                            enter;
+                        }        
+                    ?>
+                	</ul>
 
 					<button
 						class="navbar-toggler collapsed"
@@ -98,85 +126,28 @@
 		<div class="container">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Αρχική</a></li>
-					<li class="breadcrumb-item active" aria-current="page">COVID-2019</li>
+					<li class="breadcrumb-item"><a .php="index.php">Αρχική</a></li>
+					<li class="breadcrumb-item">
+						<a .php="communication.php">Επικοινωνία</a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">
+						Επιτυχία ραντεβού
+					</li>
 				</ol>
 			</nav>
 		</div>
 
-		<!-- Slider Start -->
-
-		<section class="features categoryFeatures">
+		<section class="section confirmation">
 			<div class="container">
-				<div class="row">
-					<div class="col-lg-13 persona-box">
-						<h3 class="mb-5">
-							Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019 στον εργασιακό
-							χώρο
-						</h3>
-
-						<div class="feature-block d-lg-flex">
-							<div class="feature-item mb-5 mb-lg-0 categoryFeatureItem">
-								<img
-									src="images/covid/gia_olous.png"
-									class="persona-icons-category"
-								/>
-								<h3>Για όλους</h3>
-
-								<a
-									class="btn btn-main btn-round-full category-button"
-									href="covidPrecaution_info.html"
-								>
-									Οδηγίες πρόληψης στον εργασιακό τομέα
-								</a>
-
-								<a
-									class="btn btn-main btn-round-full category-button"
-									href="howToHandleEmployWithCovid_Info.html"
-								>
-									Οδηγιίες αντιμετώπισης κρούσματος
-								</a>
-							</div>
-
-							<div class="feature-item mb-5 mb-lg-0 categoryFeatureItem">
-								<img
-									src="images/homepage/employee-icon.png"
-									class="persona-icons-category"
-								/>
-								<h3>Για εργαζόμενους</h3>
-
-								<a
-									class="btn btn-main btn-round-full category-button"
-									href="workFromHome_Info.html"
-								>
-									Τηλεργασία , άδειες , αναστολή σύμβασης‎‎‎‎
-								</a>
-
-								<a
-									class="btn btn-main btn-round-full category-button requires-login"
-									href="#"
-								>
-									Άδεια ειδικού σκοπού για γονείς
-								</a>
-							</div>
-
-							<div class="feature-item mb-5 mb-lg-0 categoryFeatureItem">
-								<img
-									src="images/homepage/employer-icon.png"
-									class="persona-icons-category"
-								/>
-								<h3>Για εργοδότες</h3>
-
-								<a class="btn btn-main btn-round-full category-button" href="#">
-									Υπολογισμός έκπτωσης υπολογιστικών εισφορών
-								</a>
-							</div>
-						</div>
-
-						<div class="color-explaination">
-							<h4 id="blueText">Πληροφορίες</h4>
-							|
-							<h4 id="redText">Υπηρεσία που Απαιτεί σύνδεση</h4>
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<div class="confirmation-content text-center">
+							<i class="icofont-check-circled text-lg text-color-2"></i>
+							<h2 class="mt-3 mb-4">Επιτυχία ραντεβού</h2>
+							<p>
+								Θα σας ενημερώσουμε σύντομα με τις πληροφορίες του ραντεβού μέσω
+								email
+							</p>
 						</div>
 					</div>
 				</div>
@@ -200,13 +171,13 @@
 
 							<ul class="list-inline footer-socials mt-4">
 								<li class="list-inline-item">
-									<a href="#"><i class="icofont-facebook"></i></a>
+									<a .php="#"><i class="icofont-facebook"></i></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#"><i class="icofont-twitter"></i></a>
+									<a .php="#"><i class="icofont-twitter"></i></a>
 								</li>
 								<li class="list-inline-item">
-									<a href="#"><i class="icofont-linkedin"></i></a>
+									<a .php="#"><i class="icofont-linkedin"></i></a>
 								</li>
 							</ul>
 						</div>
@@ -218,10 +189,10 @@
 							<div class="divider mb-4"></div>
 
 							<ul class="list-unstyled footer-menu">
-								<li><a href="#">Οργανοτική δομή</a></li>
-								<li><a href="#">Ασφαλιστικοί φορείς </a></li>
-								<li><a href="#">Όροι χρήσης</a></li>
-								<li><a href="#">Δραστηριότητες</a></li>
+								<li><a .php="#">Οργανοτική δομή</a></li>
+								<li><a .php="#">Ασφαλιστικοί φορείς </a></li>
+								<li><a .php="#">Όροι χρήσης</a></li>
+								<li><a .php="#">Δραστηριότητες</a></li>
 							</ul>
 						</div>
 					</div>
@@ -234,19 +205,19 @@
 							<div class="footer-contact-block">
 								<div class="icon d-flex align-items-center">
 									<i class="icofont-email mr-3"></i>
-									<a href="tel:+23-345-67890">ypakp@email.com</a>
+									<a .php="tel:+23-345-67890">ypakp@email.com</a>
 								</div>
 							</div>
 
 							<div class="footer-contact-block">
 								<div class="icon d-flex align-items-center">
 									<i class="icofont-support mr-3"></i>
-									<a href="tel:23-345-67890">210-8989-6588</a><br />
+									<a .php="tel:23-345-67890">210-8989-6588</a><br />
 								</div>
 							</div>
 
 							<a
-								href="communication.html"
+								.php="communication.php"
 								class="btn btn-main-2 btn-round-full appointment"
 								>Κλειστε ραντεβου</a
 							>
@@ -288,6 +259,6 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
 		<script src="js/script.js"></script>
-		<script src="js/contact.js"></script>
+		<script src="js/appointment.js"></script>
 	</body>
 </html>

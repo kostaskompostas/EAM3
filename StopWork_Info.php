@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 	<head>
@@ -34,7 +39,7 @@
 			<div class="covidWarning">
 				<span id="covidWarning-content">
 					<img id="covid-logo" src="images/nav/covid2.png" />
-					<a href="categories_covid.html"
+					<a href="categories_covid.php"
 						>Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a
 					>
 				</span>
@@ -42,14 +47,14 @@
 
 			<nav class="navbar navbar-expand-lg navigation" id="navbar">
 				<div class="container">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="index.php">
 						<img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
 					</a>
 
 					<div class="collapse navbar-collapse" id="navbarmain">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">Αρχική</a>
+								<a class="nav-link" href="index.php">Αρχική</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">Ανακοινώσεις</a>
@@ -59,24 +64,47 @@
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link" href="communication.html">Επικοινωνία</a>
+								<a class="nav-link" href="communication.php">Επικοινωνία</a>
 							</li>
 						</ul>
 					</div>
 
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a href="signin.html" class="nav-link">
-								Σύνδεση
-								<i class="icofont-login"></i>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="signup.html" class="nav-link">
-								Εγραφή
-								<i class="icofont-notepad"></i>
-							</a>
-						</li>
+						<?php
+							if (isset($_SESSION['username'])){
+								//echo 
+								$name = $_SESSION['username'];
+								
+								echo <<< account
+								<div class="dropdown">
+									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Ο λογαριασμός μου
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="#">Οι δηλώσεις μου</a>
+										<a class="dropdown-item" href="#">Επεξεργασία προφίλ</a>
+										<a class="dropdown-item" href="#">Something else here</a>
+										<a class="dropdown-item" href="php_includes/logout.inc.php">logout</a>
+									</div>
+								</div>
+								account;
+							}else{
+								echo <<< enter
+								<li class="nav-item">
+									<a href="signin.php" class="nav-link">
+										Σύνδεση
+										<i class="icofont-login"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="signup.php" class="nav-link">
+										Εγραφή
+										<i class="icofont-notepad"></i>
+									</a>
+								</li>
+								enter;
+							}        
+						?>
 					</ul>
 
 					<button
@@ -98,9 +126,9 @@
 		<div class="container">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Αρχική</a></li>
+					<li class="breadcrumb-item"><a href="index.php">Αρχική</a></li>
 					<li class="breadcrumb-item">
-						<a href="categories_covid.html">COVID-2019</a>
+						<a href="categories_covid.php">COVID-2019</a>
 					</li>
 					<li class="breadcrumb-item" aria-current="page">
 						Τηλεργασία , άδειες , αναστολές σύμβασης‎‎‎‎
@@ -114,10 +142,10 @@
 			<div class="container mt-5">
 				<ul class="nav nav-tabs mt-4">
 					<li class="nav-item">
-						<a class="nav-link" href="workFromHome_Info.html">Τηλεργασία</a>
+						<a class="nav-link" href="workFromHome_Info.php">Τηλεργασία</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="FamilySpecialVac_Info.html"
+						<a class="nav-link" href="FamilySpecialVac_Info.php"
 							>Άδεια ειδικού σκοπού για γονείς</a
 						>
 					</li>
@@ -217,7 +245,7 @@
 							</div>
 
 							<a
-								href="communication.html"
+								href="communication.php"
 								class="btn btn-main-2 btn-round-full appointment"
 								>Κλειστε ραντεβου</a
 							>

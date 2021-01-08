@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 	<head>
@@ -8,7 +13,7 @@
 		/>
 		<meta name="author" content="themefisher.com" />
 
-		<title>Υπουργείο εργασίας - Επιτυχία ραντεβού</title>
+		<title>Υπουργείο εργασίας - Τηλεργασία‎‎‎‎</title>
 
 		<!-- Favicon -->
 		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -30,10 +35,11 @@
 
 	<body id="top">
 		<header>
+			<!---->
 			<div class="covidWarning">
 				<span id="covidWarning-content">
 					<img id="covid-logo" src="images/nav/covid2.png" />
-					<a href="categories_covid.html"
+					<a href="categories_covid.php"
 						>Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a
 					>
 				</span>
@@ -41,14 +47,14 @@
 
 			<nav class="navbar navbar-expand-lg navigation" id="navbar">
 				<div class="container">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="index.php">
 						<img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
 					</a>
 
 					<div class="collapse navbar-collapse" id="navbarmain">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.html">Αρχική</a>
+								<a class="nav-link" href="index.php">Αρχική</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">Ανακοινώσεις</a>
@@ -58,25 +64,48 @@
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link" href="communication.html">Επικοινωνία</a>
+								<a class="nav-link" href="communication.php">Επικοινωνία</a>
 							</li>
 						</ul>
 					</div>
 
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a href="signin.html" class="nav-link">
-								Σύνδεση
-								<i class="icofont-login"></i>
-							</a>
-						</li>
-						<li class="nav-item">
-							<a href="signup.html" class="nav-link">
-								Εγραφή
-								<i class="icofont-notepad"></i>
-							</a>
-						</li>
-					</ul>
+                    <?php
+                        if (isset($_SESSION['username'])){
+                            //echo 
+                            $name = $_SESSION['username'];
+                            
+                            echo <<< account
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ο λογαριασμός μου
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Οι δηλώσεις μου</a>
+                                    <a class="dropdown-item" href="#">Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="php_includes/logout.inc.php">logout</a>
+                                </div>
+                            </div>
+                            account;
+                        }else{
+                            echo <<< enter
+                            <li class="nav-item">
+                                <a href="signin.php" class="nav-link">
+                                    Σύνδεση
+                                    <i class="icofont-login"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="signup.php" class="nav-link">
+                                    Εγραφή
+                                    <i class="icofont-notepad"></i>
+                                </a>
+                            </li>
+                            enter;
+                        }        
+                    ?>
+                </ul>
 
 					<button
 						class="navbar-toggler collapsed"
@@ -97,35 +126,69 @@
 		<div class="container">
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Αρχική</a></li>
+					<li class="breadcrumb-item"><a href="index.php">Αρχική</a></li>
 					<li class="breadcrumb-item">
-						<a href="communication.html">Επικοινωνία</a>
+						<a href="categories_covid.php">COVID-2019</a>
 					</li>
-					<li class="breadcrumb-item active" aria-current="page">
-						Επιτυχία ραντεβού
+					<li class="breadcrumb-item" aria-current="page">
+						Τηλεργασία , άδειες , αναστολές σύμβασης‎‎‎‎
 					</li>
 				</ol>
 			</nav>
 		</div>
 
-		<section class="section confirmation">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="confirmation-content text-center">
-							<i class="icofont-check-circled text-lg text-color-2"></i>
-							<h2 class="mt-3 mb-4">Επιτυχία ραντεβού</h2>
-							<p>
-								Θα σας ενημερώσουμε σύντομα με τις πληροφορίες του ραντεβού μέσω
-								email
-							</p>
-						</div>
-					</div>
+		<!-- Slider Start -->
+		<section class="tabsGroup">
+			<div class="container mt-5">
+				<ul class="nav nav-tabs mt-4">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Τηλεργασία</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="FamilySpecialVac_Info.php">Άδεια ειδικού σκοπού για γονείς</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="StopWork_Info.php">Αναστολή σύμβασης‎‎‎‎</a>
+					</li>
+				</ul>
+
+				<div class="tabBox">
+					<h3>Διαδικασία</h3>
+					<p>
+						Λόγο της εμφάνισης του COVID-19 δίνεται η δυνατότητα στους εργοδότες ,
+						να καθορίζουν μονομερώς με απόφασή τους, ότι η εργασία που παρέχεται
+						από τον εργαζόμενο στον προβλεπόμενο, από την ατομική σύμβαση, τόπο
+						εργασίας θα πραγματοποιείται με το σύστημα της εξ αποστάσεως εργασίας.
+						Οι εργοδότες που θα καθορίσουν με απόφασή τους ότι εργαζόμενοι η
+						εργαζόμενος που εργάζονται στην επιχείρησή τους, θα παρέχουν τις
+						υπηρεσίες τους με το σύστημα της τηλεργασίας, υποχρεούνται να δηλώσουν
+						τους εργαζομένους τους εντός της ηλεκτρονικής πλατφόρμας που παρέχεται
+						από το υπουργείο εργασίας στην αντίστοιχη καρτέλα εντός του προσωπικού
+						τους λογαριασμού. </br></br> Η πληροφορία αυτή εμφανίζεται και στο αντίστοιχο
+						profile του εκάστοτε εργαζομένου εντός της ίδιας σελίδας κάτω από την
+						επιλογή Τηλεργασία.
+					</p>
+
+					<h3>Μισθός</h3>
+					<p>
+						Η τηλεργασία δεν θα εχει καμια επίπτωση στον μισθό του εργαζομένου
+					</p>
+
+
+					<h3>Για τους εκπαιδευτικούς</h3>
+					<p>
+						Κατα την διάρκεια lockdown καθώς δεν είναι εφικτή η φυσική παρουσία
+						του εκπαιδευτικού ή των μαθητών στην αίθουσα διδασκαλίας, παρέχονται
+						όλα τα μέσα ώστε να γίνεται το μάθημα εξ αποστάσεως με τεχνικά μέσα
+						παρακολούθησης. Το υπουργείο παιδείας συνιστά την χρήση της πλατφόρμας
+						webex
+					</p>
 				</div>
 			</div>
 		</section>
 
 		<!-- footer Start -->
+
 		<footer class="footer section">
 			<div class="container">
 				<div class="row">
@@ -188,7 +251,7 @@
 							</div>
 
 							<a
-								href="communication.html"
+								href="communication.php"
 								class="btn btn-main-2 btn-round-full appointment"
 								>Κλειστε ραντεβου</a
 							>
@@ -230,6 +293,6 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
 		<script src="js/script.js"></script>
-		<script src="js/appointment.js"></script>
+		<script src="js/contact.js"></script>
 	</body>
 </html>

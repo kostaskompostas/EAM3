@@ -1,14 +1,18 @@
 const form = document.getElementById("login-form");
-const username = document.getElementById("name");
+const username = document.getElementById("username");
 const password = document.getElementById("password");
 
-form.addEventListener("submit", (e)=> {
-    e.preventDefault();
 
-    if(checkInputs()){
-        window.location = "index.html";
-    }
-});
+
+
+
+function mysubmit(){
+	if (checkInputs()) {
+		return true;
+	}else{
+		return false;
+	}
+}
 
 function checkInputs(){
     const name_Value = username.value.trim();

@@ -1,5 +1,6 @@
 <?php
-    session_start();
+	session_start();
+	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
 	<meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software" />
 	<meta name="author" content="themefisher.com" />
 
-	<title>Υπουργείο εργασίας</title>
+	<title>Υπουργείο εργ ασίας</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -29,41 +30,24 @@
 
 <body id="top">
 	<header>
-		<?php
-			if (isset($_SESSION['username'])){
-				echo $_SESSION['username'];
-				echo <<< logout
-					<div class="row">
-						<div class="col">
-							<div class="text-center">
-								<form>
-								<input class="btn btn-main btn-round-full appointment-btn mt-5" name="logout_btn" type="submit" formaction="logout.php"
-									value="Αποσύνδεση"></input>
-							</div>
-						</div>
-					</div>
-				logout;
-			}
-				
-			
-		?>
+
 		<div class="covidWarning">
 			<span id="covidWarning-content">
 				<img id="covid-logo" src="images/nav/covid2.png" />
-				<a href="./categories_covid.html">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
+				<a href="categories_covid.php">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
 			</span>
 		</div>
 
 		<nav class="navbar navbar-expand-lg navigation" id="navbar">
 			<div class="container">
-				<a class="navbar-brand" href="index.html">
+				<a class="navbar-brand" href="index.php">
 					<img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
 				</a>
 
 				<div class="collapse navbar-collapse" id="navbarmain">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="index.html">Αρχική</a>
+							<a class="nav-link" href="index.php">Αρχική</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="#">Ανακοινώσεις</a>
@@ -73,26 +57,49 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="communication.html">Επικοινωνία</a>
+							<a class="nav-link" href="communication.php">Επικοινωνία</a>
 						</li>
 					</ul>
 				</div>
 
 
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item">
-						<a href="signin.html" class="nav-link">
-							Σύνδεση
-							<i class="icofont-login"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="signup.php" class="nav-link">
-							Εγραφή
-							<i class="icofont-notepad"></i>
-						</a>
-					</li>
-				</ul>
+                <ul class="navbar-nav ml-auto">
+                    <?php
+                        if (isset($_SESSION['username'])){
+                            //echo 
+                            $name = $_SESSION['username'];
+                            
+                            echo <<< account
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ο λογαριασμός μου
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Οι δηλώσεις μου</a>
+                                    <a class="dropdown-item" href="#">Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="php_includes/logout.inc.php">logout</a>
+                                </div>
+                            </div>
+                            account;
+                        }else{
+                            echo <<< enter
+                            <li class="nav-item">
+                                <a href="signin.php" class="nav-link">
+                                    Σύνδεση
+                                    <i class="icofont-login"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="signup.php" class="nav-link">
+                                    Εγραφή
+                                    <i class="icofont-notepad"></i>
+                                </a>
+                            </li>
+                            enter;
+                        }        
+                    ?>
+                </ul>
 
 				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
 					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,27 +122,27 @@
 					<div class="feature-block d-lg-flex">
 						<div class="feature-item mb-5 mb-lg-0">
 							<img src="images/homepage/unemployed.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.html">
+							<a class="btn btn-main btn-round-full persona-button" href="index.php">
 								Άνεργος
 							</a>
 						</div>
 
 						<div class="feature-item mb-5 mb-lg-0">
 							<img src="images/homepage/employee-icon.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.html">
+							<a class="btn btn-main btn-round-full persona-button" href="index.php">
 								Εργαζόμενος
 							</a>
 						</div>
 
 						<div class="feature-item mb-5 mb-lg-0">
 							<img src="images/homepage/employer-icon.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.html">
+							<a class="btn btn-main btn-round-full persona-button" href="index.php">
 								Εργοδότης
 							</a>
 						</div>
 						<div class="feature-item mb-5 mb-lg-0">
 							<img src="images/homepage/retired.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.html">
+							<a class="btn btn-main btn-round-full persona-button" href="index.php">
 								Συνταξιούχος
 							</a>
 						</div>
@@ -147,7 +154,7 @@
 
 	<section class="section">
 		<div class="container">
-		<h3 class="text-center"><i class="icofont-megaphone"></i> <a href="signin.html"> Συνδεθείτε</a> με τον προσωπικό σας λογαριασμό για να δείτε το αρχείο δηλώσεων σας
+		<h3 class="text-center"><i class="icofont-megaphone"></i> <a href="signin.php"> Συνδεθείτε</a> με τον προσωπικό σας λογαριασμό για να δείτε το αρχείο δηλώσεων σας
 			ή αν είστε εργοδότης για να κάνετε δηλώσεις στα αρχεία των εργαζομένων σας
 			
 			</h1>
@@ -282,7 +289,7 @@
 							</div>
 						</div>
 
-						<a href="communication.html" class="btn btn-main-2 btn-round-full appointment">Κλειστε
+						<a href="communication.php" class="btn btn-main-2 btn-round-full appointment">Κλειστε
 							ραντεβου</a>
 					</div>
 				</div>

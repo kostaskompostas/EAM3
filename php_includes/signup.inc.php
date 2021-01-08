@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $ref=$_SESSION['ref'];
 
     require 'config.php';
 
@@ -11,21 +12,25 @@
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $afm = $_POST['afm'];
-        $type = false;
-        $id=9;
+        $type = $_POST['typeOfUser'];
         $companyName = $_POST['companyName'];
         
-        
-        
-        //add a new row to the table
 
-        $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$type','$id','$companyName')";
+        $binary_type=0;
+        if ($type=="Εργοδότης"){
+            $binary_type=1;
+        }
+
+        //add a new row to the table
+        $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$binary_type','$id','$companyName')";
         $query_run = mysqli_query($conn,$query);
         
         if ($query_run){
             
             $_SESSION['username']= $username;
-            header("Location: index.php");
+            $_SESSION['type'] = $type;
+            header("Location: ../../.$ref.");
+            die();
         }else {
             echo "query failed<br>";
         }   

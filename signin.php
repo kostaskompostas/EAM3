@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -28,21 +33,21 @@
         <div class="covidWarning">
             <span id="covidWarning-content">
                 <img id="covid-logo" src="images/nav/covid2.png" />
-                <a href="categories_covid.html">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
+                <a href="categories_covid.php">Πληροφορίες και υπηρεσίες για τον SARS-COVID-2019</a>
             </span>
         </div>
 
 
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="images/nav/ypakp-logo.png" alt="" class="img-fluid" />
                 </a>
 
                 <div class="collapse navbar-collapse" id="navbarmain">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Αρχική</a>
+                            <a class="nav-link" href="index.php">Αρχική</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Ανακοινώσεις</a>
@@ -52,20 +57,20 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="communication.html">Επικοινωνία</a>
+                            <a class="nav-link" href="communication.php">Επικοινωνία</a>
                         </li>
                     </ul>
                 </div>
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="signin.html" class="nav-link">
+                        <a href="signin.php" class="nav-link">
                             Σύνδεση
                             <i class="icofont-login"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="signup.html" class="nav-link">
+                        <a href="signup.php" class="nav-link">
                             Εγραφή
                             <i class="icofont-notepad"></i>
                         </a>
@@ -87,12 +92,11 @@
         </nav>
     </header>
 
-    <!-- contact form start -->
     <section class="contact-form-wrap section">
         <div class="container">
             <div class="row justify-content-center">
 
-            <form id="login-form" class="login__form" method="post" action="#">
+            <form id="login-form" class="login__form" method="post" action="php_includes/signin.inc.php" onsubmit="return mysubmit()">
 
                 <div class="section-title text-center mb-5">
                     <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
@@ -103,7 +107,7 @@
                     <label>
                         Όνομα χρήστη
                     </label>
-                    <input name="name" id="name" type="text" class="form-control" maxlength="65">
+                    <input name="username" id="username" type="text" class="form-control" maxlength="65">
                     <i class="icofont-check"></i>
                     <i class="icofont-exclamation-circle"></i>
                     <small>Σφάλμα</small>
@@ -120,10 +124,10 @@
                 </div>
 
                 <div class="text-center">
-                    <input class="btn btn-main btn-round-full appointment-btn" name="submit" type="submit"
+                    <input class="btn btn-main btn-round-full appointment-btn" name="submit_btn" type="submit"
                         value="Σύνδεση"></input>
                         <div class="pt-4">
-                            <a href="signup.html">Δεν έχετε λογαριασμό? Κάντε εγράφη!</a>
+                            <a href="signup.php">Δεν έχετε λογαριασμό? Κάντε εγράφη!</a>
                         </div>
                 </div>
 
@@ -196,7 +200,7 @@
                             </div>
                         </div>
 
-                        <a href="communication.html" class="btn btn-main-2 btn-round-full appointment">Κλειστε
+                        <a href="communication.php" class="btn btn-main-2 btn-round-full appointment">Κλειστε
                             ραντεβου</a>
                     </div>
                 </div>
