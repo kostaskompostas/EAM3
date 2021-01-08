@@ -97,81 +97,102 @@
     <section class="contact-form-wrap section">
         <div class="container">
             <div class="row justify-content-center">
-
-            <form id="login-form" class="login__form" method="post" action="#">
+    
+            <form id="login-form" class="login__form" method="post" action="signup.php">
 
                 <div class="section-title text-center mb-5">
-                    <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
+                    <h2 class="text-md mb-2">Δημιουργήστε τον λογαριασμό σας</h2>
                     <div class="divider mx-auto my-4"></div>
                 </div>
 
-                <div class="form-group">
-                    <label>
-                        Όνομα χρήστη
-                    </label>
-                    <input name="username" id="username" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
+                <div class="row ">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                                <label>
+                                Όνομα χρήστη
+                            </label>
+                            <input name="username" id="username" type="text" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Ο κωδικός σας
+                            </label>
+                            <input name="password" id="password" type="password" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="form-group">
+                            <label>
+                                Το e-mail σας
+                            </label>
+                            <input name="email" id="email" type="text" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>
-                        Όνομα
-                    </label>
-                    <input name="firstName" id="firstName" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
+                <div class="row ">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Όνομα
+                            </label>
+                            <input name="name" id="name" type="text" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Eπώνυμο
+                            </label>
+                            <input name="lastName" id="lastName" type="text" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>
-                        Eπώνυμο
-                    </label>
-                    <input name="lastName" id="lastName" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        Ο κωδικός σας
-                    </label>
-                    <input name="password" id="password" type="password" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
-                <div class="form-group">
-                    <label>
-                        Επιβεβαιώστε τον κωδικό σας
-                    </label>
-                    <input name="cpassword" id="password" type="password" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        Το e-mail σας
-                    </label>
-                    <input name="email" id="email" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
-
-                <div class="form-group">
-                    <label>
-                        Τηλέφωνο επικοινωνίας
-                    </label>
-                    <input name="thl" id="thl" type="number" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Τηλέφωνο 
+                            </label>
+                            <input name="phone" id="phone" type="tel" class="form-control" maxlength="65">
+                            <i class="icofont-check"></i>
+                            <i class="icofont-exclamation-circle"></i>
+                            <small>Σφάλμα</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                                <label>
+                                    Διεύθυνση 
+                                </label>
+                                <input name="adress" id="adress" type="text" class="form-control" maxlength="65">
+                                <i class="icofont-check"></i>
+                                <i class="icofont-exclamation-circle"></i>
+                                <small>Σφάλμα</small>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -205,7 +226,7 @@
                 </div>
 
                 <div class="text-center">
-                    <input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit" type="submit"
+                    <input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit"
                         value="Εγραφή"></input>
                 </div>
 
@@ -216,41 +237,45 @@
         </div>
     </section>
     
-    <!--php for form-->
+    <!--php 
     <?php
         if (isset($_POST['submit_btn'])){
             $username = $_POST['username'];
             $name = $_POST['name'];
             $surname = $_POST['surname'];
-            $phone = $_POST['phone'];
             $password = $_POST['password'];
-            $conf_password = $_POST['conf_password'];
-
-            if($password == $conf_password){
-                //add a new row to the table
-                $id=9;
-                $query = "INSERT INTO users VALUES('$id','$name','$surname','$phone','$password','$username')";
-                $query_run = mysqli_query($conn,$query);
-
-                if ($query_run){
-                    echo "query executed successfuly!";
-                }else {
-                    echo "query failed";
-                }
-
-            }else{
-                echo "password confirmation is not the same as password";
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $afm = $_POST['afm'];
+            $type = false;
+            $id=9;
+            $companyName = $_POST['companyName'];
+            
+            
+            
+            //add a new row to the table
+            echo "now i will run query<br>";
+            $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$type','$id','$companyName')";
+            $query_run = mysqli_query($conn,$query);
+            
+            if ($query_run){
+                echo "query executed successfuly!";
+            }else {
+                echo "query failed";
             }
+            
+            
         }else{
-            echo 'empty';
+            echo "empty<br>";
         }
-    ?>
+        ?>
+        form-->
 
 
 
 
-    <!-- footer Start -->
-    <footer class="footer section">
+<!-- footer Start -->
+<footer class="footer section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mr-auto col-sm-6">
@@ -348,7 +373,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
     <script src="js/script.js"></script>
-
     <script src="js/formUtil.js"></script>
     <script src="js/signup.js"></script>
 </body>

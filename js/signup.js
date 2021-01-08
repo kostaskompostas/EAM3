@@ -1,14 +1,23 @@
 const form = document.getElementById("login-form");
-const username = document.getElementById("name");
-const nameLastName = document.getElementById("nameLastName");
+const username = document.getElementById("username");
+const firstName = document.getElementById("name");
+const lastName = document.getElementById("lastName");
 const password = document.getElementById("password");
 const afm = document.getElementById("afm");
 const companyName = document.getElementById("companyName");
 const typeOfUser = document.getElementById("typeOfUser");
 const companySection = document.getElementById("companySection");
 const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const adress = document.getElementById("adress");
 
 isOwner = false;
+
+
+setInputFilter(phone, function(value) {
+    return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  });
+
 
 function typeOfUserSelected() {
 	var curSelection = typeOfUser.options[typeOfUser.selectedIndex].value;
@@ -30,27 +39,30 @@ form.addEventListener("submit", (e) => {
 });
 
 function checkInputs() {
-	const name_Value = username.value.trim();
+	const usernameValue = username.value.trim();
 	const passValue = password.value.trim();
 	const afmValue = afm.value.trim();
     const companyNameValue = companyName.value.trim();
-    const emailValue = email.value.trim();
-    const nameLastNameValue = nameLastName.value.trim();
+	const emailValue = email.value.trim();
+	const firstNameValue = firstName.value.trim();
+	const lastNameValue = lastName.value.trim();
+	const phoneValue = phone.value.trim();
+	const adressValue = adress.value.trim();
 
 	var everythingGood = true;
 
-	if (name_Value === "") {
+	if (usernameValue === "") {
 		everythingGood = false;
 		setErrorFor(username, "Συμπληρώστε το όνομα χρήστη σας");
 	} else {
 		setSuccessFor(username);
     }
     
-    if (nameLastNameValue === "") {
+    if (lastNameValue === "") {
 		everythingGood = false;
-		setErrorFor(nameLastName, "Συμπληρώστε το Ονοματεπώνυμό σας");
+		setErrorFor(lastName, "Συμπληρώστε το Ονοματεπώνυμό σας");
 	} else {
-		setSuccessFor(nameLastName);
+		setSuccessFor(lastName);
 	}
 
 	if (passValue === "") {
@@ -82,6 +94,20 @@ function checkInputs() {
         }else{
             setSuccessFor(email);
         }
+	}
+	
+    if(phoneValue === ''){
+        everythingGood = false;
+        setErrorFor(phone, "Συμπληρώστε το τηλέφωνό σας");
+    } else{
+        setSuccessFor(phone);
+	}
+
+	if(addressValue === ''){
+        everythingGood = false;
+        setErrorFor(address, "Συμπληρώστε τη διεύθυνσή σας");
+    }else{
+        setSuccessFor(address);
     }
 
 	if (isOwner) {
