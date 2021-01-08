@@ -30,13 +30,24 @@ function typeOfUserSelected() {
 	}
 }
 
-form.addEventListener("submit", (e) => {
-	e.preventDefault();
 
+
+function mysubmit(){
 	if (checkInputs()) {
-		window.location = "index.html";
+		return true;
+	}else{
+		return false;
 	}
+}
+/*
+form.addEventListener("submit", (e) => {
+	window.location = "index.html";
+
 });
+
+*/
+
+
 
 function checkInputs() {
 	const usernameValue = username.value.trim();

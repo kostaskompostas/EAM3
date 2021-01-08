@@ -98,7 +98,7 @@
         <div class="container">
             <div class="row justify-content-center">
     
-                <form id="login-form" class="login__form" method="post" action="signup.php">
+                <form id="login-form" class="login__form" method="post" action="signup.php"  onsubmit="return mysubmit()" >
 
                     <div class="section-title text-center mb-5">
                         <h2 class="text-md mb-2">Δημιουργήστε τον λογαριασμό σας</h2>
@@ -243,7 +243,7 @@
                         <div class="col">
                             <div class="text-center">
                                 <input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit"
-                                    value="Εγραφή"></input>
+                                    value="Εγγραφή"></input>
                             </div>
                         </div>
                     </div>
@@ -253,15 +253,13 @@
                 </form>
             </div>
         </div>
-        
     </section>
     
-    <!--php 
     <?php
         if (isset($_POST['submit_btn'])){
             $username = $_POST['username'];
             $name = $_POST['name'];
-            $surname = $_POST['surname'];
+            $surname = $_POST['lastName'];
             $password = $_POST['password'];
             $email = $_POST['email'];
             $phone = $_POST['phone'];
@@ -273,22 +271,22 @@
             
             
             //add a new row to the table
-            echo "now i will run query<br>";
+
             $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$type','$id','$companyName')";
             $query_run = mysqli_query($conn,$query);
             
             if ($query_run){
                 echo "query executed successfuly!";
+                header("Location: ../index.html");
             }else {
-                echo "query failed";
+                echo "query failed<br>";
             }
             
             
         }else{
             echo "empty<br>";
         }
-        ?>
-        form-->
+    ?>
 
 
 
