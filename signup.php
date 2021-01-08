@@ -1,8 +1,3 @@
-<?php
-    require 'config.php';
-?>
-
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -98,7 +93,7 @@
         <div class="container">
             <div class="row justify-content-center">
     
-                <form id="login-form" class="login__form" method="post" action="signup.php"  onsubmit="return mysubmit()" >
+                <form id="login-form" class="login__form" method="post" action="signup.inc.php"  onsubmit="return mysubmit()" >
 
                     <div class="section-title text-center mb-5">
                         <h2 class="text-md mb-2">Δημιουργήστε τον λογαριασμό σας</h2>
@@ -255,38 +250,7 @@
         </div>
     </section>
     
-    <?php
-        if (isset($_POST['submit_btn'])){
-            $username = $_POST['username'];
-            $name = $_POST['name'];
-            $surname = $_POST['lastName'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $afm = $_POST['afm'];
-            $type = false;
-            $id=9;
-            $companyName = $_POST['companyName'];
-            
-            
-            
-            //add a new row to the table
 
-            $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$type','$id','$companyName')";
-            $query_run = mysqli_query($conn,$query);
-            
-            if ($query_run){
-                echo "query executed successfuly!";
-                header("Location: ../index.html");
-            }else {
-                echo "query failed<br>";
-            }
-            
-            
-        }else{
-            echo "empty<br>";
-        }
-    ?>
 
 
 
