@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     require 'config.php';
 
@@ -22,7 +23,9 @@
         $query_run = mysqli_query($conn,$query);
         
         if ($query_run){
-            header("Location: index.html");
+            
+            $_SESSION['username']= $username;
+            header("Location: index.php");
         }else {
             echo "query failed<br>";
         }   

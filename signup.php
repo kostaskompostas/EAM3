@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,6 +29,22 @@
 
 <body id="top">
     <header>
+        <?php
+			if (isset($_SESSION['username'])){
+				echo $_SESSION['username'];
+				echo <<< logout
+					<div class="row">
+						<div class="col">
+							<div class="text-center">
+								<form>
+								<input class="btn btn-main btn-round-full appointment-btn mt-5" name="logout_btn" type="submit" formaction="logout.php"
+									value="Αποσύνδεση"></input>
+							</div>
+						</div>
+					</div>
+				logout;
+			}	
+		?>
         <div class="covidWarning">
             <span id="covidWarning-content">
                 <img id="covid-logo" src="images/nav/covid2.png" />
