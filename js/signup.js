@@ -9,7 +9,7 @@ const typeOfUser = document.getElementById("typeOfUser");
 const companySection = document.getElementById("companySection");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
-const adress = document.getElementById("adress");
+const address = document.getElementById("adress");
 
 isOwner = false;
 
@@ -47,7 +47,7 @@ function checkInputs() {
 	const firstNameValue = firstName.value.trim();
 	const lastNameValue = lastName.value.trim();
 	const phoneValue = phone.value.trim();
-	const adressValue = adress.value.trim();
+	const addressValue = adress.value.trim();
 
 	var everythingGood = true;
 
@@ -56,11 +56,18 @@ function checkInputs() {
 		setErrorFor(username, "Συμπληρώστε το όνομα χρήστη σας");
 	} else {
 		setSuccessFor(username);
-    }
-    
+	}
+	
+	if (firstNameValue === "") {
+		everythingGood = false;
+		setErrorFor(firstName, "Συμπληρώστε το Ονομασας");
+	} else {
+		setSuccessFor(firstName);
+	}
+
     if (lastNameValue === "") {
 		everythingGood = false;
-		setErrorFor(lastName, "Συμπληρώστε το Ονοματεπώνυμό σας");
+		setErrorFor(lastName, "Συμπληρώστε το Επώνυμό σας");
 	} else {
 		setSuccessFor(lastName);
 	}
@@ -74,7 +81,7 @@ function checkInputs() {
 
 	if (afmValue === "") {
 		everythingGood = false;
-		setErrorFor(afm, "Συμπληρώστε τον κωδικό σας");
+		setErrorFor(afm, "Συμπληρώστε τον ΑΦΜ σας");
 	} else {
 		setSuccessFor(afm);
     }
