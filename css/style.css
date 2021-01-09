@@ -12,37 +12,34 @@ html {
 	overflow-x: hidden;
 }
 
-
-
-
-
-.form-group.parent-checkbox{
-	height:200px;
-	display:flex;
+.form-group.parent-checkbox {
+	height: 200px;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 }
 
-.icofont-ui-note{
-	padding-right:5px;
+.icofont-ui-note {
+	padding-right: 5px;
 }
-.icofont-options{
-	padding-right:5px;
-}
-
-.icofont-sign-out{
-	padding-right:5px;
+.icofont-options {
+	padding-right: 5px;
 }
 
-.profile-button.btn.btn-secondary.dropdown-toggle.profile-button .icofont-ui-user{
-	padding-right:10px;
+.icofont-sign-out {
+	padding-right: 5px;
 }
 
-.profile-button.btn.btn-secondary.dropdown-toggle.profile-button{
-	background-color:#ffff;
+.profile-button.btn.btn-secondary.dropdown-toggle.profile-button
+	.icofont-ui-user {
+	padding-right: 10px;
+}
+
+.profile-button.btn.btn-secondary.dropdown-toggle.profile-button {
+	background-color: #ffff;
 	font-weight: 600;
-	padding:12px;
+	padding: 12px;
 	color: #222;
 	font-family: "Exo", sans-serif;
 	text-transform: capitalize;
@@ -691,7 +688,7 @@ a:focus {
 	visibility: hidden;
 	transition: all 0.3s ease-out 0s;
 	border: 0px;
-	border: 3px  solid #223a66;
+	border: 3px solid #223a66;
 	border-radius: 0px;
 }
 
@@ -1407,6 +1404,15 @@ a.requires-login {
 	visibility: visible;
 }
 
+.tabBox .form-group input:disabled {
+	background-color: rgba(236, 238, 245, 0.507);
+	border-color: rgba(78, 78, 92, 0.418);
+}
+
+.contact-form-wrap.profile-box.section {
+	background: none;
+}
+
 .contact-form-wrap .form-group {
 	margin-bottom: 20px;
 }
@@ -1920,8 +1926,6 @@ select.form-control:focus {
 	border-color: #152440;
 	border-width: 3px;
 }
-
-
 
 .subscribe .form-control {
 	border-radius: 50px;

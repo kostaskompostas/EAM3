@@ -129,7 +129,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 							<form id="login-form" class="login__form" method="post" action="php_includes/signup.inc.php" onsubmit="return mysubmit()">
 
 								<div class="section-title text-center mb-5">
-									<h2 class="text-md mb-2">Δημιουργήστε τον λογαριασμό σας</h2>
+									<h2 class="text-md mb-2">Τα προσωπικά σας στοιχεία</h2>
 									<div class="divider mx-auto my-4"></div>
 								</div>
 
@@ -139,7 +139,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Όνομα χρήστη
 											</label>
-											<input name="username" id="username" type="text" class="form-control" maxlength="65">
+											<input name="username" id="username" type="text" class="form-control" maxlength="65" placeholder="name" disabled>
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -243,20 +243,6 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 								<div class="row">
 									<div class="col">
 										<div class="form-group">
-											<label>
-												Ιδιότητα
-											</label>
-											<select name="typeOfUser" id="typeOfUser" class="form-control" onchange="typeOfUserSelected()">
-												<option>Εργαζόμενος</option>
-												<option>Εργοδότης</option>
-											</select>
-										</div>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="col">
-										<div class="form-group">
 											<label id="companyLabelDescription">
 												Όνομα της εταιρείας που εργάζεστε
 											</label>
@@ -268,7 +254,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 									</div>
 								</div>
 
-								<div class="mt-5 row">
+								<div class="row">
 									<div class="col">
 										<div class="parent-checkbox form-group" id="parentSection">
 											<label>
@@ -280,21 +266,13 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 									</div>
 								</div>
 
-
-
-
-
 								<div class="row">
 									<div class="col">
 										<div class="text-center">
-											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit" value="Εγγραφή"></input>
+											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit" value="Απωθήκευση αλλαγών"></input>
 										</div>
 									</div>
 								</div>
-
-
-
-
 
 							</form>
 						</div>
