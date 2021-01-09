@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2021 at 05:22 PM
+-- Generation Time: Jan 09, 2021 at 04:08 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -28,27 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `username` varchar(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `surname` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` int(20) NOT NULL,
-  `afm` int(9) NOT NULL,
-  `idiotita` tinyint(1) NOT NULL,
-  `id` int(10) NOT NULL,
-  `company_name` varchar(100) NOT NULL
+  `id` int(11) NOT NULL,
+  `username` varchar(65) NOT NULL,
+  `name` varchar(65) NOT NULL,
+  `surname` varchar(65) NOT NULL,
+  `password` varchar(65) NOT NULL,
+  `email` varchar(65) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `afm` int(11) NOT NULL,
+  `typeOfUser` tinyint(1) NOT NULL,
+  `companyName` varchar(65) NOT NULL,
+  `address` varchar(65) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`username`, `name`, `surname`, `password`, `email`, `phone`, `afm`, `idiotita`, `id`, `company_name`) VALUES
-('kompostas', 'sadfasdf', 'fsadfasf', 'kme', 'erasr@kappa.com', 3223, 32323, 0, 9, ''),
-('kostas', 'aksdfasfd', 'fsadfas', 'kkkk', 'asdfasdf@safasdf.com', 234234, 23423424, 0, 9, ''),
-('sdaasdf', 'peos', '3', 'sdafasdff', 'sadfasdf@asdfasdf.com', 32223, 232323, 0, 9, ''),
-('timos', 'dfsaf', 'fdsaasfd', 'tims', 'sta@rxi.com', 329329, 2323232, 0, 9, '');
 
 --
 -- Indexes for dumped tables
@@ -58,7 +49,18 @@ INSERT INTO `users` (`username`, `name`, `surname`, `password`, `email`, `phone`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`username`,`id`) USING BTREE;
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
