@@ -12,6 +12,32 @@ html {
 	overflow-x: hidden;
 }
 
+.icofont-ui-note{
+	padding-right:5px;
+}
+.icofont-options{
+	padding-right:5px;
+}
+
+.icofont-sign-out{
+	padding-right:5px;
+}
+
+.profile-button.btn.btn-secondary.dropdown-toggle.profile-button .icofont-ui-user{
+	padding-right:10px;
+}
+
+.profile-button.btn.btn-secondary.dropdown-toggle.profile-button{
+	background-color:#ffff;
+	font-weight: 600;
+	padding:12px;
+	color: #222;
+	font-family: "Exo", sans-serif;
+	text-transform: capitalize;
+	font-size: 16px;
+	transition: all 0.25s ease;
+}
+
 .breadcrumb {
 	background: none;
 	margin-bottom: 0px;
@@ -653,7 +679,7 @@ a:focus {
 	visibility: hidden;
 	transition: all 0.3s ease-out 0s;
 	border: 0px;
-	border-top: 5px solid #e12454;
+	border: 3px  solid #223a66;
 	border-radius: 0px;
 }
 

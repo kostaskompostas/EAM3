@@ -75,8 +75,8 @@
                                     <i class="icofont-ui-user"></i>Λογαριασμος
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="personal_files.php"><i class="icofont-ui-note"></i>Δηλώσεις</a>
-                                    <a class="dropdown-item" href="profile_options.php"><i class="icofont-options"></i>Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="#"><i class="icofont-ui-note"></i>Δηλώσεις</a>
+                                    <a class="dropdown-item" href="#"><i class="icofont-options"></i>Επεξεργασία προφίλ</a>
                                     <a class="dropdown-item" href="php_includes/logout.inc.php"><i class="icofont-sign-out"></i>Αποσύνδεση</a>
                                 </div>
                             </div>
@@ -109,126 +109,6 @@
 		</nav>
 	</header>
 
-
-	<!-- Slider Start -->
-	<section class="banner"></section>
-
-	<section class="features">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 persona-box">
-					<h1>Είμαι...</h1>
-					<div class="feature-block d-lg-flex">
-						<div class="feature-item mb-5 mb-lg-0">
-							<img src="images/homepage/unemployed.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.php">
-								Άνεργος
-							</a>
-						</div>
-
-						<div class="feature-item mb-5 mb-lg-0">
-							<img src="images/homepage/employee-icon.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.php">
-								Εργαζόμενος
-							</a>
-						</div>
-
-						<div class="feature-item mb-5 mb-lg-0">
-							<img src="images/homepage/employer-icon.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.php">
-								Εργοδότης
-							</a>
-						</div>
-						<div class="feature-item mb-5 mb-lg-0">
-							<img src="images/homepage/retired.png" class="persona-icons" />
-							<a class="btn btn-main btn-round-full persona-button" href="index.php">
-								Συνταξιούχος
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="section">
-		<div class="container">
-		<h3 class="text-center"><i class="icofont-megaphone"></i> <a href="signin.php"> Συνδεθείτε</a> με τον προσωπικό σας λογαριασμό για να δείτε το αρχείο δηλώσεων σας
-			ή αν είστε εργοδότης για να κάνετε δηλώσεις στα αρχεία των εργαζομένων σας
-			
-			</h1>
-		</div>
-	</section>
-
-	<section class="section testimonial-2">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-7">
-					<div class="section-title text-center">
-						<h2>Τελευταίες Ανακοινώσεις</h2>
-						<div class="divider mx-auto my-2 news"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-12 testimonial-wrap-2">
-
-					<div class="testimonial-block style-2 gray-bg">
-						<div class="client-info">
-							<h4>
-								<a href="#">
-									Άδεια χρήσης έκτακτης ανάγκης για το εμβόλιο της
-									Pfizer/BioNTech
-								</a>
-							</h4>
-							<p>
-								Ο Παγκόσμιος Οργανισμός Υγείας χορήγησε , για πρώτη φορά μετά
-								την έναρξη πανδημίας, άδεια χρήσης έκτακτης ανάγκης στο
-								εμβόλιο κατά της Covid-19
-							</p>
-						</div>
-					</div>
-
-
-					<div class="testimonial-block style-2 gray-bg">
-						<div class="client-info">
-							<h4><a href="#">Κατώτατος μισθός</a></h4>
-							<p>
-								Νέα αναβολή στην αναπροσαρμογή. Το νέο χρονοδιάγραμμα, λόγω
-								των έκτακτων και αναγκαίων μέτρων για τον περιορισμό της
-								διάδοσης της πανδημίας του κορονοϊού COVID-19
-							</p>
-						</div>
-					</div>
-
-					<div class="testimonial-block style-2 gray-bg">
-						<div class="client-info">
-							<h4><a href="#">
-									Αλλαγές στα εργασιακά και ασφαλιστικο του 2021</h4>
-							</a>
-							<p>
-								Ευέλικτο ωράριο απασχόλησης, υπερωρίες, επικουρικές συντάξεις.
-							</p>
-						</div>
-					</div>
-
-					<div class="testimonial-block style-2 gray-bg">
-						<div class="client-info">
-							<h4><a href="#">Χρήση μάσκας</a></h4>
-							<p>
-								Τι προβλέπει ο νεος νόμος για την χρήση μάσκας εντός δημοσίων
-								χόρων.
-							</p>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<!-- footer Start -->
 	<footer class="footer section">
