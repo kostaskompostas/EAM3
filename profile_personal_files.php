@@ -113,10 +113,10 @@
 			<div class="container mt-5">
 				<ul class="nav nav-tabs mt-4">
 					<li class="nav-item">
-						<a class="nav-link active" href="profile_options.php">Στοιχεία</a>
+						<a class="nav-link" href="profile_options.php">Στοιχεία</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="profile_personal_files.php">Δηλώσεις</a>
+						<a class="nav-link  active" href="profile_personal_files.php">Δηλώσεις</a>
 					</li>
 					
 				</ul>
