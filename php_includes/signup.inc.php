@@ -27,7 +27,7 @@ if (isset($_POST['submit_btn'])) {
     $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$binary_type','$companyName',$address)";
     $query_run = mysqli_query($conn, $query);
 
-    mysqli_close($con);
+    mysqli_close($conn);
 
     if ($query_run) {
         $_SESSION['username'] = $username;

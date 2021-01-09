@@ -12,7 +12,7 @@ if (isset($_POST['submit_btn'])) {
     $query = "SELECT * FROM users WHERE username='$username' AND password = '$password'";
     $query_run = mysqli_query($conn, $query);
 
-    mysqli_close($con);
+    mysqli_close($conn);
 
     if ($query_run) {
         if (mysqli_num_rows($query_run) != 0) {
