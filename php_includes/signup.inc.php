@@ -15,16 +15,16 @@ if (isset($_POST['submit_btn'])) {
     $type = $_POST['typeOfUser'];
     $address = $_POST['adress'];
 
-    $binary_type = 0;
+    $isOwner = false;
     if ($type == "Εργοδότης") {
-        $binary_type = 1;
+        $isOwner = true;
         $companyName = $_POST['companyName'];
     } else {
         $companyName = "none";
     }
 
     //add a new row to the table
-    $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$binary_type','$companyName',$address)";
+    $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$isOwner','$companyName',$address)";
     $query_run = mysqli_query($conn, $query);
 
     mysqli_close($conn);
