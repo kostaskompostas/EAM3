@@ -1,6 +1,32 @@
 <?php
 session_start();
-$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+
+require './php_includes/config.php';
+
+$username = $_SESSION['username'];
+$query = "SELECT * FROM users WHERE username='$username'";
+$query_run = mysqli_query($conn, $query);
+
+if ($query_run) {
+	$row = mysqli_fetch_assoc($query_run);
+
+	$username = $row['username'];
+	$name = $row['name'];
+	$surname = $row['surname'];
+	$password = $row['password'];
+	$email = $row['email'];
+	$phone = $row['phone'];
+	$afm = $row['afm'];
+	$type = $row['typeOfUser'];
+	$address = $row['address'];
+	$companyName = $row['companyName'];
+	$isParent = $row['isParent'];
+} else {
+	echo "ERROR: $query. " . mysqli_error($conn);
+	header("Location: ../error.php");
+}
+mysqli_close($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -66,9 +92,6 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 				<ul class="navbar-nav ml-auto">
 					<?php
 					if (isset($_SESSION['username'])) {
-						//echo 
-						$name = $_SESSION['username'];
-
 						echo <<< account
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -139,7 +162,8 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Όνομα χρήστη
 											</label>
-											<input name="username" id="username" type="text" class="form-control" maxlength="65" placeholder="name" disabled>
+
+											<input name="username" id="username" type="text" class="form-control" maxlength="65" placeholder="<?php echo $username ?>" disabled>
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -151,7 +175,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Ο κωδικός σας
 											</label>
-											<input name="password" id="password" type="password" class="form-control" maxlength="65">
+											<input name="password" id="password" type="password" class="form-control" maxlength="65" placeholder="<?php echo $password ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -166,7 +190,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Το e-mail σας
 											</label>
-											<input name="email" id="email" type="text" class="form-control" maxlength="65">
+											<input name="email" id="email" type="text" class="form-control" maxlength="65" placeholder="<?php echo $email ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -181,7 +205,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Όνομα
 											</label>
-											<input name="name" id="name" type="text" class="form-control" maxlength="65">
+											<input name="name" id="name" type="text" class="form-control" maxlength="65" placeholder="<?php echo $name ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -193,7 +217,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Eπώνυμο
 											</label>
-											<input name="lastName" id="lastName" type="text" class="form-control" maxlength="65">
+											<input name="lastName" id="lastName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $surname ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -207,7 +231,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Τηλέφωνο
 											</label>
-											<input name="phone" id="phone" type="tel" class="form-control" maxlength="10">
+											<input name="phone" id="phone" type="tel" class="form-control" maxlength="10" placeholder="<?php echo $phone ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -219,7 +243,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												Διεύθυνση
 											</label>
-											<input name="adress" id="adress" type="text" class="form-control" maxlength="65">
+											<input name="adress" id="adress" type="text" class="form-control" maxlength="65" placeholder="<?php echo $address ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -232,7 +256,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label>
 												ΑΦΜ
 											</label>
-											<input name="afm" id="afm" type="number" class="form-control" maxlength="65">
+											<input name="afm" id="afm" type="number" class="form-control" maxlength="65" placeholder="<?php echo $afm ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -246,7 +270,7 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 											<label id="companyLabelDescription">
 												Όνομα της εταιρείας που εργάζεστε
 											</label>
-											<input name="companyName" id="companyName" type="text" class="form-control" maxlength="65">
+											<input name="companyName" id="companyName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $companyName ?>">
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>

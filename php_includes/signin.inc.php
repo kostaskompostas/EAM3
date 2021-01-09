@@ -16,8 +16,8 @@ if (isset($_POST['submit_btn'])) {
     if (mysqli_query($conn, $query)) {
         if (mysqli_num_rows($query_run) != 0) {
             $_SESSION['username'] = $username;
-            header("Location: ../../.$ref.");
-        } else {  
+            header("Location: $ref");
+        } else {
             echo "invalid info<br>";
             header("Location: ../error.php");
         }

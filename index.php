@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+session_start();
+$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -63,13 +63,13 @@
 				</div>
 
 
-                <ul class="navbar-nav ml-auto">
-                    <?php
-                        if (isset($_SESSION['username'])){
-                            //echo 
-                            $name = $_SESSION['username'];
-                            
-                            echo <<< account
+				<ul class="navbar-nav ml-auto">
+					<?php
+					if (isset($_SESSION['username'])) {
+						//echo 
+						$name = $_SESSION['username'];
+
+						echo <<< account
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icofont-ui-user"></i>Λογαριασμος
@@ -81,8 +81,8 @@
                                 </div>
                             </div>
                             account;
-                        }else{
-                            echo <<< enter
+					} else {
+						echo <<< enter
                             <li class="nav-item">
                                 <a href="signin.php" class="nav-link">
                                     Σύνδεση
@@ -96,12 +96,11 @@
                                 </a>
                             </li>
                             enter;
-                        }        
-                    ?>
-                </ul>
+					}
+					?>
+				</ul>
 
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
-					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icofont-navigation-menu"></span>
 				</button>
 
@@ -153,10 +152,10 @@
 
 	<section class="section">
 		<div class="container">
-		<h3 class="text-center"><i class="icofont-megaphone"></i> <a href="signin.php"> Συνδεθείτε</a> με τον προσωπικό σας λογαριασμό για να δείτε το αρχείο δηλώσεων σας
-			ή αν είστε εργοδότης για να κάνετε δηλώσεις στα αρχεία των εργαζομένων σας
-			
-			</h1>
+			<h3 class="text-center"><i class="icofont-megaphone"></i> <a href="signin.php"> Συνδεθείτε</a> με τον προσωπικό σας λογαριασμό για να δείτε το αρχείο δηλώσεων σας
+				ή αν είστε εργοδότης για να κάνετε δηλώσεις στα αρχεία των εργαζομένων σας
+
+				</h1>
 		</div>
 	</section>
 
@@ -325,8 +324,7 @@
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
 	<script src="plugins/google-map/map.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
 	<script src="js/script.js"></script>
 	<script src="js/contact.js"></script>
