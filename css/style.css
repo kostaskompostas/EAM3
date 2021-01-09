@@ -12,6 +12,14 @@ html {
 	overflow-x: hidden;
 }
 
+
+.form-group.parent-checkbox{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .icofont-ui-note{
 	padding-right:5px;
 }
@@ -1909,9 +1917,7 @@ select.form-control:focus {
 	border-width: 3px;
 }
 
-div.form-group#companySection {
-	display: none;
-}
+
 
 .subscribe .form-control {
 	border-radius: 50px;

@@ -242,9 +242,9 @@ session_start();
 
                     <div class="row">
                         <div class="col">
-                            <div class="form-group" id="companySection">
-                                <label>
-                                    Όνομα της εταιρείας σας
+                            <div class="form-group" >
+                                <label id="companyLabelDescription">
+                                    Όνομα της εταιρείας που εργάζεστε
                                 </label>
                                 <input name="companyName" id="companyName" type="text" class="form-control" maxlength="65">
                                 <i class="icofont-check"></i>
@@ -253,6 +253,23 @@ session_start();
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="mt-5 row">
+                        <div class="col">
+                            <div class="parent-checkbox form-group" id="parentSection" >
+                                <label>
+                                    Ειμαι γονέας παιδιού κάτω τών 12 ετών
+                                </label>
+
+                                <input   type="checkbox" id="parentCheckBox" name="parentCheck" value="true">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
                     <div class="row">
                         <div class="col">
                             <div class="text-center">
@@ -260,7 +277,8 @@ session_start();
                             </div>
                         </div>
                     </div>
-
+                    
+                    
 
 
 

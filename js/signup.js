@@ -6,10 +6,12 @@ const password = document.getElementById("password");
 const afm = document.getElementById("afm");
 const companyName = document.getElementById("companyName");
 const typeOfUser = document.getElementById("typeOfUser");
-const companySection = document.getElementById("companySection");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
 const address = document.getElementById("adress");
+const parentSection = document.getElementById("parentSection");
+const companyLabelDesc = document.getElementById("companyLabelDescription");
+
 
 isOwner = false;
 
@@ -21,11 +23,17 @@ setInputFilter(phone, function(value) {
 
 function typeOfUserSelected() {
 	var curSelection = typeOfUser.options[typeOfUser.selectedIndex].value;
-	if (curSelection === "Εργοδότης") {
-		companySection.style.display = "block";
+	if (curSelection === "Εργαζόμενος") {
+		companyLabelDesc.innerHTML="Όνομα της εταιρείας που εργάζεστε";
+
+		parentSection.style.display = "flex";
+		console.log(parentSection.style.display);
 		isOwner = true;
 	} else {
-		companySection.style.display = "none";
+		companyLabelDesc.innerHTML="Όνομα της εταιρείας σας";
+
+		parentSection.style.display = "none";
+		console.log(parentSection.style.display);
 		isOwner = false;
 	}
 }
@@ -128,14 +136,14 @@ function checkInputs() {
         setSuccessFor(address);
     }
 
-	if (isOwner) {
-		if (companyNameValue === "") {
-			everythingGood = false;
-			setErrorFor(companyName, "Συμπληρώστε το όνομα της εταιρείας σας");
-		} else {
-			setSuccessFor(companyName);
-		}
+	
+	if (companyNameValue === "") {
+		everythingGood = false;
+		setErrorFor(companyName, "Συμπληρώστε το όνομα της εταιρείας");
+	} else {
+		setSuccessFor(companyName);
 	}
+	
 
 	return everythingGood;
 }
