@@ -15,26 +15,24 @@ if (isset($_POST['submit_btn'])) {
     $type = $_POST['typeOfUser'];
     $address = $_POST['adress'];
 
-    $isOwner = false;
+    $isOwner = 0;
+    $companyName = "-";
     if ($type == "Εργοδότης") {
-        $isOwner = true;
+        $isOwner = 1;
         $companyName = $_POST['companyName'];
-    } else {
-        $companyName = "none";
     }
 
     //add a new row to the table
-    $query = "INSERT INTO users VALUES('$username','$name','$surname','$password','$email','$phone','$afm','$isOwner','$companyName',$address)";
+    $query = "INSERT INTO users (username, name, surname,password,email,phone,afm,typeOfUser,companyName,address)
+    VALUES('$username','$name','$surname','$password','$email',$phone,$afm,$isOwner,'$companyName','$address')";
     $query_run = mysqli_query($conn, $query);
-
-    mysqli_close($conn);
 
     if ($query_run) {
         $_SESSION['username'] = $username;
         $_SESSION['type'] = $type;
         header("Location: ../../.$ref.");
-        die();
     } else {
-        echo "query failed<br>";
+        echo "ERROR: $query. " . mysqli_error($conn);
     }
+    mysqli_close($conn);
 }
