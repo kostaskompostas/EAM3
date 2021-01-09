@@ -14,7 +14,7 @@ form.addEventListener("submit", (e)=> {
     e.preventDefault();
 
     if(checkInputs()){
-        window.location = "confirmation.html";
+        window.location = "confirmation.php";
     }
 });
 

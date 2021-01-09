@@ -33,6 +33,8 @@ if (isset($_POST['submit_btn'])) {
         header("Location: ../../.$ref.");
     } else {
         echo "ERROR: $query. " . mysqli_error($conn);
+        header("Location: ../error.php");
+
     }
     mysqli_close($conn);
 }

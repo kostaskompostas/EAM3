@@ -121,31 +121,18 @@
 			</nav>
 		</header>
 
-		<!--breadcrumbs-->
-		<div class="container">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.php">Αρχική</a></li>
-					<li class="breadcrumb-item">
-						<a href="communication.php">Επικοινωνία</a>
-					</li>
-					<li class="breadcrumb-item active" aria-current="page">
-						Επιτυχία ραντεβού
-					</li>
-				</ol>
-			</nav>
-		</div>
+
 
 		<section class="section confirmation">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-8">
 						<div class="confirmation-content text-center">
-							<i class="icofont-check-circled text-lg text-color-2"></i>
-							<h2 class="mt-3 mb-4">Επιτυχία ραντεβού</h2>
+					
+							<i class="icofont-warning text-lg text-color-2"></i>
+							<h2 class="mt-3 mb-4">Σφάλμα</h2>
 							<p>
-								Θα σας ενημερώσουμε σύντομα με τις πληροφορίες του ραντεβού μέσω
-								email
+								Ουπς! Kάτι πήγε στραβά 
 							</p>
 						</div>
 					</div>

@@ -17,11 +17,13 @@ if (isset($_POST['submit_btn'])) {
         if (mysqli_num_rows($query_run) != 0) {
             $_SESSION['username'] = $username;
             header("Location: ../../.$ref.");
-        } else {
+        } else {  
             echo "invalid info<br>";
+            header("Location: ../error.php");
         }
     } else {
         echo "ERROR: $query. " . mysqli_error($conn);
+        header("Location: ../error.php");
     }
     mysqli_close($conn);
 }
