@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+session_start();
+$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -63,13 +63,13 @@
 				</div>
 
 
-                <ul class="navbar-nav ml-auto">
-                    <?php
-                        if (isset($_SESSION['username'])){
-                            //echo 
-                            $name = $_SESSION['username'];
-                            
-                            echo <<< account
+				<ul class="navbar-nav ml-auto">
+					<?php
+					if (isset($_SESSION['username'])) {
+						//echo 
+						$name = $_SESSION['username'];
+
+						echo <<< account
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icofont-ui-user"></i>Λογαριασμος
@@ -81,8 +81,8 @@
                                 </div>
                             </div>
                             account;
-                        }else{
-                            echo <<< enter
+					} else {
+						echo <<< enter
                             <li class="nav-item">
                                 <a href="signin.php" class="nav-link">
                                     Σύνδεση
@@ -96,35 +96,212 @@
                                 </a>
                             </li>
                             enter;
-                        }        
-                    ?>
-                </ul>	
+					}
+					?>
+				</ul>
 
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
-					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icofont-navigation-menu"></span>
 				</button>
 
 			</div>
 		</nav>
 	</header>
-	
-	<section class="tabsGroup">
-			<div class="container mt-5">
-				<ul class="nav nav-tabs mt-4">
-					<li class="nav-item">
-						<a class="nav-link active" href="profile_options.php">Στοιχεία</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="profile_personal_files.php">Δηλώσεις</a>
-					</li>
-					
-				</ul>
 
-				<div class="tabBox">
-				
-				</div>
+	<section class="tabsGroup">
+		<div class="container mt-5">
+			<ul class="nav nav-tabs mt-4">
+				<li class="nav-item">
+					<a class="nav-link active" href="profile_options.php">Στοιχεία</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="profile_personal_files.php">Δηλώσεις</a>
+				</li>
+
+			</ul>
+
+			<div class="tabBox">
+				<!-- contact form start -->
+				<section class="contact-form-wrap section profile-box">
+					<div class="container">
+						<div class="row justify-content-center">
+
+							<form id="login-form" class="login__form" method="post" action="php_includes/signup.inc.php" onsubmit="return mysubmit()">
+
+								<div class="section-title text-center mb-5">
+									<h2 class="text-md mb-2">Δημιουργήστε τον λογαριασμό σας</h2>
+									<div class="divider mx-auto my-4"></div>
+								</div>
+
+								<div class="row ">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label>
+												Όνομα χρήστη
+											</label>
+											<input name="username" id="username" type="text" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label>
+												Ο κωδικός σας
+											</label>
+											<input name="password" id="password" type="password" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label>
+												Το e-mail σας
+											</label>
+											<input name="email" id="email" type="text" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="row ">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label>
+												Όνομα
+											</label>
+											<input name="name" id="name" type="text" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label>
+												Eπώνυμο
+											</label>
+											<input name="lastName" id="lastName" type="text" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label>
+												Τηλέφωνο
+											</label>
+											<input name="phone" id="phone" type="tel" class="form-control" maxlength="10">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-group">
+											<label>
+												Διεύθυνση
+											</label>
+											<input name="adress" id="adress" type="text" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label>
+												ΑΦΜ
+											</label>
+											<input name="afm" id="afm" type="number" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label>
+												Ιδιότητα
+											</label>
+											<select name="typeOfUser" id="typeOfUser" class="form-control" onchange="typeOfUserSelected()">
+												<option>Εργαζόμενος</option>
+												<option>Εργοδότης</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col">
+										<div class="form-group">
+											<label id="companyLabelDescription">
+												Όνομα της εταιρείας που εργάζεστε
+											</label>
+											<input name="companyName" id="companyName" type="text" class="form-control" maxlength="65">
+											<i class="icofont-check"></i>
+											<i class="icofont-exclamation-circle"></i>
+											<small>Σφάλμα</small>
+										</div>
+									</div>
+								</div>
+
+								<div class="mt-5 row">
+									<div class="col">
+										<div class="parent-checkbox form-group" id="parentSection">
+											<label>
+												Ειμαι γονέας παιδιού κάτω τών 12 ετών
+											</label>
+
+											<input type="checkbox" id="parentCheckBox" name="parentCheck">
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+								<div class="row">
+									<div class="col">
+										<div class="text-center">
+											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit" value="Εγγραφή"></input>
+										</div>
+									</div>
+								</div>
+
+
+
+
+
+							</form>
+						</div>
+					</div>
+				</section>
 			</div>
+		</div>
 	</section>
 
 
@@ -223,8 +400,7 @@
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
 	<script src="plugins/google-map/map.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
 	<script src="js/script.js"></script>
 	<script src="js/contact.js"></script>

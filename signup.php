@@ -265,10 +265,6 @@ session_start();
                         </div>
                     </div>
 
-
-
-
-
                     <div class="row">
                         <div class="col">
                             <div class="text-center">
@@ -276,11 +272,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    
-                    
-
-
-
+            
                 </form>
             </div>
         </div>

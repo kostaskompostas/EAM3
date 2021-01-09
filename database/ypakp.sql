@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2021 at 04:08 PM
+-- Generation Time: Jan 09, 2021 at 09:41 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -38,8 +38,16 @@ CREATE TABLE `users` (
   `afm` int(11) NOT NULL,
   `typeOfUser` tinyint(1) NOT NULL,
   `companyName` varchar(65) NOT NULL,
-  `address` varchar(65) NOT NULL
+  `address` varchar(65) NOT NULL,
+  `isParent` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`, `phone`, `afm`, `typeOfUser`, `companyName`, `address`, `isParent`) VALUES
+(18, 'peos', 'kakak', 'aksakd', '333', 'sadfasdf@asdfasdf.com', 2323, 22323, 0, '-', '2323', 1);
 
 --
 -- Indexes for dumped tables
@@ -60,7 +68,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
