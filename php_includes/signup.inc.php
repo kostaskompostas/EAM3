@@ -14,17 +14,23 @@ if (isset($_POST['submit_btn'])) {
     $afm = $_POST['afm'];
     $type = $_POST['typeOfUser'];
     $address = $_POST['adress'];
+    $companyName = $_POST['companyName'];
 
     $isOwner = 0;
-    $companyName = "-";
-    if ($type == "Εργοδότης") {
+    $isParent = 0;
+
+
+    if ($type == "Εργαζόμενος") {
+        if (isset($_POST['parentCheck'])){
+            $isParent = 1;
+        }
+    }else{
         $isOwner = 1;
-        $companyName = $_POST['companyName'];
     }
 
     //add a new row to the table
-    $query = "INSERT INTO users (username, name, surname,password,email,phone,afm,typeOfUser,companyName,address)
-    VALUES('$username','$name','$surname','$password','$email',$phone,$afm,$isOwner,'$companyName','$address')";
+    $query = "INSERT INTO users (username, name, surname,password,email,phone,afm,typeOfUser,companyName,address,isParent)
+    VALUES('$username','$name','$surname','$password','$email',$phone,$afm,$isOwner,'$companyName','$address',$isParent)";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {
@@ -34,7 +40,6 @@ if (isset($_POST['submit_btn'])) {
     } else {
         echo "ERROR: $query. " . mysqli_error($conn);
         header("Location: ../error.php");
-
     }
     mysqli_close($conn);
 }

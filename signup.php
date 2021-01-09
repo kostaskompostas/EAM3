@@ -63,25 +63,24 @@ session_start();
                 </div>
                 <ul class="navbar-nav ml-auto">
                     <?php
-                    if (isset($_SESSION['username'])) {
-                        //echo 
-                        $name = $_SESSION['username'];
-
-                        echo <<< account
+                        if (isset($_SESSION['username'])){
+                            //echo 
+                            $name = $_SESSION['username'];
+                            
+                            echo <<< account
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Ο λογαριασμός μου
+                                <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="icofont-ui-user"></i>Λογαριασμος
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Οι δηλώσεις μου</a>
-                                    <a class="dropdown-item" href="#">Επεξεργασία προφίλ</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <a class="dropdown-item" href="logout.inc.php">logout</a>
+                                    <a class="dropdown-item" href="personal_files.php"><i class="icofont-ui-note"></i>Δηλώσεις</a>
+                                    <a class="dropdown-item" href="profile_options.php"><i class="icofont-options"></i>Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="php_includes/logout.inc.php"><i class="icofont-sign-out"></i>Αποσύνδεση</a>
                                 </div>
                             </div>
                             account;
-                    } else {
-                        echo <<< enter
+                        }else{
+                            echo <<< enter
                             <li class="nav-item">
                                 <a href="signin.php" class="nav-link">
                                     Σύνδεση
@@ -95,7 +94,7 @@ session_start();
                                 </a>
                             </li>
                             enter;
-                    }
+                        }        
                     ?>
                 </ul>
 
@@ -261,7 +260,7 @@ session_start();
                                     Ειμαι γονέας παιδιού κάτω τών 12 ετών
                                 </label>
 
-                                <input   type="checkbox" id="parentCheckBox" name="parentCheck" value="true">
+                                <input   type="checkbox" id="parentCheckBox" name="parentCheck" >
                             </div>
                         </div>
                     </div>
