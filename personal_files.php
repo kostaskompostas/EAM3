@@ -75,8 +75,8 @@
                                     <i class="icofont-ui-user"></i>Λογαριασμος
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"><i class="icofont-ui-note"></i>Δηλώσεις</a>
-                                    <a class="dropdown-item" href="#"><i class="icofont-options"></i>Επεξεργασία προφίλ</a>
+                                    <a class="dropdown-item" href="personal_files.php"><i class="icofont-ui-note"></i>Δηλώσεις</a>
+                                    <a class="dropdown-item" href="profile_options.php"><i class="icofont-options"></i>Επεξεργασία προφίλ</a>
                                     <a class="dropdown-item" href="php_includes/logout.inc.php"><i class="icofont-sign-out"></i>Αποσύνδεση</a>
                                 </div>
                             </div>
