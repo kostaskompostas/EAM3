@@ -285,7 +285,7 @@ mysqli_close($conn);
 												Ειμαι γονέας παιδιού κάτω τών 12 ετών
 											</label>
 
-											<input type="checkbox" id="parentCheckBox" name="parentCheck">
+											<input type="checkbox" id="parentCheckBox" name="parentCheck" <?php if ($isParent) echo "checked" ?>>
 										</div>
 									</div>
 								</div>
