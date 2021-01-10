@@ -44,7 +44,7 @@ function mysubmit(){
 
 password.addEventListener('input', function(e) {
     var defaultVal = password.getAttribute("placeholder");
-    if(defaultVal == password.value){
+    if(defaultVal == password.value || password.value == ''){
         unsetFor(password);
     }else{
         setModifiedFor(password);
@@ -53,7 +53,7 @@ password.addEventListener('input', function(e) {
 
 email.addEventListener('input', function(e) {
     var defaultVal = email.getAttribute("placeholder");
-    if(defaultVal == email.value){
+    if(defaultVal == email.value || email.value == ''){
         unsetFor(email);
     }else{
         setModifiedFor(email);
@@ -62,7 +62,7 @@ email.addEventListener('input', function(e) {
 
 firstName.addEventListener('input', function(e) {
     var defaultVal = firstName.getAttribute("placeholder");
-    if(defaultVal == firstName.value){
+    if(defaultVal == firstName.value || firstName.value == ''){
         unsetFor(firstName);
     }else{
         setModifiedFor(firstName);
@@ -71,7 +71,7 @@ firstName.addEventListener('input', function(e) {
 
 lastName.addEventListener('input', function(e) {
     var defaultVal = lastName.getAttribute("placeholder");
-    if(defaultVal == lastName.value){
+    if(defaultVal == lastName.value || lastName.value == ''){
         unsetFor(lastName);
     }else{
         setModifiedFor(lastName);
@@ -80,7 +80,7 @@ lastName.addEventListener('input', function(e) {
 
 phone.addEventListener('input', function(e) {
     var defaultVal = phone.getAttribute("placeholder");
-    if(defaultVal == phone.value){
+    if(defaultVal == phone.value || phone.value == ''){
         unsetFor(phone);
     }else{
         setModifiedFor(phone);
@@ -89,7 +89,7 @@ phone.addEventListener('input', function(e) {
 
 phone.addEventListener('input', function(e) {
     var defaultVal = phone.getAttribute("placeholder");
-    if(defaultVal == phone.value){
+    if(defaultVal == phone.value || phone.value == ''){
         unsetFor(phone);
     }else{
         setModifiedFor(phone);
@@ -98,7 +98,7 @@ phone.addEventListener('input', function(e) {
 
 address.addEventListener('input', function(e) {
     var defaultVal = address.getAttribute("placeholder");
-    if(defaultVal == address.value){
+    if(defaultVal == address.value || address.value == ''){
         unsetFor(address);
     }else{
         setModifiedFor(address);
@@ -107,7 +107,7 @@ address.addEventListener('input', function(e) {
 
 afm.addEventListener('input', function(e) {
     var defaultVal = afm.getAttribute("placeholder");
-    if(defaultVal == afm.value){
+    if(defaultVal == afm.value || afm.value == ''){
         unsetFor(afm);
     }else{
         setModifiedFor(afm);
@@ -116,7 +116,7 @@ afm.addEventListener('input', function(e) {
 
 companyName.addEventListener('input', function(e) {
     var defaultVal = companyName.getAttribute("placeholder");
-    if(defaultVal == companyName.value){
+    if(defaultVal == companyName.value || companyName.value == ''){
         unsetFor(companyName);
     }else{
         setModifiedFor(companyName);
