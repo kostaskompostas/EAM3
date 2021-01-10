@@ -12,6 +12,30 @@ html {
 	overflow-x: hidden;
 }
 
+
+
+
+.form-group.dilosi{
+	width:211px;
+}
+
+select.form-control#typeOfForm{
+	height:initial;
+	border-color: #152440;
+	border-width: 3px;
+	size:inherit;
+}
+.table-responsive{
+	max-height:200px;
+}
+
+
+.personal_files_box{
+	margin:20px;
+	border:1px;
+	border-style:solid;
+	border-color:#000;
+}
 .form-group.parent-checkbox {
 	height: 200px;
 	display: flex;

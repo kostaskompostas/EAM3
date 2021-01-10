@@ -135,7 +135,7 @@ mysqli_close($conn);
 		<div class="container mt-5">
 			<ul class="nav nav-tabs mt-4">
 				<li class="nav-item">
-					<a class="nav-link active" href="profile_options.php">Στοιχεία</a>
+					<a class="nav-link active" href="profile_options.php">Προφίλ</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="personal_files.php">Δηλώσεις</a>
@@ -152,7 +152,7 @@ mysqli_close($conn);
 							<form id="login-form" class="login__form" method="post" action="php_includes/profile_options.inc.php" onsubmit="return mysubmit();">
 
 								<div class="section-title text-center mb-5">
-									<h2 class="text-md mb-2">Τα προσωπικά σας στοιχεία</h2>
+									<h2 class="text-md mb-2">Το προφίλ σας</h2>
 									<div class="divider mx-auto my-4"></div>
 								</div>
 
@@ -304,7 +304,7 @@ mysqli_close($conn);
 								<div class="row">
 									<div class="col">
 										<div class="text-center">
-											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit"></input>
+											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit" value="Οριστικοποίηση Αλλαγών"></input>
 										</div>
 									</div>
 								</div>

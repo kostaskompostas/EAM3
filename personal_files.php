@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	//$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+session_start();
+//$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -63,13 +63,13 @@
 				</div>
 
 
-                <ul class="navbar-nav ml-auto">
-                    <?php
-                        if (isset($_SESSION['username'])){
-                            //echo 
-                            $name = $_SESSION['username'];
-                            
-                            echo <<< account
+				<ul class="navbar-nav ml-auto">
+					<?php
+					if (isset($_SESSION['username'])) {
+						//echo 
+						$name = $_SESSION['username'];
+
+						echo <<< account
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icofont-ui-user"></i>Λογαριασμος
@@ -81,8 +81,8 @@
                                 </div>
                             </div>
                             account;
-                        }else{
-                            echo <<< enter
+					} else {
+						echo <<< enter
                             <li class="nav-item">
                                 <a href="signin.php" class="nav-link">
                                     Σύνδεση
@@ -96,35 +96,105 @@
                                 </a>
                             </li>
                             enter;
-                        }        
-                    ?>
-                </ul>	
+					}
+					?>
+				</ul>
 
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
-					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icofont-navigation-menu"></span>
 				</button>
 
 			</div>
 		</nav>
 	</header>
-	
-	<section class="tabsGroup">
-			<div class="container mt-5">
-				<ul class="nav nav-tabs mt-4">
-					<li class="nav-item">
-						<a class="nav-link" href="profile_options.php">Στοιχεία</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link  active" href="profile_personal_files.php">Δηλώσεις</a>
-					</li>
-					
-				</ul>
 
-				<div class="tabBox">
+	<section class="tabsGroup">
+		<div class="container mt-5">
+			<ul class="nav nav-tabs mt-4">
+				<li class="nav-item">
+					<a class="nav-link" href="profile_options.php">Στοιχεία</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link  active" href="personal_files.php">Δηλώσεις</a>
+				</li>
+
+			</ul>
+
+			<div class="tabBox personal_files_tab_box">
+				<h3>Το ιστορικό των δηλώσεών σας</h3>
+				<div class="personal_files_box">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Εναρξη</th>
+									<th>Λήξη</th>
+									<th>Είδος δήλωσης</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+								<tr>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<h3 class="mb-4">Δημιουργήστε μια νέα δήλωση</h3>
+				<div class="row d-flex justify-content-center">
+					<div class="form-group dilosi">
+						<label>
+							Έναρξη
+						</label>
+						<input name="date" id="date" type="date" class="form-control">
+						<i class="icofont-check"></i>
+						<i class="icofont-exclamation-circle"></i>
+						<small>Σφάλμα</small>
+					</div>
+
+					<div class="form-group dilosi">
+						<label>
+							Λήξη
+						</label>
+						<input name="date" id="date" type="date" class="form-control">
+						<i class="icofont-check"></i>
+						<i class="icofont-exclamation-circle"></i>
+						<small>Σφάλμα</small>
+					</div>
+					<div class="form-group dilosi">
+						<label>
+							Έιδος Δήλωσης
+						</label>
+						<select name="typeOfForm" id="typeOfForm" class="form-control" onchange="typeOfUserSelected()">
+							<option>Άδεια ειδικού Σκοπού</option>
+							<option>Αναστολή Σύμβασης</option>
+						</select>
+					</div>
 				
 				</div>
+				<div class="form-group d-flex justify-content-center">
+					<div class="text-center">
+						<input class="btn btn-main btn-round-full  form-btn" name="submit_btn" type="submit" value="Δημιουργία νέας Δήλωσης"></input>
+					</div>
+				</div>
 			</div>
+		</div>
 	</section>
 
 
@@ -223,8 +293,7 @@
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
 	<script src="plugins/google-map/map.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
 	<script src="js/script.js"></script>
 	<script src="js/contact.js"></script>
