@@ -149,7 +149,7 @@ mysqli_close($conn);
 					<div class="container">
 						<div class="row justify-content-center">
 
-							<form id="login-form" class="login__form" method="post" action="php_includes/signup.inc.php" onsubmit="return mysubmit()">
+							<form id="login-form" class="login__form" method="post" action="php_includes/profile_options.inc.php" onsubmit="return true">
 
 								<div class="section-title text-center mb-5">
 									<h2 class="text-md mb-2">Τα προσωπικά σας στοιχεία</h2>
@@ -217,7 +217,7 @@ mysqli_close($conn);
 											<label>
 												Eπώνυμο
 											</label>
-											<input name="lastName" id="lastName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $surname ?>">
+											<input name="lastName" id="lastName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $surname ?>" >
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -231,7 +231,7 @@ mysqli_close($conn);
 											<label>
 												Τηλέφωνο
 											</label>
-											<input name="phone" id="phone" type="tel" class="form-control" maxlength="10" placeholder="<?php echo $phone ?>">
+											<input name="phone" id="phone" type="tel" class="form-control" maxlength="10" placeholder="<?php echo $phone ?>" >
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -243,7 +243,7 @@ mysqli_close($conn);
 											<label>
 												Διεύθυνση
 											</label>
-											<input name="adress" id="adress" type="text" class="form-control" maxlength="65" placeholder="<?php echo $address ?>">
+											<input name="adress" id="adress" type="text" class="form-control" maxlength="65" placeholder="<?php echo $address ?>" >
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -256,7 +256,7 @@ mysqli_close($conn);
 											<label>
 												ΑΦΜ
 											</label>
-											<input name="afm" id="afm" type="number" class="form-control" maxlength="65" placeholder="<?php echo $afm ?>">
+											<input name="afm" id="afm" type="number" class="form-control" maxlength="65" placeholder="<?php echo $afm ?>" >
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -270,7 +270,7 @@ mysqli_close($conn);
 											<label id="companyLabelDescription">
 												Όνομα της εταιρείας που εργάζεστε
 											</label>
-											<input name="companyName" id="companyName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $companyName ?>">
+											<input name="companyName" id="companyName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $companyName ?>" >
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -278,17 +278,28 @@ mysqli_close($conn);
 									</div>
 								</div>
 
-								<div class="row">
-									<div class="col">
-										<div class="parent-checkbox form-group" id="parentSection">
-											<label>
-												Ειμαι γονέας παιδιού κάτω τών 12 ετών
-											</label>
+                                <div class="row">
+                                    <div class="col">
+                                        <?php
+                                        $temp = "";
+                                        if ($isParent) {
+                                            $temp = "checked";
+                                        }
 
-											<input type="checkbox" id="parentCheckBox" name="parentCheck" <?php if ($isParent) echo "checked" ?>>
-										</div>
-									</div>
-								</div>
+                                        if (!$type) {
+                                            echo <<< child
+                                                <div class="parent-checkbox form-group" id="parentSection">
+                                                    <label class="text-center">
+                                                        Ειμαι γονέας παιδιού κάτω τών 12 ετών <br> (Απαιτείται για την συμπλήρωση άδειας ειδικού σκοπού για γονείς)
+                                                    </label>
+
+                                                    <input type="checkbox" id="parentCheckBox" name="parentCheck" $temp>
+                                                </div>
+                                            child;
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
 
 								<div class="row">
 									<div class="col">

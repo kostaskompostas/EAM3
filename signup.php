@@ -255,12 +255,12 @@ session_start();
                     
                     <div class="mt-5 row">
                         <div class="col">
-                            <div class="parent-checkbox form-group" id="parentSection" >
-                                <label>
-                                    Ειμαι γονέας παιδιού κάτω τών 12 ετών
+                            <div class="parent-checkbox form-group" id="parentSection">
+                                <label class="text-center">
+                                    Ειμαι γονέας παιδιού κάτω τών 12 ετών <br> (Απαιτείται για την συμπλήρωση άδειας ειδικού σκοπού για γονείς)
                                 </label>
 
-                                <input   type="checkbox" id="parentCheckBox" name="parentCheck" >
+                                <input type="checkbox" id="parentCheckBox" name="parentCheck" $temp>
                             </div>
                         </div>
                     </div>
