@@ -3,32 +3,46 @@ session_start();
 $ref = $_SESSION['ref'];
 
 require 'config.php';
+//get actual values from database
+$username = $_SESSION['username'];
+$query = "SELECT * FROM users WHERE username='$username'";
+$query_run = mysqli_query($conn, $query);
 
-if (isset($_POST['submit_btn'])) {
-    
-    $name = $_POST['name']; echo "$name <br>";
-    $surname = $_POST['lastName']; echo "$surname <br>";
-    $password = $_POST['password']; echo "$password <br>";
-    $email = $_POST['email'];   echo "$email <br>";
-    $phone = $_POST['phone'];   echo "$phone<br>";
-    $afm = $_POST['afm'];   echo "$afm <br>";
-    $address = $_POST['adress'];    echo "$address <br>";
-    $companyName = $_POST['companyName'];   echo "$companyName<br>";
-    /*
-    */
+if ($query_run) {
+    $row = mysqli_fetch_assoc($query_run); //actual user data
 
-    //add a new row to the table
-    /*
-    $query = "INSERT INTO users (username, name, surname,password,email,phone,afm,typeOfUser,companyName,address,isParent)
-    VALUES('$username','$name','$surname','$password','$email',$phone,$afm,$isOwner,'$companyName','$address',$isParent)";
+    if (isset($_POST['submit_btn'])) {   //if data was submitted
+
+        // if input is not null , copy new data to variable ,else just put the old data (from db)
+        ($_POST['password']) ? $password=$_POST['password'] : $password=$row['password'];
+        ($_POST['email']) ? $email=$_POST['email'] : $email=$row['email'];
+        ($_POST['name']) ? $name=$_POST['name'] : $name=$row['name'];
+        ($_POST['lastName']) ? $lastName=$_POST['lastName'] : $lastName=$row['surname'];
+        ($_POST['phone']) ? $phone=$_POST['phone'] : $phone=$row['phone'];
+        ($_POST['adress']) ? $address=$_POST['adress'] : $address=$row['address'];
+        ($_POST['afm']) ? $afm=$_POST['afm'] : $afm=$row['afm'];
+        ($_POST['companyName']) ? $companyName=$_POST['companyName'] : $companyName=$row['companyName'];
+        (isset($_POST['parentCheck'])) ? $isParent=1: $isParent=0;
+
+    }
+
+    //update query
+    $query = "UPDATE users SET name='$name', surname='$lastName',password='$password',email='$email',phone='$phone',afm='$afm',companyName='$companyName',address='$address',isParent='$isParent' 
+    WHERE username='$username'";
+   
     $query_run = mysqli_query($conn, $query);
-
     if ($query_run) {
-        $_SESSION['username'] = $username;
-        header("Location: $ref");
+        echo "<br>SUCCSESS<br>";
+        echo "parent $isParent<br>";
+        header("Location: ../profile_options.php");
     } else {
         echo "ERROR: $query. " . mysqli_error($conn);
         header("Location: ../error.php");
-    }*/
-    mysqli_close($conn);
+    }
+
+} else {
+    echo "ERROR: $query. " . mysqli_error($conn);
+	header("Location: ../error.php");
 }
+mysqli_close($conn);
+

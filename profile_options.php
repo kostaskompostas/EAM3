@@ -304,7 +304,7 @@ mysqli_close($conn);
 								<div class="row">
 									<div class="col">
 										<div class="text-center">
-											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit" value="Απωθήκευση αλλαγών"></input>
+											<input class="btn btn-main btn-round-full appointment-btn mt-5" name="submit_btn" type="submit"></input>
 										</div>
 									</div>
 								</div>
