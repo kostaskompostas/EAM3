@@ -1389,6 +1389,11 @@ a.requires-login {
 	border-width: 2px;
 }
 
+.form-group.modified .form-control {
+	border-color: #e7973c;
+	border-width: 2px;
+}
+
 .form-group.success .icofont-check {
 	color: #2ecc71;
 	visibility: visible;

@@ -29,22 +29,18 @@ function typeOfUserSelected() {
 }
 
 function mysubmit(){
+    everythingGood = true;
     const emailValue = email.value.trim();
 
     if(emailValue !== ''){
+        console.log("111");
         if(!validateEmail(emailValue)){
             everythingGood = false;
             setErrorFor(email, "Συμπληρώστε/-*/ το email σας σε μορφή name@mail.com");
-        }else{
-            setSuccessFor(email);
         }
     }
 
-	if (everythingGood) {
-		return true;
-	}else{
-		return false;
-	}
+	return everythingGood;
 }
 
 password.addEventListener('input', function(e) {

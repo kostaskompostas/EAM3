@@ -18,6 +18,18 @@ function setSuccessFor(input){
     formControl.className = "form-group success";
 }
 
+function setModifiedFor(input){
+  const formControl = input.parentElement;
+
+  formControl.className = "form-group modified";
+}
+
+function unsetFor(input){
+  const formControl = input.parentElement;
+
+  formControl.className = "form-group";
+}
+
 // Restricts input for the given textbox to the given inputFilter function.
 function setInputFilter(textbox, inputFilter) {
     ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
