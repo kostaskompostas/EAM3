@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+	//$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 	<meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software" />
 	<meta name="author" content="themefisher.com" />
 
-	<title>Υπουργείο εργ ασίας</title>
+	<title>Υπουργείο εργασίας</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -46,7 +46,7 @@
 
 				<div class="collapse navbar-collapse" id="navbarmain">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item active">
+						<li class="nav-item">
 							<a class="nav-link" href="index.php">Αρχική</a>
 						</li>
 						<li class="nav-item">
@@ -98,7 +98,7 @@
                             enter;
                         }        
                     ?>
-                </ul>
+                </ul>	
 
 				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
 					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,6 +108,24 @@
 			</div>
 		</nav>
 	</header>
+	
+	<section class="tabsGroup">
+			<div class="container mt-5">
+				<ul class="nav nav-tabs mt-4">
+					<li class="nav-item">
+						<a class="nav-link" href="profile_options.php">Στοιχεία</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link  active" href="profile_personal_files.php">Δηλώσεις</a>
+					</li>
+					
+				</ul>
+
+				<div class="tabBox">
+				
+				</div>
+			</div>
+	</section>
 
 
 	<!-- footer Start -->

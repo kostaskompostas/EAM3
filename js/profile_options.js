@@ -35,7 +35,7 @@ function mysubmit(){
     if(emailValue !== ''){
         if(!validateEmail(emailValue)){
             everythingGood = false;
-            setErrorFor(email, "Συμπληρώστε/-*/ το email σας σε μορφή name@mail.com");
+            setErrorFor(email, "Συμπληρώστε το email σας σε μορφή name@mail.com");
         }
     }
 

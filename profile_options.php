@@ -37,7 +37,7 @@ mysqli_close($conn);
 	<meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software" />
 	<meta name="author" content="themefisher.com" />
 
-	<title>Υπουργείο εργ ασίας</title>
+	<title>Υπουργείο εργασίας</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -138,7 +138,7 @@ mysqli_close($conn);
 					<a class="nav-link active" href="profile_options.php">Στοιχεία</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="profile_personal_files.php">Δηλώσεις</a>
+					<a class="nav-link" href="personal_files.php">Δηλώσεις</a>
 				</li>
 
 			</ul>

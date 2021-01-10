@@ -35,7 +35,21 @@ if (isset($_POST['submit_btn'])) {
 
     if ($query_run) {
         $_SESSION['username'] = $username;
-        header("Location: $ref");
+
+
+        //if user was trying to get to personal files , send him there
+        if (isset($_SESSION['from_covid'])){
+            if ($_SESSION['from_covid'] == true){
+                $_SESSION['from_covid']=false;
+                header("Location: ../personal_files.php");
+            }else{
+                header("Location: $ref");
+            }
+        }else{
+            header("Location: $ref");
+        }
+
+
     } else {
         echo "ERROR: $query. " . mysqli_error($conn);
         header("Location: ../error.php");

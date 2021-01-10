@@ -182,7 +182,14 @@
 
 								<a
 									class="btn btn-main btn-round-full category-button requires-login"
-									href="#"
+									<?php
+										if(isset($_SESSION['username'])){  //if user is logged in , it transports him to profile page, else , he has to sign up
+											echo "href=personal_files.php";
+										}else{
+											$_SESSION['from_covid']=true;
+											echo "href=signin.php";
+										}
+									?>
 								>
 									Άδεια ειδικού σκοπού για γονείς
 								</a>
