@@ -4,22 +4,7 @@ const date_end = document.getElementById("date_end");
 const table = document.getElementById("tableRows")
 
 
-for (var i = 0, row; row = table.rows[i]; i++) {
-    //iterate through rows
-    //rows would be accessed using the "row" variable assigned in the for loop
-    end = row.cells[1]
-    var date = new Date(end.innerText);
-    var today = new Date();
-    
-    if (date<today){
-        row.setAttribute("class", "in-validDate");
-        console.log(row)
-    }else{
-        row.setAttribute("class", "validDate");
-        console.log(row)
-    }
 
-}
 
 function mysubmit(){
     const date_startValue = date_start.value.trim();
@@ -40,6 +25,8 @@ function mysubmit(){
         var dateIsValid = true;
 
         var formDate = new Date(date_startValue);
+        console.log(formDate);
+
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
@@ -63,6 +50,7 @@ function mysubmit(){
         var dateIsValid = true;
 
         var formDate = new Date(date_endValue);
+        console.log(formDate);
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
@@ -131,3 +119,17 @@ date_end.addEventListener('input', function(e) {
     }
 });
 
+for (var i = 0, row; row = table.rows[i]; i++) {
+    //iterate through rows
+    //rows would be accessed using the "row" variable assigned in the for loop
+    end = row.cells[1]
+    var date = new Date(end.innerText);
+    var today = new Date();
+    
+    if (date<today){
+        row.setAttribute("class", "in-validDate");
+    }else{
+        row.setAttribute("class", "validDate");
+    }
+
+}
