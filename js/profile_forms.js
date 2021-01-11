@@ -70,8 +70,6 @@ function mysubmit(){
         }
     }
 
-
-
     
     return everythingGood;
 }
@@ -122,7 +120,7 @@ date_end.addEventListener('input', function(e) {
 for (var i = 0, row; row = table.rows[i]; i++) {
     //iterate through rows
     //rows would be accessed using the "row" variable assigned in the for loop
-    end = row.cells[1]
+    end = row.cells[1];
     var date = new Date(end.innerText);
     var today = new Date();
     
@@ -132,4 +130,27 @@ for (var i = 0, row; row = table.rows[i]; i++) {
         row.setAttribute("class", "validDate");
     }
 
+}
+
+
+function delete_this(e){
+    row = e.target.parentElement; //get clicked on element
+    children = row.childNodes;
+    var start = new Date(children [1].innerText);
+    var end = new Date(children[3].innerText);
+    var type = children[5].innerText;
+    str = [start,end,type].join('/');
+
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+        if (this.readyState==4 && this.status==200){
+            console.log(this.responseText);
+        }
+    }
+    xmlhttp.open("GET","php_includes/del_personal_file.inc.php?str=" + str,true);
+    xmlhttp.send();
+
+
+    return false;
 }

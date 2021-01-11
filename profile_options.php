@@ -150,7 +150,15 @@ mysqli_close($conn);
 						<div class="row justify-content-center">
 
 							<form id="login-form" class="login__form" method="post" action="php_includes/profile_options.inc.php" onsubmit="return mysubmit();">
-
+								
+								<?php
+									if(isset($_SESSION['form_success'])){
+										if ($_SESSION['form_success'] == true){
+											echo "<h4 class='text-center text-success mt-2'>Οι αλλαγές οριστικοποιήθηκαν!</h4>";
+											$_SESSION['form_success']=false;
+										}
+									}
+								?>
 								<div class="section-title text-center mb-5">
 									<h2 class="text-md mb-2">Το προφίλ σας</h2>
 									<div class="divider mx-auto my-4"></div>

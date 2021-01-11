@@ -20,7 +20,7 @@
     
     
         if ($query_run) {
-            ///echo "Success added $username $start $end $formType";
+            $_SESSION['form_success']=true;
             header("Location: ../personal_files.php");
         } else {
             echo "ERROR: $query. " . mysqli_error($conn);

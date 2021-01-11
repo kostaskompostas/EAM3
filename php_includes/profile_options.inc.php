@@ -26,22 +26,19 @@ if ($query_run) {
 
 
         $_SESSION['isParent']=$isParent;
+        //update table
+        $query = "UPDATE users SET name='$name', surname='$lastName',password='$password',email='$email',phone='$phone',afm='$afm',companyName='$companyName',address='$address',isParent='$isParent' 
+        WHERE username='$username'";
+    
+        $query_run = mysqli_query($conn, $query);
+        if ($query_run) {
+            $_SESSION['form_success']=true;
+            header("Location: ../profile_options.php");
+        } else {
+            echo "ERROR: $query. " . mysqli_error($conn);
+            header("Location: ../error.php");
+        }
     }
-
-    //update query
-    $query = "UPDATE users SET name='$name', surname='$lastName',password='$password',email='$email',phone='$phone',afm='$afm',companyName='$companyName',address='$address',isParent='$isParent' 
-    WHERE username='$username'";
-   
-    $query_run = mysqli_query($conn, $query);
-    if ($query_run) {
-        echo "<br>SUCCSESS<br>";
-        echo "parent $isParent<br>";
-        header("Location: ../profile_options.php");
-    } else {
-        echo "ERROR: $query. " . mysqli_error($conn);
-        header("Location: ../error.php");
-    }
-
 } else {
     echo "ERROR: $query. " . mysqli_error($conn);
 	header("Location: ../error.php");

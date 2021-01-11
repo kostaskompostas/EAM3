@@ -123,7 +123,6 @@ require  'php_includes/config.php';
 
 
 			<div class="tabBox personal_files_tab_box">
-
 				<h3><i class="icofont-history mr-2"></i>Το ιστορικό των δηλώσεών σας</h3>
 				<div class="personal_files_box">
 					<div class="table-responsive">
@@ -133,22 +132,21 @@ require  'php_includes/config.php';
 									<th>Εναρξη</th>
 									<th>Λήξη</th>
 									<th>Είδος δήλωσης</th>
-									<th></th>
+									<th>Eνέργεια</th>
 								</tr>
 							</thead>
 							<tbody id="tableRows">
 								<?php
-								//fetc
+								//fetch the rows
 								$temp = $_SESSION['username'];
 								$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start DESC";
 								$rows = mysqli_query($conn, $query);
-
-
+								$counter = 0 ;
 
 								foreach ($rows as $row) {
 									$start = $row['start'];
 									$start = date('m-d-Y', strtotime($start));
-
+									
 									$end = $row['end'];
 									$end = date('m-d-Y', strtotime($end));
 
@@ -158,22 +156,13 @@ require  'php_includes/config.php';
 										<td>$start</td>
 										<td>$end</td>
 										<td>$formType</td>
-										<td></td>
+										<form id="personalFiles_delete" method="post" action="php_includes/del_personal_file.inc.php" onsubmit="return delete_this(event)">
+										<td><i class="icofont-ui-remove text-danger"></i><input  name="delete_btn" type="submit" value="Αρση"></input></td>
+										</form>
 										</tr>
 										row;
+									$counter = $counter + 1;
 								}
-								/* BEUTIFY
-									$numOfRows = mysqli_num_rows($rows);
-									for ($i = 0; $i < 8-$numOfRows; $i++) {
-										echo <<< row
-										<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										</tr>
-									row;
-									}*/
 								mysqli_close($conn);
 								?>
 
@@ -234,6 +223,11 @@ require  'php_includes/config.php';
 					<?php
 					if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
 						echo "<h4 class='text-center text-danger mt-2'>Δεν δικαιούστε άδεια ειδικού σκοπού γιατι δεν έχετε παιδί κάτω των 12 ετών</h4>";
+					}else if(isset($_SESSION['form_success'])){
+						if ($_SESSION['form_success'] == true){
+							echo "<h4 class='text-center text-success mt-2'>Η δηλωσή σας ολοκληρώθηκε επιτυχώς!</h4>";
+							$_SESSION['form_success']=false;
+						}
 					}
 					?>
 				</form>
