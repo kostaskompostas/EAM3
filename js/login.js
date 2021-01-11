@@ -3,22 +3,14 @@ const username = document.getElementById("username");
 const password = document.getElementById("password");
 
 
-
+var everythingGood = true;
 
 
 function mysubmit(){
-	if (checkInputs()) {
-		return true;
-	}else{
-		return false;
-	}
-}
+    everythingGood = true;
 
-function checkInputs(){
     const name_Value = username.value.trim();
     const passValue = password.value.trim();
-
-    var everythingGood = true;
 
     if(name_Value === ''){
         everythingGood = false;

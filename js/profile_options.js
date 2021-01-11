@@ -12,9 +12,8 @@ const parentCheckBox = document.getElementById("parentCheckBox");
 
 
 isOwner = parentCheckBox != null;
-typeOfUserSelected();
 
-changes = 0;
+typeOfUserSelected();
 
 setInputFilter(phone, function(value) {
     return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
@@ -29,9 +28,9 @@ function typeOfUserSelected() {
 }
 
 function mysubmit(){
-    everythingGood = true;
-    const emailValue = email.value.trim();
+    var everythingGood = true;
 
+    const emailValue = email.value.trim();
     if(emailValue !== ''){
         if(!validateEmail(emailValue)){
             everythingGood = false;
@@ -43,82 +42,49 @@ function mysubmit(){
 }
 
 password.addEventListener('input', function(e) {
-    var defaultVal = password.getAttribute("placeholder");
-    if(defaultVal == password.value || password.value == ''){
-        unsetFor(password);
-    }else{
-        setModifiedFor(password);
-    }
+    handleInput(password);
 });
 
 email.addEventListener('input', function(e) {
-    var defaultVal = email.getAttribute("placeholder");
-    if(defaultVal == email.value || email.value == ''){
-        unsetFor(email);
-    }else{
-        setModifiedFor(email);
+    handleInput(email);
+
+    const emailValue = email.value.trim();
+    if(emailValue !== ''){
+        if(!validateEmail(emailValue)){
+            setErrorFor(email, "Συμπληρώστε το email σας σε μορφή name@mail.com");
+        }
     }
 });
 
 firstName.addEventListener('input', function(e) {
-    var defaultVal = firstName.getAttribute("placeholder");
-    if(defaultVal == firstName.value || firstName.value == ''){
-        unsetFor(firstName);
-    }else{
-        setModifiedFor(firstName);
-    }
+    handleInput(firstName);
 });
 
 lastName.addEventListener('input', function(e) {
-    var defaultVal = lastName.getAttribute("placeholder");
-    if(defaultVal == lastName.value || lastName.value == ''){
-        unsetFor(lastName);
-    }else{
-        setModifiedFor(lastName);
-    }
+    handleInput(lastName);
 });
 
 phone.addEventListener('input', function(e) {
-    var defaultVal = phone.getAttribute("placeholder");
-    if(defaultVal == phone.value || phone.value == ''){
-        unsetFor(phone);
-    }else{
-        setModifiedFor(phone);
-    }
-});
-
-phone.addEventListener('input', function(e) {
-    var defaultVal = phone.getAttribute("placeholder");
-    if(defaultVal == phone.value || phone.value == ''){
-        unsetFor(phone);
-    }else{
-        setModifiedFor(phone);
-    }
+    handleInput(phone);
 });
 
 address.addEventListener('input', function(e) {
-    var defaultVal = address.getAttribute("placeholder");
-    if(defaultVal == address.value || address.value == ''){
-        unsetFor(address);
-    }else{
-        setModifiedFor(address);
-    }
+    handleInput(address);
 });
 
 afm.addEventListener('input', function(e) {
-    var defaultVal = afm.getAttribute("placeholder");
-    if(defaultVal == afm.value || afm.value == ''){
-        unsetFor(afm);
-    }else{
-        setModifiedFor(afm);
-    }
+    handleInput(afm);
 });
 
 companyName.addEventListener('input', function(e) {
-    var defaultVal = companyName.getAttribute("placeholder");
-    if(defaultVal == companyName.value || companyName.value == ''){
-        unsetFor(companyName);
-    }else{
-        setModifiedFor(companyName);
-    }
+    handleInput(companyName);
 });
+
+function handleInput(inp){
+    var defaultVal = inp.getAttribute("placeholder");
+    if(defaultVal == inp.value || inp.value == ''){
+        unsetFor(inp);
+    }else{
+        setModifiedFor(inp);
+    }
+}

@@ -38,26 +38,8 @@ function typeOfUserSelected() {
 	}
 }
 
-
-
 function mysubmit(){
-	if (checkInputs()) {
-		return true;
-	}else{
-		return false;
-	}
-}
-/*
-form.addEventListener("submit", (e) => {
-	window.location = "index.html";
 
-});
-
-*/
-
-
-
-function checkInputs() {
 	const usernameValue = username.value.trim();
 	const passValue = password.value.trim();
 	const afmValue = afm.value.trim();
@@ -147,3 +129,14 @@ function checkInputs() {
 
 	return everythingGood;
 }
+
+email.addEventListener('input', function(e) {
+    const emailValue = email.value.trim();
+    if(emailValue !== ''){
+        if(!validateEmail(emailValue)){
+            setErrorFor(email, "Συμπληρώστε το email σας σε μορφή name@mail.com");
+        }else{
+			setSuccessFor(email);
+		}
+    }
+});

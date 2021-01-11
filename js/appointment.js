@@ -122,3 +122,62 @@ function checkInputs(){
 
     return everythingGood;
 }
+
+email.addEventListener('input', function(e) {
+    const emailValue = email.value.trim();
+    if(emailValue !== ''){
+        if(!validateEmail(emailValue)){
+            setErrorFor(email, "Συμπληρώστε το email σας σε μορφή name@mail.com");
+        }else{
+			setSuccessFor(email);
+		}
+    }
+});
+
+date.addEventListener('input', function(e) {
+    const dateValue = date.value.trim();
+
+    if(dateValue !== ''){
+        var dateIsValid = true;
+
+        var formDate = new Date(dateValue);
+        var day = formDate.getUTCDay();
+        if([6,0].includes(day)){
+            everythingGood = false;
+            dateIsValid = false;
+            setErrorFor(date, "Συμπληρώστε μια μερα εντός των ημερών λειτουργίας");
+        }else{
+            setSuccessFor(date);
+        }
+
+        if(dateIsValid){
+            var today = new Date();
+            if(formDate < today){
+                everythingGood = false;
+                setErrorFor(date, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
+            }else{
+                setSuccessFor(date);
+            }
+        }
+    }
+});
+
+timeAp.addEventListener('input', function(e) {
+    const timeValue = timeAp.value.trim();
+    if(timeValue !== ''){
+        // get input time
+        var time = timeValue.split(":");
+        
+        var hour = parseInt(time[0]);
+        var min = parseInt(time[1]);
+        
+        var timeInMin = 60*hour + min;
+
+        if (timeInMin > 1200 || timeInMin < 480) {
+            everythingGood = false;
+            setErrorFor(timeAp, "Συμπληρώστε μια ώρα εντός του ωράριου λειτουργίας");
+        } else {
+            setSuccessFor(timeAp);
+        }
+    }
+});
