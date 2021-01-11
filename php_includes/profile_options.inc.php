@@ -24,6 +24,8 @@ if ($query_run) {
         ($_POST['companyName']) ? $companyName=$_POST['companyName'] : $companyName=$row['companyName'];
         (isset($_POST['parentCheck'])) ? $isParent=1: $isParent=0;
 
+
+        $_SESSION['isParent']=$isParent;
     }
 
     //update query

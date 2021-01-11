@@ -209,17 +209,28 @@ require  'php_includes/config.php';
 							<label>
 								Έιδος Δήλωσης
 							</label>
-							<select name="typeOfForm" id="typeOfForm" class="form-control">
-								<option>Άδεια ειδικού Σκοπού</option>
-								<option>Αναστολή Σύμβασης</option>
-								<option>Τηλεργασία</option>
+							<select name="typeOfForm" id="typeOfForm" class="form-control ">
+								<?php
+									if ($_SESSION['typeOfUser']==1){
+										echo	"<option>Αναστολή Σύμβασης</option>";
+										echo 	"<option>Τηλεργασία</option>";
+									}else{
+										echo	"<option>Άδεια ειδικού Σκοπού</option>";									
+									}
+								?>
 							</select>
 						</div>
 
 					</div>
 					<div class="form-group d-flex justify-content-center">
 						<div class="text-center">
-							<input class="btn btn-main btn-round-full  form-btn" name="submit_btn" type="submit" value="Δημιουργία νέας Δήλωσης"></input>
+							<input class="btn btn-main btn-round-full form-btn" name="submit_btn" type="submit" value="Δημιουργία νέας Δήλωσης"  
+							<?php 
+								if($_SESSION['typeOfUser']==0 && $_SESSION['isParent']==0){
+									echo "disabled";
+								}
+							?> 
+							></input>
 						</div>
 					</div>
 				</form>

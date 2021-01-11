@@ -35,6 +35,9 @@ if (isset($_POST['submit_btn'])) {
 
     if ($query_run) {
         $_SESSION['username'] = $username;
+        $_SESSION['typeOfUser']=$type;
+        $_SESSION['isParent']=$isParent;
+
 
 
         //if user was trying to get to personal files , send him there
