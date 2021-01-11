@@ -1,6 +1,7 @@
 <?php
 session_start();
 //$_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+require  'php_includes/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -134,30 +135,50 @@ session_start();
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+									//fetc
+									$temp = $_SESSION['username'];
+									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start ";
+									$rows = mysqli_query ($conn,$query);
+
+									
+									
+									foreach ($rows as $row){
+										$start = $row['start'];
+										$end = $row['end'];
+										$formType = $row['formType'];
+										echo <<< row
+										<tr>
+										<td>$start</td>
+										<td>$end</td>
+										<td>$formType</td>
+										<td></td>
+										</tr>
+										row;
+									}
+									/* BEUTIFY
+									$numOfRows = mysqli_num_rows($rows);
+									for ($i = 0; $i < 8-$numOfRows; $i++) {
+										echo <<< row
+										<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										</tr>
+									row;
+									}*/
+									mysqli_close($conn);
+								?>
+
 								<tr>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
 				<h3 class="mb-4">Δημιουργήστε μια νέα δήλωση</h3>
-				<form id="personalFiles_form" method="post" action="#" onsubmit="return mysubmit()">
+				<form id="personalFiles_form" method="post" action="php_includes/new_personal_file.inc.php" onsubmit="return mysubmit()">
 					<div class="row d-flex justify-content-center">
 						<div class="form-group dilosi">
 							<label>

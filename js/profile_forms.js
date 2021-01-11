@@ -14,6 +14,22 @@ function mysubmit(){
     } else{
         setSuccessFor(date_start);
     }
+    
+    if(date_startValue !== ''){
+        var dateIsValid = true;
+
+        var formDate = new Date(date_startValue);
+        var day = formDate.getUTCDay();
+        if(dateIsValid){
+            var today = new Date();
+            if(formDate < today){
+                everythingGood = false;
+                setErrorFor(date_start, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
+            }else{
+                setSuccessFor(date_start);
+            }
+        }
+    }
 
     if(date_endValue === ''){
         everythingGood = false;
@@ -22,5 +38,25 @@ function mysubmit(){
         setSuccessFor(date_end);
     }
 
+    
     return everythingGood;
 }
+
+date_start.addEventListener('input', function(e) {
+    const date_startValue = date_start.value.trim();
+    if(date_startValue !== ''){
+        var dateIsValid = true;
+
+
+        var formDate = new Date(date_startValue);
+        var day = formDate.getUTCDay();
+        if(dateIsValid){
+            var today = new Date();
+            if(formDate < today){
+                setErrorFor(date_start, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
+            }else{
+                setSuccessFor(date_start);
+            }
+        }
+    }
+});
