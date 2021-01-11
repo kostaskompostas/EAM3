@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -64,11 +64,11 @@
 
                 <ul class="navbar-nav ml-auto">
                     <?php
-                        if (isset($_SESSION['username'])){
-                            //echo 
-                            $name = $_SESSION['username'];
-                            
-                            echo <<< account
+                    if (isset($_SESSION['username'])) {
+                        //echo 
+                        $name = $_SESSION['username'];
+
+                        echo <<< account
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icofont-ui-user"></i>Λογαριασμος
@@ -80,8 +80,8 @@
                                 </div>
                             </div>
                             account;
-                        }else{
-                            echo <<< enter
+                    } else {
+                        echo <<< enter
                             <li class="nav-item">
                                 <a href="signin.php" class="nav-link">
                                     Σύνδεση
@@ -95,19 +95,11 @@
                                 </a>
                             </li>
                             enter;
-                        }        
+                    }
                     ?>
                 </ul>
 
-                <button
-                    class="navbar-toggler collapsed"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarmain"
-                    aria-controls="navbarmain"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icofont-navigation-menu"></span>
                 </button>
             </div>
@@ -118,44 +110,43 @@
         <div class="container">
             <div class="row justify-content-center">
 
-            <form id="login-form" class="login__form" method="post" action="php_includes/signin.inc.php" onsubmit="return mysubmit()">
+                <form id="login-form" class="login__form" method="post" action="php_includes/signin.inc.php" onsubmit="return mysubmit()">
 
-                <div class="section-title text-center mb-5">
-                    <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
-                    <div class="divider mx-auto my-4"></div>
-                </div>
+                    <div class="section-title text-center mb-5">
+                        <h2 class="text-md mb-2">Συνδεθείτε στον λογαριασμό σας</h2>
+                        <div class="divider mx-auto my-4"></div>
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        Όνομα χρήστη
-                    </label>
-                    <input name="username" id="username" type="text" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
+                    <div class="form-group">
+                        <label>
+                            Όνομα χρήστη
+                        </label>
+                        <input name="username" id="username" type="text" class="form-control" maxlength="65">
+                        <i class="icofont-check"></i>
+                        <i class="icofont-exclamation-circle"></i>
+                        <small>Σφάλμα</small>
+                    </div>
 
-                <div class="form-group">
-                    <label>
-                        Ο κωδικός σας
-                    </label>
-                    <input name="password" id="password" type="password" class="form-control" maxlength="65">
-                    <i class="icofont-check"></i>
-                    <i class="icofont-exclamation-circle"></i>
-                    <small>Σφάλμα</small>
-                </div>
+                    <div class="form-group">
+                        <label>
+                            Ο κωδικός σας
+                        </label>
+                        <input name="password" id="password" type="password" class="form-control" maxlength="65">
+                        <i class="icofont-check"></i>
+                        <i class="icofont-exclamation-circle"></i>
+                        <small>Σφάλμα</small>
+                    </div>
 
-                <div class="text-center">
-                    <input class="btn btn-main btn-round-full appointment-btn" name="submit_btn" type="submit"
-                        value="Σύνδεση"></input>
+                    <div class="text-center">
+                        <input class="btn btn-main btn-round-full appointment-btn" name="submit_btn" type="submit" value="Σύνδεση"></input>
                         <div class="pt-4">
                             <a href="signup.php">Δεν έχετε λογαριασμό? Κάντε εγράφη!</a>
                         </div>
-                </div>
+                    </div>
 
-                
-            </form>
-        </div>
+
+                </form>
+            </div>
 
         </div>
     </section>
@@ -259,8 +250,7 @@
     <script src="plugins/counterup/jquery.counterup.min.js"></script>
     <!-- Google Map -->
     <script src="plugins/google-map/map.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
     <script src="js/script.js"></script>
 
