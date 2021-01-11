@@ -4,7 +4,7 @@ const date_end = document.getElementById("date_end");
 
 function mysubmit(){
     const date_startValue = date_start.value.trim();
-    const date_endValue = date_end.trim();
+    const date_endValue = date_end.value.trim();
 
     var everythingGood = true;
 

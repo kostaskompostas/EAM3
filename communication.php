@@ -164,7 +164,7 @@
 						<h5>Τοποθεσία υπουργείου</h5>
 						<a
 							href="https://www.google.com/maps/place/Ministry+of+Labour+and+Social+Affairs/@37.9804215,23.728891,17z/data=!3m1!4b1!4m5!3m4!1s0x14a1bd3bad145a41:0x6db1fc0cbb58a00a!8m2!3d37.9804173!4d23.7310797">Σταδίου
-							29, Αθήνα 105 59</a>><br>
+							29, Αθήνα 105 59</a><br>
 						<i class="icofont-clock-time mt-3"></i>
 						<h5>Ώρες λειτουργίας υπουργείου</h5>
 						Δευτερα-Παρασκευή: 8:00-20:00<br>
