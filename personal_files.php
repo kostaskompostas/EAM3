@@ -120,9 +120,11 @@ require  'php_includes/config.php';
 				</li>
 
 			</ul>
+			
 
 			<div class="tabBox personal_files_tab_box">
-				<h3>Το ιστορικό των δηλώσεών σας</h3>
+				
+				<h3><i class="icofont-history mr-2"></i>Το ιστορικό των δηλώσεών σας</h3>
 				<div class="personal_files_box">
 					<div class="table-responsive">
 						<table class="table table-bordered">
@@ -134,18 +136,22 @@ require  'php_includes/config.php';
 									<th></th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody id="tableRows">
 								<?php
 									//fetc
 									$temp = $_SESSION['username'];
-									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start ";
+									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start DESC";
 									$rows = mysqli_query ($conn,$query);
 
 									
 									
 									foreach ($rows as $row){
 										$start = $row['start'];
+										$start = date('m-d-Y', strtotime($start));
+
 										$end = $row['end'];
+										$end = date('m-d-Y',strtotime($end));
+
 										$formType = $row['formType'];
 										echo <<< row
 										<tr>
@@ -177,7 +183,7 @@ require  'php_includes/config.php';
 						</table>
 					</div>
 				</div>
-				<h3 class="mb-4">Δημιουργήστε μια νέα δήλωση</h3>
+				<h3 class="mb-4"><i class="icofont-ui-add mr-2"></i>Δημιουργήστε μια νέα δήλωση</h3>
 				<form id="personalFiles_form" method="post" action="php_includes/new_personal_file.inc.php" onsubmit="return mysubmit()">
 					<div class="row d-flex justify-content-center">
 						<div class="form-group dilosi">
@@ -217,6 +223,7 @@ require  'php_includes/config.php';
 						</div>
 					</div>
 				</form>
+				
 			</div>
 		</div>
 	</section>

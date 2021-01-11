@@ -12,6 +12,23 @@ html {
 	overflow-x: hidden;
 }
 
+thead tr{
+	border-bottom-color:black;
+	border-bottom-style:solid;
+	border-bottom-width:3px;
+}
+thead tr th{
+	background-color:rgba(216, 215, 206, 0.555);
+}
+tr.validDate{
+	background-color:rgba(126, 252, 0, 0.219);
+}
+
+tr.in-validDate{
+	background-color:rgba(243, 120, 6, 0.171);
+
+}
+
 .form-group.dilosi {
 	width: 211px;
 }
