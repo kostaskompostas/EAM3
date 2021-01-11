@@ -20,6 +20,7 @@ for (var i = 0, row; row = table.rows[i]; i++) {
     }
 
 }
+
 function mysubmit(){
     const date_startValue = date_start.value.trim();
     const date_endValue = date_end.value.trim();
@@ -39,7 +40,6 @@ function mysubmit(){
         var dateIsValid = true;
 
         var formDate = new Date(date_startValue);
-        var day = formDate.getUTCDay();
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
@@ -63,7 +63,6 @@ function mysubmit(){
         var dateIsValid = true;
 
         var formDate = new Date(date_endValue);
-        var day = formDate.getUTCDay();
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
@@ -96,11 +95,9 @@ date_start.addEventListener('input', function(e) {
 
 
         var formDate = new Date(date_startValue);
-        var day = formDate.getUTCDay();
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
-                everythingGood = false;
                 setErrorFor(date_start, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
             }else{
                 setSuccessFor(date_start);
@@ -117,23 +114,17 @@ date_end.addEventListener('input', function(e) {
     if(date_endValue !== ''){
         var dateIsValid = true;
 
-
         var formDate = new Date(date_endValue);
-        var day = formDate.getUTCDay();
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
-                everythingGood = false;
                 setErrorFor(date_end, "Η λήξη πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
-            }else{
-                
+            }else{                
                 var formDateStart = new Date(date_startValue);
                 if (formDate < formDateStart){
-                    everythingGood = false;
                     setErrorFor(date_end, "Η λήξη πρέπει να είναι μετά την έναρξη");
                 }else{
                     setSuccessFor(date_end);
-
                 }
             }
         }
