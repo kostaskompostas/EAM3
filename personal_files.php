@@ -120,10 +120,10 @@ require  'php_includes/config.php';
 				</li>
 
 			</ul>
-			
+
 
 			<div class="tabBox personal_files_tab_box">
-				
+
 				<h3><i class="icofont-history mr-2"></i>Το ιστορικό των δηλώσεών σας</h3>
 				<div class="personal_files_box">
 					<div class="table-responsive">
@@ -138,22 +138,22 @@ require  'php_includes/config.php';
 							</thead>
 							<tbody id="tableRows">
 								<?php
-									//fetc
-									$temp = $_SESSION['username'];
-									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start DESC";
-									$rows = mysqli_query ($conn,$query);
+								//fetc
+								$temp = $_SESSION['username'];
+								$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start DESC";
+								$rows = mysqli_query($conn, $query);
 
-									
-									
-									foreach ($rows as $row){
-										$start = $row['start'];
-										$start = date('m-d-Y', strtotime($start));
 
-										$end = $row['end'];
-										$end = date('m-d-Y',strtotime($end));
 
-										$formType = $row['formType'];
-										echo <<< row
+								foreach ($rows as $row) {
+									$start = $row['start'];
+									$start = date('m-d-Y', strtotime($start));
+
+									$end = $row['end'];
+									$end = date('m-d-Y', strtotime($end));
+
+									$formType = $row['formType'];
+									echo <<< row
 										<tr>
 										<td>$start</td>
 										<td>$end</td>
@@ -161,8 +161,8 @@ require  'php_includes/config.php';
 										<td></td>
 										</tr>
 										row;
-									}
-									/* BEUTIFY
+								}
+								/* BEUTIFY
 									$numOfRows = mysqli_num_rows($rows);
 									for ($i = 0; $i < 8-$numOfRows; $i++) {
 										echo <<< row
@@ -174,7 +174,7 @@ require  'php_includes/config.php';
 										</tr>
 									row;
 									}*/
-									mysqli_close($conn);
+								mysqli_close($conn);
 								?>
 
 								<tr>
@@ -211,12 +211,12 @@ require  'php_includes/config.php';
 							</label>
 							<select name="typeOfForm" id="typeOfForm" class="form-control ">
 								<?php
-									if ($_SESSION['typeOfUser']==1){
-										echo	"<option>Αναστολή Σύμβασης</option>";
-										echo 	"<option>Τηλεργασία</option>";
-									}else{
-										echo	"<option>Άδεια ειδικού Σκοπού</option>";									
-									}
+								if ($_SESSION['typeOfUser'] == 1) {
+									echo	"<option>Αναστολή Σύμβασης</option>";
+									echo 	"<option>Τηλεργασία</option>";
+								} else {
+									echo	"<option>Άδεια ειδικού Σκοπού</option>";
+								}
 								?>
 							</select>
 						</div>
@@ -224,17 +224,20 @@ require  'php_includes/config.php';
 					</div>
 					<div class="form-group d-flex justify-content-center">
 						<div class="text-center">
-							<input class="btn btn-main btn-round-full form-btn" name="submit_btn" type="submit" value="Δημιουργία νέας Δήλωσης"  
-							<?php 
-								if($_SESSION['typeOfUser']==0 && $_SESSION['isParent']==0){
-									echo "disabled";
-								}
-							?> 
-							></input>
+							<input class="btn btn-main btn-round-full form-btn" name="submit_btn" type="submit" value="Δημιουργία νέας Δήλωσης" <?php
+																																				if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
+																																					echo "disabled";
+																																				}
+																																				?>></input>
 						</div>
 					</div>
+					<?php
+					if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
+						echo "<h4 class='text-center text-danger mt-2'>Δεν δικαιούστε άδεια ειδικού σκοπού γιατι δεν έχετε παιδί κάτω των 12 ετών</h4>";
+					}
+					?>
 				</form>
-				
+
 			</div>
 		</div>
 	</section>

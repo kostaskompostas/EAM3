@@ -12,23 +12,20 @@ html {
 	overflow-x: hidden;
 }
 
-
-
-thead tr{
-	border-bottom-color:black;
-	border-bottom-style:solid;
-	border-bottom-width:3px;
+thead tr {
+	border-bottom-color: black;
+	border-bottom-style: solid;
+	border-bottom-width: 3px;
 }
-thead tr th{
-	background-color:rgba(216, 215, 206, 0.555);
+thead tr th {
+	background-color: rgba(216, 215, 206, 0.555);
 }
-tr.validDate{
-	background-color:rgba(126, 252, 0, 0.219);
+tr.validDate {
+	background-color: rgba(126, 252, 0, 0.219);
 }
 
-tr.in-validDate{
-	background-color:rgba(243, 120, 6, 0.171);
-
+tr.in-validDate {
+	background-color: rgba(243, 120, 6, 0.171);
 }
 
 .form-group.dilosi {
@@ -1451,6 +1448,7 @@ a.requires-login {
 .tabBox .form-group input:disabled {
 	background-color: rgba(236, 238, 245, 0.507);
 	border-color: rgba(78, 78, 92, 0.418);
+	color: black;
 }
 
 .contact-form-wrap.profile-box.section {
