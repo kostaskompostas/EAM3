@@ -19,6 +19,7 @@ html {
 }
 
 .employee:hover{
+	cursor: pointer;
 	background-color: rgba(35, 157, 228, 0.219);
 }
 

@@ -155,7 +155,7 @@ mysqli_close($conn);
 								<?php
 								if (isset($_SESSION['form_success'])) {
 									if ($_SESSION['form_success'] == true) {
-										echo "<h4 class='text-center text-success mt-2'>Οι αλλαγές οριστικοποιήθηκαν!</h4>";
+										echo "<h4 class='text-center text-success mt-2 mb-5'>Οι αλλαγές οριστικοποιήθηκαν!</h4>";
 										$_SESSION['form_success'] = false;
 									}
 								}
