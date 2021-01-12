@@ -6,8 +6,9 @@
 
     if (isset($_POST['submit_btn'])) {
 
-        //if its an employer , push the new dilosi to the selected employee
         
+
+        //if its an employer , push the new dilosi to the selected employee
         $owner = $_SESSION['username'];
         if ($_SESSION['typeOfUser']==1){  
             $username = $_SESSION['selectedEmployee'];

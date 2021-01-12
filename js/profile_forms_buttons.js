@@ -1,10 +1,8 @@
-
-
 function delete_this(e){
-    btn = e.target.parentElement; //get clicked on element
-    td = btn.parentElement;
-    tr = td.parentElement;
-    children = tr.childNodes;
+    thing1 = e.target.parentElement; //get clicked on element
+    thing2 = thing1.parentElement.parentElement;
+    children =thing2.childNodes;
+
     var start = new Date(children [1].innerText);
     var end = new Date(children[3].innerText);
     var type = children[5].innerText;
@@ -27,14 +25,13 @@ function delete_this(e){
 
 
 function fetchEmployee(e){
-    employee = e.target.parentElement.parentElement.parentElement; //get clicked on element
+    employee = e.target.parentElement; //get clicked on element
     children = employee.childNodes;
     var name = children [1].innerText;
     var surname = children[3].innerText;
     var afm = children[5].innerText;
     str = [name,surname,afm].join('/');
-
-    
+        
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (this.readyState==4 && this.status==200){
@@ -51,15 +48,31 @@ function fetchEmployee(e){
         
             //show history 
             var table=document.getElementById("historyRows");
-            table.innerHTML=this.responseText;
+            
+            str = this.responseText;
+            var gender = str.split("\t",1)[0];
+        
+            newstuff = str.slice(gender.length,this.responseText.length);
+            table.innerHTML=newstuff;
+
+            //change header
+            h= document.getElementById("create_form_header");
+            if (gender==="Male"){
+                temp="τον";
+            }else if (gender=="Female"){
+                temp="την";
+            }else{
+                temp="τ@";
+            }
+            str="Δημιουργήστε μια νέα δήλωση για "+temp+" "+name;
+            h.innerHTML =str;
+
             stylizeHistory(table);
         }
     }
     xmlhttp.open("GET","php_includes/fetch_personal_file.inc.php?str=" + str,true);
     xmlhttp.send();
 
-
-    return false;
 
 }
 
@@ -80,3 +93,4 @@ function stylizeHistory(table){
     }
 
 }
+

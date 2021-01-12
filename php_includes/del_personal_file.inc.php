@@ -25,17 +25,17 @@
 
     //choose correct username 
     if ($_SESSION['typeOfUser']==0)
-        $temp = $_SESSION['username'];
+        $username = $_SESSION['username'];
     else
-        $temp = $_SESSION['selectedEmployee'];    
+        $username = $_SESSION['selectedEmployee'];    
 
     //delete query
-    $query = "DELETE FROM forms WHERE username='$temp' AND formType='$type' AND start='$start' AND end='$end'";
+    $query = "DELETE FROM forms WHERE username='$username' AND formType='$type' AND start='$start' AND end='$end'";
     if (!$conn->query($query)){
         echo ("Error description: ".$conn->error);
     }else{
         //refresh
-        $query = "SELECT * FROM forms WHERE username='$temp' ORDER BY end DESC";
+        $query = "SELECT * FROM forms WHERE username='$username' ORDER BY end DESC";
         $rows = mysqli_query($conn, $query);
 
         foreach ($rows as $row) {
@@ -59,7 +59,7 @@
             <td>$end</td>
             <td>$formType</td>";
             if ($canModify)	
-                echo "<td><button  name='delete_btn' onclick='delete_this(event)' ><i class='icofont-ui-remove text-danger'>Αρση</i></button></td>";
+                echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'>Διαγραφή</i></h4></td>";
             else{
                 echo "<td></td>";
             }

@@ -131,6 +131,7 @@ require  'php_includes/config.php';
 				if ($_SESSION['typeOfUser']==1){
 					echo "
 					<h3><i class='icofont-people mr-2'></i>Οι υπάλληλοί σας</h3>
+					<h5 class='text-center mt-3'>Κάντε κλικ σε έναν απο τους υπαλλήλους σας</h5>
 					<div id='employeeTable' class='personal_files_box'>
 						<div class='table-responsive'>
 							<table class='table table-bordered'>
@@ -143,7 +144,6 @@ require  'php_includes/config.php';
 										<th>Διευθυνση</th>
 										<th>Τηλέφωνο</th>
 										<th>E-mail</th>
-										<th>Ενέργειες</th>
 									</tr>
 								</thead>
 								<tbody id='employeeRows'>";
@@ -164,7 +164,9 @@ require  'php_includes/config.php';
 										$email =$row['email'];
 										
 										echo <<< row
-										<tr class="employee">
+										<tr class="employee" onclick="fetchEmployee(event)">
+										
+
 										<td>$name</td>
 										<td>$surname</td>
 										<td>$afm</td>
@@ -172,7 +174,6 @@ require  'php_includes/config.php';
 										<td>$address</td>
 										<td>$phone</td>
 										<td>$email</td>
-										<td><a  href=# onclick="fetchEmployee(event)"><i class="icofont-history">Ιστορικό</a></td>
 										</tr>
 										row;
 
@@ -230,7 +231,7 @@ require  'php_includes/config.php';
 										<td>$end</td>
 										<td>$formType</td>";
 										if ($canModify)	
-											echo "<td><button  name='delete_btn' onclick='delete_this(event)'' ><i class='icofont-ui-remove text-danger'>Αρση</i></button></td>";
+											echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'>Διαγραφή</i></h4></td>";
 										else{
 											echo "<td></td>";
 										}
@@ -248,7 +249,22 @@ require  'php_includes/config.php';
 						</table>
 					</div>
 				</div>
-				<h3 class="mb-4"><i class="icofont-ui-add mr-2"></i>Δημιουργήστε μια νέα δήλωση</h3>
+				<div>
+
+				</div>
+
+				<h3 class="mb-4"><i  class="icofont-ui-add mr-2"></i>
+				<label id="create_form_header" >
+					
+					<?php
+					if ($_SESSION['typeOfUser']==0){
+						echo "Δημιουργήστε μια νέα δήλωση"; 
+					}else{
+						echo "Επιλέξτε έναν υπάλληλο ώστε να δημιουργήσετε νέα δήλωση";
+					}
+					?>
+				</h3>
+				</label>  
 				<form id="personalFiles_form" method="post" action="php_includes/new_personal_file.inc.php" onsubmit="return mysubmit()">
 					<div class="row d-flex justify-content-center">
 						<div class="form-group dilosi">

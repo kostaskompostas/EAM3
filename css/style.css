@@ -12,8 +12,14 @@ html {
 	overflow-x: hidden;
 }
 
+
+
+.employee:hover{
+	background-color: rgba(35, 157, 228, 0.219);
+}
+
 tr#employee-selected{
-	background-color: rgba(58, 162, 223, 0.219);
+	background-color: rgba(0, 162, 255, 0.37);
 }
 
 thead tr {

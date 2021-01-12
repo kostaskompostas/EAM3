@@ -160,6 +160,35 @@ session_start();
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="form-group  col-lg-5">
+                            <label>
+                                Το φύλο σάς
+                            </label>
+                            <div class="d-flex align-items-center text-center"  >
+                                <div class="col-lg-6">
+                                    <input type="radio" id="male" name="gender" value="male">
+                                    <label  for="male">Άντρας</label><br>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <input type="radio" id="female" name="gender" value="female">
+                                    <label  for="female">Γυναίκα</label><br>
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="radio" id="other" name="gender" value="other">
+                                    <label  for="other">Άλλο</label>
+                                </div>
+                                <i class="icofont-check"></i>
+                                <i class="icofont-exclamation-circle"></i>
+                                <small>Σφάλμα</small>
+
+
+                            </div>
+                        </div>
+                        
+                    </div>
+
                     <div class="row ">
                         <div class="col-lg-6">
                             <div class="form-group">

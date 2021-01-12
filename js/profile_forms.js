@@ -3,13 +3,14 @@ const date_start = document.getElementById("date_start");
 const date_end = document.getElementById("date_end");
 const table = document.getElementById("historyRows")
 const isOwner = document.getElementById("employeeTable");
+const typeOfForm = document.getElementById("typeOfForm");
 
 
 
 function mysubmit(){
     const date_startValue = date_start.value.trim();
     const date_endValue = date_end.value.trim();
-
+    const type_Value =typeOfForm.value.trim();
     var everythingGood = true;
 
 
@@ -71,9 +72,12 @@ function mysubmit(){
             }
         }
     }
-
+    
     return everythingGood;
+
 }
+
+
 
 date_start.addEventListener('input', function(e) {
     const date_startValue = date_start.value.trim();

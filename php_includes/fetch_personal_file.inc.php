@@ -14,7 +14,11 @@
     $rows=mysqli_fetch_assoc($query_run);
     $employee_username = $rows['username'];
     $_SESSION['selectedEmployee']=$employee_username;
+    $_SESSION['selectedEmployee_gender'] = $rows['gender'];
 
+    $gender = $rows['gender'];
+    echo "$gender\t";
+    
     //select diloseis
     $query = "SELECT * FROM forms WHERE username='$employee_username' ORDER BY end DESC";
     $rows= mysqli_query($conn, $query);
@@ -42,7 +46,7 @@
             <td>$end</td>
             <td>$formType</td>";
             if ($canModify)	
-                echo "<td><button  name='delete_btn' onclick='delete_this(event)'' ><i class='icofont-ui-remove text-danger'>Αρση</i></button></td>";
+                echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'>Διαγραφή</i></h4></td>";
             else{
                 echo "<td></td>";
             }

@@ -15,6 +15,7 @@ if (isset($_POST['submit_btn'])) {
     $type = $_POST['typeOfUser'];
     $address = $_POST['adress'];
     $companyName = $_POST['companyName'];
+    $gender = $_POST['gender'];
 
     $isOwner = 0;
     $isParent = 0;
@@ -29,8 +30,8 @@ if (isset($_POST['submit_btn'])) {
     }
 
     //add a new row to the table
-    $query = "INSERT INTO users (username, name, surname,password,email,phone,afm,typeOfUser,companyName,address,isParent)
-    VALUES('$username','$name','$surname','$password','$email',$phone,$afm,$isOwner,'$companyName','$address',$isParent)";
+    $query = "INSERT INTO users (username, name, surname,password,email,phone,afm,typeOfUser,companyName,address,isParent,gender)
+    VALUES('$username','$name','$surname','$password','$email',$phone,$afm,$isOwner,'$companyName','$address',$isParent,'$gender')";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {
