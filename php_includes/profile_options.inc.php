@@ -23,11 +23,11 @@ if ($query_run) {
         ($_POST['afm']) ? $afm=$_POST['afm'] : $afm=$row['afm'];
         ($_POST['companyName']) ? $companyName=$_POST['companyName'] : $companyName=$row['companyName'];
         (isset($_POST['parentCheck'])) ? $isParent=1: $isParent=0;
-
+        ($_POST['gender']) ? $gender = $_POST['gender'] : $gender = $row['gender'];
 
         $_SESSION['isParent']=$isParent;
         //update table
-        $query = "UPDATE users SET name='$name', surname='$lastName',password='$password',email='$email',phone='$phone',afm='$afm',companyName='$companyName',address='$address',isParent='$isParent' 
+        $query = "UPDATE users SET name='$name', surname='$lastName',password='$password',email='$email',phone='$phone',afm='$afm',companyName='$companyName',address='$address',isParent='$isParent',gender='$gender' 
         WHERE username='$username'";
     
         $query_run = mysqli_query($conn, $query);

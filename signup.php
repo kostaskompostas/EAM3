@@ -63,11 +63,11 @@ session_start();
                 </div>
                 <ul class="navbar-nav ml-auto">
                     <?php
-                        if (isset($_SESSION['username'])){
-                            //echo 
-                            $name = $_SESSION['username'];
-                            
-                            echo <<< account
+                    if (isset($_SESSION['username'])) {
+                        //echo 
+                        $name = $_SESSION['username'];
+
+                        echo <<< account
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle profile-button" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="icofont-ui-user"></i>Λογαριασμος
@@ -79,8 +79,8 @@ session_start();
                                 </div>
                             </div>
                             account;
-                        }else{
-                            echo <<< enter
+                    } else {
+                        echo <<< enter
                             <li class="nav-item">
                                 <a href="signin.php" class="nav-link">
                                     Σύνδεση
@@ -94,7 +94,7 @@ session_start();
                                 </a>
                             </li>
                             enter;
-                        }        
+                    }
                     ?>
                 </ul>
 
@@ -161,32 +161,36 @@ session_start();
                     </div>
 
                     <div class="row">
-                        <div class="form-group  col-lg-5">
-                            <label>
-                                Το φύλο σάς
-                            </label>
-                            <div class="d-flex align-items-center text-center"  >
-                                <div class="col-lg-6">
-                                    <input type="radio" id="male" name="gender" value="male">
-                                    <label  for="male">Άντρας</label><br>
-                                </div>
+                        <div class=col>
+                            <div class="form-group">
+                                <label>
+                                    Το φύλο σάς
+                                </label>
+                                <div id="gender_radios" class="d-flex justify-content-sm-around align-items-center text-center">
+                                    <div class="col-lg-2 ">
+                                        <input type="radio" id="male" name="gender" value="male" >
+                                        <label for="Male">Άντρας</label><br>
+                                    </div>
 
-                                <div class="col-lg-6">
-                                    <input type="radio" id="female" name="gender" value="female">
-                                    <label  for="female">Γυναίκα</label><br>
+                                    <div class="col-lg-2">
+                                        <input type="radio" id="female" name="gender" value="female">
+                                        <label for="Female">Γυναίκα</label><br>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <input type="radio" id="other" name="gender" value="other">
+                                        <label for="Other">Άλλο</label>
+                                    </div>
                                 </div>
-                                <div class="col-lg-6">
-                                    <input type="radio" id="other" name="gender" value="other">
-                                    <label  for="other">Άλλο</label>
+                                <div class="text-center">
+                                    <i class="icofont-check"></i>
+                                    <i class="icofont-exclamation-circle"></i>
+                                    <small>Σφάλμα</small>
+
                                 </div>
-                                <i class="icofont-check"></i>
-                                <i class="icofont-exclamation-circle"></i>
-                                <small>Σφάλμα</small>
-
-
                             </div>
+
                         </div>
-                        
+
                     </div>
 
                     <div class="row ">
@@ -270,7 +274,7 @@ session_start();
 
                     <div class="row">
                         <div class="col">
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <label id="companyLabelDescription">
                                     Όνομα της εταιρείας που εργάζεστε
                                 </label>
@@ -281,7 +285,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="mt-5 row">
                         <div class="col">
                             <div class="parent-checkbox form-group" id="parentSection">
@@ -301,7 +305,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-            
+
                 </form>
             </div>
         </div>

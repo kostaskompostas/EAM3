@@ -57,9 +57,9 @@ function fetchEmployee(e){
 
             //change header
             h= document.getElementById("create_form_header");
-            if (gender==="Male"){
+            if (gender==="male"){
                 temp="τον";
-            }else if (gender=="Female"){
+            }else if (gender==="female"){
                 temp="την";
             }else{
                 temp="τ@";
@@ -94,3 +94,6 @@ function stylizeHistory(table){
 
 }
 
+function createNewForm(){
+
+}

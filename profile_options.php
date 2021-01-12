@@ -21,6 +21,7 @@ if ($query_run) {
 	$address = $row['address'];
 	$companyName = $row['companyName'];
 	$isParent = $row['isParent'];
+	$gender = $row['gender'];
 } else {
 	echo "ERROR: $query. " . mysqli_error($conn);
 	header("Location: ../error.php");
@@ -150,14 +151,14 @@ mysqli_close($conn);
 						<div class="row justify-content-center">
 
 							<form id="login-form" class="login__form" method="post" action="php_includes/profile_options.inc.php" onsubmit="return mysubmit();">
-								
+
 								<?php
-									if(isset($_SESSION['form_success'])){
-										if ($_SESSION['form_success'] == true){
-											echo "<h4 class='text-center text-success mt-2'>Οι αλλαγές οριστικοποιήθηκαν!</h4>";
-											$_SESSION['form_success']=false;
-										}
+								if (isset($_SESSION['form_success'])) {
+									if ($_SESSION['form_success'] == true) {
+										echo "<h4 class='text-center text-success mt-2'>Οι αλλαγές οριστικοποιήθηκαν!</h4>";
+										$_SESSION['form_success'] = false;
 									}
+								}
 								?>
 								<div class="section-title text-center mb-5">
 									<h2 class="text-md mb-2">Το προφίλ σας</h2>
@@ -205,6 +206,38 @@ mysqli_close($conn);
 										</div>
 
 									</div>
+								</div>
+								<div class="row">
+									<div class=col>
+										<div class="form-group">
+											<label>
+												Το φύλο σάς
+											</label>
+											<div id="gender_radios" class="d-flex justify-content-sm-around align-items-center text-center">
+												<div class="col-lg-2 ">
+													<input type="radio" id="male" name="gender" value="male"<?php if($gender=='male') echo 'checked'?>>
+													<label for="male">Άντρας</label><br>
+												</div>
+
+												<div class="col-lg-2">
+													<input type="radio" id="female" name="gender" value="female" <?php if($gender=='female') echo 'checked'?>>
+													<label for="female">Γυναίκα</label><br>
+												</div>
+												<div class="col-lg-2">
+													<input type="radio" id="other" name="gender" value="other"<?php if($gender=='other') echo 'checked'?>>
+													<label for="other">Άλλο</label>
+												</div>
+											</div>
+											<div class="text-center">
+												<i class="icofont-check"></i>
+												<i class="icofont-exclamation-circle"></i>
+												<small>Σφάλμα</small>
+
+											</div>
+										</div>
+
+									</div>
+
 								</div>
 
 								<div class="row ">

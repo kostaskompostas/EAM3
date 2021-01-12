@@ -12,7 +12,11 @@ html {
 	overflow-x: hidden;
 }
 
-
+#gender_radios input[type=radio] {
+    border: 1px;
+    width: 50%;
+    height: 2em;
+}
 
 .employee:hover{
 	background-color: rgba(35, 157, 228, 0.219);
@@ -41,6 +45,11 @@ tr.in-validDate {
 .form-group.dilosi {
 	width: 211px;
 }
+
+.form-control.dilosi-date{
+	width:250px;
+}
+
 
 select.form-control#typeOfForm {
 	height: initial;

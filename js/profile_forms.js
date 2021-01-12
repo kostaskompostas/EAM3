@@ -89,7 +89,7 @@ date_start.addEventListener('input', function(e) {
         if(dateIsValid){
             var today = new Date();
             if(formDate < today){
-                setErrorFor(date_start, "Τα ραντεβού πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
+                setErrorFor(date_start, "Η έναρξη πρεπει να ειναι τουλαχιστον μια μέρα μετα απο την τωρινή");
             }else{
                 setSuccessFor(date_start);
             }
@@ -122,12 +122,12 @@ date_end.addEventListener('input', function(e) {
     }
 });
 
-if (isOwner==null){ //if the user is an employee immedietly stylize the text
+if (isOwner==undefined){ //if the user is an employee immedietly stylize the text
     for (var i = 0, row; row = table.rows[i]; i++) {
         //iterate through rows
         //rows would be accessed using the "row" variable assigned in the for loop
-        end = row.cells[1];
-        text=end.innerText;
+        var end = row.cells[1];
+        text=end.textContent;
         var date = new Date(text);
         var today = new Date();
         

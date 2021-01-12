@@ -11,8 +11,7 @@ const phone = document.getElementById("phone");
 const address = document.getElementById("adress");
 const parentSection = document.getElementById("parentSection");
 const companyLabelDesc = document.getElementById("companyLabelDescription");
-
-
+const gender_radios = document.getElementsByName("gender");
 isOwner = false;
 
 
@@ -52,6 +51,21 @@ function mysubmit(){
 
 	var everythingGood = true;
 
+	var gender_flag=false;
+	console.log(gender_radios);
+	for ( var i=0,length=gender_radios.length ; i< length; i++){
+		if (gender_radios[i].checked)
+			gender_flag=true;
+	}
+	console.log(gender_flag);
+	temp = document.getElementById("gender_radios");
+	if(gender_flag===false){
+		everythingGood = false;
+		setErrorFor(temp, "Συμπληρώστε το φυλο  σας");
+	} else {
+		setSuccessFor(temp);
+	}
+
 	if (usernameValue === "") {
 		everythingGood = false;
 		setErrorFor(username, "Συμπληρώστε το όνομα χρήστη σας");
@@ -86,7 +100,9 @@ function mysubmit(){
 	} else {
 		setSuccessFor(afm);
     }
-    
+	
+
+	
     
     if(emailValue === ''){
         everythingGood = false;

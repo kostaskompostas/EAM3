@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
+
 ?>
 
 <!DOCTYPE html>
@@ -324,7 +325,6 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
 	<script src="plugins/google-map/map.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
 	<script src="js/script.js"></script>
 	<script src="js/contact.js"></script>

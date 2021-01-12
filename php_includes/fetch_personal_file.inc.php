@@ -46,7 +46,7 @@
             <td>$end</td>
             <td>$formType</td>";
             if ($canModify)	
-                echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'>Διαγραφή</i></h4></td>";
+            echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'  onmouseover=''' style='cursor: pointer;'>Διαγραφή</i></h4></td>";
             else{
                 echo "<td></td>";
             }
