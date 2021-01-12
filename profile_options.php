@@ -276,7 +276,6 @@ mysqli_close($conn);
 									<div class="col">
 										<div class="form-group">
 											<label id="companyLabelDescription">
-												Όνομα της εταιρείας που εργάζεστε
 											</label>
 											<input name="companyName" id="companyName" type="text" class="form-control" maxlength="65" placeholder="<?php echo $companyName ?>">
 											<i class="icofont-check"></i>

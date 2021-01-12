@@ -37,6 +37,8 @@ if (isset($_POST['submit_btn'])) {
         $_SESSION['username'] = $username;
         $_SESSION['typeOfUser'] = $isOwner;
         $_SESSION['isParent'] = $isParent;
+        $_SESSION['companyName']=$companyName;
+
 
 
 

@@ -122,8 +122,74 @@ require  'php_includes/config.php';
 			</ul>
 
 
+
+
+
 			<div class="tabBox personal_files_tab_box">
-				<h3><i class="icofont-history mr-2"></i>Το ιστορικό των δηλώσεών σας</h3>
+				<?php
+				//if its an owner, print employees
+				if ($_SESSION['typeOfUser']==1){
+					echo "
+					<h3><i class='icofont-people mr-2'></i>Οι υπάλληλοί σας</h3>
+					<div class='personal_files_box'>
+						<div class='table-responsive'>
+							<table class='table table-bordered'>
+								<thead>
+									<tr>
+										<th>Όνομα</th>
+										<th>Επίθετο</th>
+										<th>ΑΦΜ</th>
+										<th>Γονέας</th>
+										<th>Διευθυνση</th>
+										<th>Τηλέφωνο</th>
+										<th>E-mail</th>
+										<th>Ενέργειες</th>
+									</tr>
+								</thead>
+								<tbody id='employeeRows'>";
+	
+									//fetch the rows
+									$temp = $_SESSION['companyName'];
+									$query = "SELECT * FROM users WHERE companyName='$temp' AND typeOfUser=0 ORDER BY name DESC";
+									$rows = mysqli_query($conn, $query);
+	
+									foreach ($rows as $row) {
+										$name = $row['name'];
+										$surname = $row['surname'];
+										$afm = $row['afm'];
+										$isParent="Οχι";
+										($row['isParent'])? $isParent="Ναι" : $isParent="Οχι";
+										$address = $row['address'];
+										$phone = $row['phone'];
+										$email =$row['email'];
+										
+										echo <<< row
+										<tr class="employee">
+										<td>$name</td>
+										<td>$surname</td>
+										<td>$afm</td>
+										<td>$isParent</td>
+										<td>$address</td>
+										<td>$phone</td>
+										<td>$email</td>
+										<td><a  href=# onclick="fetchEmployee(event)"><i class="icofont-history">Ιστορικό</a></td>
+										</tr>
+										row;
+
+									}
+									
+								echo "
+									<tr>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					";
+				}else{
+					echo "<h3><i class='icofont-history mr-2'></i>Το ιστορικό των δηλώσεών σας</h3>";
+				}
+				?>
 				<div class="personal_files_box">
 					<div class="table-responsive">
 						<table class="table table-bordered">
@@ -135,39 +201,45 @@ require  'php_includes/config.php';
 									<th>Eνέργεια</th>
 								</tr>
 							</thead>
-							<tbody id="tableRows">
+							<tbody id="historyRows">
+
 								<?php
-								//fetch the rows
-								$temp = $_SESSION['username'];
-								$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY start DESC";
-								$rows = mysqli_query($conn, $query);
-								$counter = 0 ;
-
-								foreach ($rows as $row) {
-									$start = $row['start'];
-									$start = date('m-d-Y', strtotime($start));
+								//if its an employee just show rows
+								if($_SESSION['typeOfUser']==0){
+									$temp = $_SESSION['username'];
+									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY end DESC";
+									$rows = mysqli_query($conn, $query);
+									$counter = 0;
+	
+									foreach ($rows as $row) {
+										$start = $row['start'];
+										$start = date('m-d-Y', strtotime($start));
+	
+										$end = $row['end'];
+										$end = date('m-d-Y', strtotime($end));
+	
+										$formType = $row['formType'];
+										echo <<< row
+											<tr>
+											<td>$start</td>
+											<td>$end</td>
+											<td>$formType</td>
+											<form id="personalFiles_delete" method="post" action="php_includes/del_personal_file.inc.php" onsubmit="return delete_this(event)">
+											<td><i class="icofont-ui-remove text-danger"></i><input  name="delete_btn" type="submit" value="Αρση"></input></td>
+											</form>
+											</tr>
+											row;
+										$counter = $counter + 1;
+									}
 									
-									$end = $row['end'];
-									$end = date('m-d-Y', strtotime($end));
-
-									$formType = $row['formType'];
-									echo <<< row
-										<tr>
-										<td>$start</td>
-										<td>$end</td>
-										<td>$formType</td>
-										<form id="personalFiles_delete" method="post" action="php_includes/del_personal_file.inc.php" onsubmit="return delete_this(event)">
-										<td><i class="icofont-ui-remove text-danger"></i><input  name="delete_btn" type="submit" value="Αρση"></input></td>
-										</form>
-										</tr>
-										row;
-									$counter = $counter + 1;
+								}else{
+									//the employer has to select an employee , then javascript gets called ,then the history gets shown
 								}
+								
 								mysqli_close($conn);
 								?>
-
 								<tr>
-								</tr>
+								</tr>								
 							</tbody>
 						</table>
 					</div>
@@ -201,6 +273,7 @@ require  'php_includes/config.php';
 							<select name="typeOfForm" id="typeOfForm" class="form-control ">
 								<?php
 								if ($_SESSION['typeOfUser'] == 1) {
+									
 									echo	"<option>Αναστολή Σύμβασης</option>";
 									echo 	"<option>Τηλεργασία</option>";
 								} else {
@@ -223,10 +296,10 @@ require  'php_includes/config.php';
 					<?php
 					if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
 						echo "<h4 class='text-center text-danger mt-2'>Δεν δικαιούστε άδεια ειδικού σκοπού γιατι δεν έχετε παιδί κάτω των 12 ετών</h4>";
-					}else if(isset($_SESSION['form_success'])){
-						if ($_SESSION['form_success'] == true){
+					} else if (isset($_SESSION['form_success'])) {
+						if ($_SESSION['form_success'] == true) {
 							echo "<h4 class='text-center text-success mt-2'>Η δηλωσή σας ολοκληρώθηκε επιτυχώς!</h4>";
-							$_SESSION['form_success']=false;
+							$_SESSION['form_success'] = false;
 						}
 					}
 					?>
@@ -337,6 +410,7 @@ require  'php_includes/config.php';
 	<script src="js/script.js"></script>
 	<script src="js/formUtil.js"></script>
 	<script src="js/profile_forms.js"></script>
+	<script src="js/profile_forms_buttons.js"></script>
 </body>
 
 </html>

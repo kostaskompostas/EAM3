@@ -5,7 +5,12 @@
     require 'config.php';
 
     if (isset($_POST['submit_btn'])) {
-        $username = $_SESSION['username'];
+
+        if ($_SESSION['typeOfUser']==1){  //if its an employer , push the new dilosi to the selected employee
+            $username = $_SESSION['selectedEmployee'];
+        }else{
+            $username = $_SESSION['username'];
+        }
         $start = strtotime($_POST['date_start']);
         $start = date('Y-m-d', $start); //now you can save in DB
 

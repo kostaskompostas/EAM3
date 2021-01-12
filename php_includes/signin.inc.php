@@ -20,6 +20,7 @@ if (isset($_POST['submit_btn'])) {
             $_SESSION['username'] = $username;
             $_SESSION['typeOfUser']=$row['typeOfUser'];
             $_SESSION['isParent']=$row['isParent'];
+            $_SESSION['companyName']=$row['companyName'];
             
             //if user was trying to get to personal files , send him there
             if (isset($_SESSION['from_covid'])){

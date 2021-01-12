@@ -1,7 +1,7 @@
 const form = document.getElementById("personalFiles_form");
 const date_start = document.getElementById("date_start");
 const date_end = document.getElementById("date_end");
-const table = document.getElementById("tableRows")
+const table = document.getElementById("historyRows")
 
 
 
@@ -133,24 +133,3 @@ for (var i = 0, row; row = table.rows[i]; i++) {
 }
 
 
-function delete_this(e){
-    row = e.target.parentElement; //get clicked on element
-    children = row.childNodes;
-    var start = new Date(children [1].innerText);
-    var end = new Date(children[3].innerText);
-    var type = children[5].innerText;
-    str = [start,end,type].join('/');
-
-    
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange=function(){
-        if (this.readyState==4 && this.status==200){
-            console.log(this.responseText);
-        }
-    }
-    xmlhttp.open("GET","php_includes/del_personal_file.inc.php?str=" + str,true);
-    xmlhttp.send();
-
-
-    return false;
-}
