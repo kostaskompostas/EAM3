@@ -131,7 +131,7 @@ require  'php_includes/config.php';
 				if ($_SESSION['typeOfUser']==1){
 					echo "
 					<h3><i class='icofont-people mr-2'></i>Οι υπάλληλοί σας</h3>
-					<div class='personal_files_box'>
+					<div id='employeeTable' class='personal_files_box'>
 						<div class='table-responsive'>
 							<table class='table table-bordered'>
 								<thead>
@@ -209,34 +209,38 @@ require  'php_includes/config.php';
 									$temp = $_SESSION['username'];
 									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY end DESC";
 									$rows = mysqli_query($conn, $query);
-									$counter = 0;
 	
 									foreach ($rows as $row) {
 										$start = $row['start'];
-										$start = date('m-d-Y', strtotime($start));
-	
+										$start = date('Y-m-d', strtotime($start));
+										
 										$end = $row['end'];
-										$end = date('m-d-Y', strtotime($end));
+										$end = date('Y-m-d', strtotime($end));
 	
 										$formType = $row['formType'];
-										echo <<< row
-											<tr>
-											<td>$start</td>
-											<td>$end</td>
-											<td>$formType</td>
-											<form id="personalFiles_delete" method="post" action="php_includes/del_personal_file.inc.php" onsubmit="return delete_this(event)">
-											<td><i class="icofont-ui-remove text-danger"></i><input  name="delete_btn" type="submit" value="Αρση"></input></td>
-											</form>
-											</tr>
-											row;
-										$counter = $counter + 1;
+										$canModify = false;
+										if ($_SESSION['username']===$row['creator_username'])
+											$canModify = true;
+										else 
+											$canModify = false;
+										
+										echo	"
+										<tr>
+										<td>$start</td>
+										<td>$end</td>
+										<td>$formType</td>";
+										if ($canModify)	
+											echo "<td><button  name='delete_btn' onclick='delete_this(event)'' ><i class='icofont-ui-remove text-danger'>Αρση</i></button></td>";
+										else{
+											echo "<td></td>";
+										}
+										echo "</tr>";
 									}
-									
 								}else{
+									mysqli_close($conn);
 									//the employer has to select an employee , then javascript gets called ,then the history gets shown
 								}
 								
-								mysqli_close($conn);
 								?>
 								<tr>
 								</tr>								

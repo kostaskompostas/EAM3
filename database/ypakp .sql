@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2021 at 03:07 PM
+-- Generation Time: Jan 12, 2021 at 02:25 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -32,27 +32,16 @@ CREATE TABLE `forms` (
   `end` date NOT NULL,
   `id` int(11) NOT NULL,
   `username` varchar(65) NOT NULL,
-  `formType` varchar(200) NOT NULL
+  `formType` varchar(200) NOT NULL,
+  `creator_username` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `forms`
 --
 
-INSERT INTO `forms` (`start`, `end`, `id`, `username`, `formType`) VALUES
-('2021-01-12', '2021-01-13', 19, 'peos', 'Άδεια ειδικού Σκοπού'),
-('2021-01-12', '2021-01-13', 20, 'peos', 'Άδεια ειδικού Σκοπού'),
-('2021-01-01', '2021-01-16', 21, 'peos', 'Αναστολή Σύμβασης'),
-('2021-01-14', '2021-01-16', 22, 'peos', 'Αναστολή Σύμβασης'),
-('2021-02-03', '2021-02-06', 23, 'peos', 'Τηλεργασία'),
-('1969-12-28', '1970-01-01', 24, 'peos', 'Άδεια ειδικού Σκοπού'),
-('2021-01-21', '2021-02-02', 25, 'peos', 'Αναστολή Σύμβασης'),
-('2021-02-06', '2021-02-02', 26, 'peos', 'Τηλεργασία'),
-('2021-01-30', '2021-01-30', 27, 'peos', 'Αναστολή Σύμβασης'),
-('2021-01-30', '2021-01-28', 28, 'peos', 'Άδεια ειδικού Σκοπού'),
-('2021-01-30', '2021-01-30', 29, 'peos', 'Άδεια ειδικού Σκοπού'),
-('2021-01-22', '2021-02-04', 30, 'peos', 'Άδεια ειδικού Σκοπού'),
-('2021-04-11', '2021-05-11', 32, 'peos', 'Τηλεργασία');
+INSERT INTO `forms` (`start`, `end`, `id`, `username`, `formType`, `creator_username`) VALUES
+('2021-02-06', '2021-02-06', 111, 'peos', 'Άδεια ειδικού Σκοπού', 'peos');
 
 -- --------------------------------------------------------
 
@@ -80,8 +69,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`, `phone`, `afm`, `typeOfUser`, `companyName`, `address`, `isParent`) VALUES
-(18, 'peos', '3333', 'dddasd', '123', 'eeee@peos.com', 42342, 2147483647, 0, 'ddddd', 'adsddadasd', 0),
-(20, 'timos', 'asdfasfd', 'sadfsadf', '123', 'timos@timos.com', 2323, 23, 1, 'hkaluterh', '23', 0);
+(18, 'peos', 'kosths', 'mikroudhs', '123', 'eeee@peos.com', 42342, 2147483647, 0, 'bethesda', 'adsddadasd', 1),
+(20, 'timos', 'asdfasfd', 'νεο ', '123', 'timos@timos.com', 2323, 23, 1, 'bethesda', '23', 0),
+(21, 'makis', 'makis', 'sakakis', '123', 'maiks@sakakis.com', 221010100, 1342341234, 0, 'bethesda', 'tipota', 1);
 
 --
 -- Indexes for dumped tables
@@ -108,13 +98,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `forms`
 --
 ALTER TABLE `forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

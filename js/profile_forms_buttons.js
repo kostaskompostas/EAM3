@@ -1,23 +1,28 @@
+
+
 function delete_this(e){
-    row = e.target.parentElement; //get clicked on element
-    children = row.childNodes;
+    btn = e.target.parentElement; //get clicked on element
+    td = btn.parentElement;
+    tr = td.parentElement;
+    children = tr.childNodes;
     var start = new Date(children [1].innerText);
     var end = new Date(children[3].innerText);
     var type = children[5].innerText;
     str = [start,end,type].join('/');
+    console.log(str);
 
     
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (this.readyState==4 && this.status==200){
+            table.innerHTML=null;
+            table.innerHTML=this.responseText;
             console.log(this.responseText);
+            stylizeHistory(table);
         }
     }
     xmlhttp.open("GET","php_includes/del_personal_file.inc.php?str=" + str,true);
     xmlhttp.send();
-
-
-    return false;
 }
 
 
@@ -33,36 +38,21 @@ function fetchEmployee(e){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange=function(){
         if (this.readyState==4 && this.status==200){
+            
             //remove selected employee id from previously selected employee
             var prev_selected=document.getElementById("employee-selected");
             if(prev_selected != null){
                 prev_selected.removeAttribute("id","employee-selected");
             }
 
-            //select a new employee
+            //select the new employee
             employee.id="employee-selected";
             
-            
-            
-            //show history
+        
+            //show history 
             var table=document.getElementById("historyRows");
             table.innerHTML=this.responseText;
-
-
-            for (var i = 0, row; row = table.rows[i]; i++) {
-                //iterate through rows
-                //rows would be accessed using the "row" variable assigned in the for loop
-                end = row.cells[1];
-                var date = new Date(end.innerText);
-                var today = new Date();
-                
-                if (date<today){
-                    row.setAttribute("class", "in-validDate");
-                }else{
-                    row.setAttribute("class", "validDate");
-                }
-            
-            }
+            stylizeHistory(table);
         }
     }
     xmlhttp.open("GET","php_includes/fetch_personal_file.inc.php?str=" + str,true);
@@ -70,5 +60,23 @@ function fetchEmployee(e){
 
 
     return false;
+
+}
+
+function stylizeHistory(table){
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        //iterate through rows
+        //rows would be accessed using the "row" variable assigned in the for loop
+        end = row.cells[1];
+        var date = new Date(end.innerText);
+        var today = new Date();
+        
+        if (date<today){
+            row.setAttribute("class", "in-validDate");
+        }else{
+            row.setAttribute("class", "validDate");
+        }
+    
+    }
 
 }

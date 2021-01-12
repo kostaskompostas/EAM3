@@ -12,31 +12,41 @@
     $query = "SELECT * FROM users WHERE name='$name' and surname='$surname' and afm='$afm' ";
     $query_run= mysqli_query($conn, $query);
     $rows=mysqli_fetch_assoc($query_run);
-    $username = $rows['username'];
-    $_SESSION['selectedEmployee']=$username;
+    $employee_username = $rows['username'];
+    $_SESSION['selectedEmployee']=$employee_username;
 
     //select diloseis
-    $query = "SELECT * FROM forms WHERE username='$username' ORDER BY end DESC";
+    $query = "SELECT * FROM forms WHERE username='$employee_username' ORDER BY end DESC";
     $rows= mysqli_query($conn, $query);
     if ($rows){
+        $owner = $_SESSION['username'];        
+
         foreach ($rows as $row) {
             $start = $row['start'];
-            $start = date('m-d-Y', strtotime($start));
+            $start = date('Y-m-d', strtotime($start));
 
             $end = $row['end'];
-            $end = date('m-d-Y', strtotime($end));
+            $end = date('Y-m-d', strtotime($end));
 
+
+            
             $formType = $row['formType'];
-            echo <<< row
-                <tr>
-                <td>$start</td>
-                <td>$end</td>
-                <td>$formType</td>
-                <form id="personalFiles_delete" method="post" action="php_includes/del_personal_file.inc.php" onsubmit="return delete_this(event)">
-                <td><i class="icofont-ui-remove text-danger"></i><input  name="delete_btn" type="submit" value="Αρση"></input></td>
-                </form>
-                </tr>
-                row;
+            $canModify = false;
+            if ($_SESSION['username']===$row['creator_username'])
+            $canModify = true;
+            else 
+            $canModify = false;            
+            echo	"
+            <tr>
+            <td>$start</td>
+            <td>$end</td>
+            <td>$formType</td>";
+            if ($canModify)	
+                echo "<td><button  name='delete_btn' onclick='delete_this(event)'' ><i class='icofont-ui-remove text-danger'>Αρση</i></button></td>";
+            else{
+                echo "<td></td>";
+            }
+            echo "</tr>";
         }
     }else{
         echo "failure";

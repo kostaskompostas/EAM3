@@ -2,7 +2,7 @@ const form = document.getElementById("personalFiles_form");
 const date_start = document.getElementById("date_start");
 const date_end = document.getElementById("date_end");
 const table = document.getElementById("historyRows")
-
+const isOwner = document.getElementById("employeeTable");
 
 
 
@@ -37,7 +37,6 @@ function mysubmit(){
             }
         }
     }
-    
     if(date_endValue === ''){
         everythingGood = false;
         setErrorFor(date_end, "Συμπληρώστε την ημέρα που επιθυμείτε");
@@ -45,6 +44,9 @@ function mysubmit(){
         
         setSuccessFor(date_end);
     }
+
+
+
     //check end value
     if(date_endValue !== ''){
         var dateIsValid = true;
@@ -70,7 +72,6 @@ function mysubmit(){
         }
     }
 
-    
     return everythingGood;
 }
 
@@ -117,19 +118,22 @@ date_end.addEventListener('input', function(e) {
     }
 });
 
-for (var i = 0, row; row = table.rows[i]; i++) {
-    //iterate through rows
-    //rows would be accessed using the "row" variable assigned in the for loop
-    end = row.cells[1];
-    var date = new Date(end.innerText);
-    var today = new Date();
+if (isOwner==null){ //if the user is an employee immedietly stylize the text
+    for (var i = 0, row; row = table.rows[i]; i++) {
+        //iterate through rows
+        //rows would be accessed using the "row" variable assigned in the for loop
+        end = row.cells[1];
+        text=end.innerText;
+        var date = new Date(text);
+        var today = new Date();
+        
+        if (date<today){
+            row.setAttribute("class", "in-validDate");
+        }else{
+            row.setAttribute("class", "validDate");
+        }
     
-    if (date<today){
-        row.setAttribute("class", "in-validDate");
-    }else{
-        row.setAttribute("class", "validDate");
     }
-
 }
 
 
