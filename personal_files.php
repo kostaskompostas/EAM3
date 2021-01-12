@@ -265,7 +265,7 @@ require  'php_includes/config.php';
 					?>
 				</h3>
 				</label>  
-				<form id="personalFiles_form" method="post" action="php_includes/new_personal_file.inc.php" onsubmit="return mysubmit()">
+				<form id="personalFiles_form"  >
 					<div class="row d-flex justify-content-center">
 						<div class="form-group dilosi">
 							<label>
@@ -306,7 +306,7 @@ require  'php_includes/config.php';
 					</div>
 					<div class="form-group d-flex justify-content-center">
 						<div class="text-center">
-							<input class="btn btn-main btn-round-full form-btn" name="submit_btn" type="submit" value="Δημιουργία νέας Δήλωσης" <?php
+							<input class="btn btn-main btn-round-full form-btn" name="submit_btn" type="button" value="Δημιουργία νέας Δήλωσης" onclick="createNewFile()" <?php
 																																				if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
 																																					echo "disabled";
 																																				}
