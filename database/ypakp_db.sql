@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2021 at 12:47 PM
+-- Generation Time: Jan 13, 2021 at 01:58 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -71,8 +71,11 @@ INSERT INTO `forms` (`start`, `end`, `id`, `username`, `formType`, `creator_user
 ('2021-02-06', '2021-03-06', 225, 'tesla', 'Άδεια ειδικού Σκοπού', 'tesla'),
 ('2021-02-05', '2021-02-06', 229, 'tesla', 'Άδεια ειδικού Σκοπού', 'tesla'),
 ('2021-02-06', '2021-02-06', 232, 'tesla', 'Άδεια ειδικού Σκοπού', 'tesla'),
-('2021-01-29', '2021-01-29', 233, 'tesla', 'Άδεια ειδικού Σκοπού', 'tesla'),
-('2021-01-30', '2021-01-30', 234, 'tesla', 'Άδεια ειδικού Σκοπού', 'tesla');
+('2021-01-30', '2021-02-06', 236, 'kati', 'Άδεια ειδικού Σκοπού', 'kati'),
+('2021-01-16', '2021-01-30', 239, 'kati', 'Άδεια ειδικού Σκοπού', 'kati'),
+('2021-01-16', '2021-01-30', 240, 'kati', 'Άδεια ειδικού Σκοπού', 'kati'),
+('2021-01-14', '2021-04-10', 246, 'zucc', 'Αναστολή Σύμβασης', 'owner'),
+('2021-01-14', '2021-01-23', 247, 'zucc', 'Άδεια ειδικού Σκοπού', 'zucc');
 
 -- --------------------------------------------------------
 
@@ -132,7 +135,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `forms`
 --
 ALTER TABLE `forms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 
 --
 -- AUTO_INCREMENT for table `users`

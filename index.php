@@ -319,7 +319,6 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 	<!-- Counterup -->
 	<script src="plugins/counterup/jquery.waypoints.min.js"></script>
 
-	<script src="plugins/shuffle/shuffle.min.js"></script>
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
 	<script src="plugins/google-map/map.js"></script>

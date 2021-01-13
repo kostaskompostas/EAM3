@@ -248,8 +248,7 @@ require  'php_includes/config.php';
 								}
 								
 								?>
-								<tr>
-								</tr>								
+							
 							</tbody>
 						</table>
 					</div>
@@ -272,7 +271,7 @@ require  'php_includes/config.php';
 				</label>  
 				<form id="personalFiles_form"  >
 					<div class="row d-flex justify-content-center">
-						<div class="form-group dilosi">
+						<div id="fix_start_date"class="form-group ">
 							<label>
 								Έναρξη
 							</label>
@@ -282,7 +281,7 @@ require  'php_includes/config.php';
 							<small>Σφάλμα</small>
 						</div>
 
-						<div class="form-group dilosi">
+						<div id="fix_end_date" class="form-group ">
 							<label>
 								Λήξη
 							</label>
@@ -291,7 +290,7 @@ require  'php_includes/config.php';
 							<i class="icofont-exclamation-circle"></i>
 							<small>Σφάλμα</small>
 						</div>
-						<div class="form-group dilosi">
+						<div class="form-group">
 							<label>
 								Έιδος Δήλωσης
 							</label>
@@ -311,7 +310,7 @@ require  'php_includes/config.php';
 					</div>
 					<div class="form-group d-flex justify-content-center">
 						<div class="text-center">
-							<input class="btn btn-main btn-round-full form-btn" name="submit_btn" type="button" value="Δημιουργία νέας Δήλωσης" onclick="createNewFile()" <?php
+							<input class="mt-4 btn btn-main btn-round-full form-btn" name="submit_btn" type="button" value="Δημιουργία νέας Δήλωσης" onclick="createNewFile()" <?php
 																																				if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
 																																					echo "disabled";
 																																				}
@@ -426,8 +425,8 @@ require  'php_includes/config.php';
 	<!-- Google Map -->
 
 	<script src="js/formUtil.js"></script>
-	<script src="js/profile_forms.js"></script>
 	<script src="js/profile_forms_buttons.js"></script>
+	<script src="js/profile_forms.js"></script>
 </body>
 
 </html>

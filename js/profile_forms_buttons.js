@@ -79,11 +79,13 @@ function fetchEmployee(e){
 }
 
 function stylizeHistory(table){
-    for (var i = 0, row; row = table.rows[i]; i++) {
+    console.log(table.rows.length);
+    for (var i = 0; i<table.rows.length ; i++) {
+        row = table.rows[i];
         //iterate through rows
         //rows would be accessed using the "row" variable assigned in the for loop
         end = row.cells[1];
-        text=end.innerText;
+        var text=end.innerText;
         var datestr = text.split("-");
         day = datestr[0]; month = datestr[1]; year = datestr[2];
         datestr = month+"-"+day+"-"+year;

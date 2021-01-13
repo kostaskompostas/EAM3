@@ -12,6 +12,12 @@ html {
 	overflow-x: hidden;
 }
 
+.form-group#fix_start_date, .form-group#fix_end_date{
+
+	width:200px;
+}
+
+
 #gender_radios input[type=radio] {
     border: 1px;
     width: 50%;
@@ -43,13 +49,6 @@ tr.in-validDate {
 	background-color: rgba(243, 120, 6, 0.171);
 }
 
-.form-group.dilosi {
-	width: 211px;
-}
-
-.form-control.dilosi-date{
-	width:250px;
-}
 
 
 select.form-control#typeOfForm {
@@ -1431,7 +1430,6 @@ a.requires-login {
 
 .form-group small {
 	font-size: 0.9em;
-
 	visibility: hidden;
 }
 
@@ -1443,6 +1441,7 @@ a.requires-login {
 .form-group.error .form-control {
 	border-color: #e74c3c;
 	border-width: 2px;
+
 }
 
 .form-group.modified .form-control {
