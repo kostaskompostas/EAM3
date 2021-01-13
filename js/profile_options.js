@@ -12,7 +12,6 @@ const parentCheckBox = document.getElementById("parentCheckBox");
 
 
 isOwner = (parentCheckBox == null);
-console.log(isOwner);
 
 typeOfUserSelected();
 

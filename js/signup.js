@@ -19,6 +19,10 @@ setInputFilter(phone, function(value) {
     return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
   });
 
+  setInputFilter(afm, function(value) {
+    return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+  });
+
 
 function typeOfUserSelected() {
 	var curSelection = typeOfUser.options[typeOfUser.selectedIndex].value;
@@ -52,12 +56,11 @@ function mysubmit(){
 	var everythingGood = true;
 
 	var gender_flag=false;
-	console.log(gender_radios);
 	for ( var i=0,length=gender_radios.length ; i< length; i++){
 		if (gender_radios[i].checked)
 			gender_flag=true;
 	}
-	console.log(gender_flag);
+
 	temp = document.getElementById("gender_radios");
 	if(gender_flag===false){
 		everythingGood = false;
@@ -98,7 +101,12 @@ function mysubmit(){
 		everythingGood = false;
 		setErrorFor(afm, "Συμπληρώστε τον ΑΦΜ σας");
 	} else {
-		setSuccessFor(afm);
+		if (afmValue.length<9){
+			setErrorFor(afm,"Πρέπει να συμπληρώσετε 9 ψηφία");
+		}else{
+
+			setSuccessFor(afm);
+		}
     }
 	
 

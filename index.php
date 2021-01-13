@@ -15,7 +15,6 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 	<title>Υπουργείο εργασίας</title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
 	<!-- bootstrap.min css -->
 	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
@@ -315,7 +314,6 @@ $_SESSION['ref'] = $_SERVER['SCRIPT_NAME'];
 	<!-- Bootstrap 4.3.2 -->
 	<script src="plugins/bootstrap/js/popper.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="plugins/counterup/jquery.easing.js"></script>
 	<!-- Slick Slider -->
 	<script src="plugins/slick-carousel/slick/slick.min.js"></script>
 	<!-- Counterup -->

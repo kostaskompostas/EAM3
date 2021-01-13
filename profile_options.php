@@ -41,8 +41,7 @@ mysqli_close($conn);
 	<title>Υπουργείο εργασίας</title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-
+	
 	<!-- bootstrap.min css -->
 	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
 	<!-- Icon Font Css -->
@@ -297,7 +296,7 @@ mysqli_close($conn);
 											<label>
 												ΑΦΜ
 											</label>
-											<input name="afm" id="afm" type="number" class="form-control" maxlength="65" placeholder="<?php echo $afm ?>">
+											<input name="afm" id="afm" type="number" class="form-control" maxlength="65" placeholder="<?php echo $afm ?>" disabled>
 											<i class="icofont-check"></i>
 											<i class="icofont-exclamation-circle"></i>
 											<small>Σφάλμα</small>
@@ -443,7 +442,6 @@ mysqli_close($conn);
 	<!-- Bootstrap 4.3.2 -->
 	<script src="plugins/bootstrap/js/popper.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="plugins/counterup/jquery.easing.js"></script>
 	<!-- Slick Slider -->
 	<script src="plugins/slick-carousel/slick/slick.min.js"></script>
 	<!-- Counterup -->
@@ -452,10 +450,7 @@ mysqli_close($conn);
 	<script src="plugins/shuffle/shuffle.min.js"></script>
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
-	<script src="plugins/google-map/map.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
-	<script src="js/script.js"></script>
 	<script src="js/formUtil.js"></script>
 	<script src="js/profile_options.js"></script>
 </body>

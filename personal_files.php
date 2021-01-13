@@ -15,7 +15,6 @@ require  'php_includes/config.php';
 	<title>Υπουργείο εργασίας</title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
 	<!-- bootstrap.min css -->
 	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
@@ -152,7 +151,7 @@ require  'php_includes/config.php';
 									$temp = $_SESSION['companyName'];
 									$query = "SELECT * FROM users WHERE companyName='$temp' AND typeOfUser=0 ORDER BY name DESC";
 									$rows = mysqli_query($conn, $query);
-	
+					
 									foreach ($rows as $row) {
 										$name = $row['name'];
 										$surname = $row['surname'];
@@ -207,16 +206,22 @@ require  'php_includes/config.php';
 								<?php
 								//if its an employee just show rows
 								if($_SESSION['typeOfUser']==0){
+									$today = date("Y-m-d");
+
 									$temp = $_SESSION['username'];
 									$query = "SELECT * FROM forms WHERE username='$temp' ORDER BY end DESC";
 									$rows = mysqli_query($conn, $query);
 	
 									foreach ($rows as $row) {
 										$start = $row['start'];
-										$start = date('Y-m-d', strtotime($start));
+										$start = date('d-m-Y', strtotime($start));
 										
 										$end = $row['end'];
-										$end = date('Y-m-d', strtotime($end));
+										$isOld=false;
+										if ($end<$today){
+											$isOld=true;
+										}
+										$end = date('d-m-Y', strtotime($end));
 	
 										$formType = $row['formType'];
 										$canModify = false;
@@ -230,7 +235,7 @@ require  'php_includes/config.php';
 										<td>$start</td>
 										<td>$end</td>
 										<td>$formType</td>";
-										if ($canModify)	
+										if ($canModify && !$isOld)	
 											echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'  onmouseover=''' style='cursor: pointer;'>Διαγραφή</i></h4></td>";
 										else{
 											echo "<td></td>";
@@ -316,13 +321,9 @@ require  'php_includes/config.php';
 					<?php
 					if ($_SESSION['typeOfUser'] == 0 && $_SESSION['isParent'] == 0) {
 						echo "<h4 class='text-center text-danger mt-2'>Δεν δικαιούστε άδεια ειδικού σκοπού γιατι δεν έχετε παιδί κάτω των 12 ετών</h4>";
-					} else if (isset($_SESSION['form_success'])) {
-						if ($_SESSION['form_success'] == true) {
-							echo "<h4 class='text-center text-success mt-2'>Η δηλωσή σας ολοκληρώθηκε επιτυχώς!</h4>";
-							$_SESSION['form_success'] = false;
-						}
-					}
+					} 
 					?>
+						<h4 id="FileSuccess"class='text-center text-success mt-2'></h4>
 				</form>
 
 			</div>
@@ -415,7 +416,6 @@ require  'php_includes/config.php';
 	<!-- Bootstrap 4.3.2 -->
 	<script src="plugins/bootstrap/js/popper.js"></script>
 	<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="plugins/counterup/jquery.easing.js"></script>
 	<!-- Slick Slider -->
 	<script src="plugins/slick-carousel/slick/slick.min.js"></script>
 	<!-- Counterup -->
@@ -424,10 +424,7 @@ require  'php_includes/config.php';
 	<script src="plugins/shuffle/shuffle.min.js"></script>
 	<script src="plugins/counterup/jquery.counterup.min.js"></script>
 	<!-- Google Map -->
-	<script src="plugins/google-map/map.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
-	<script src="js/script.js"></script>
 	<script src="js/formUtil.js"></script>
 	<script src="js/profile_forms.js"></script>
 	<script src="js/profile_forms_buttons.js"></script>

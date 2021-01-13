@@ -3,8 +3,9 @@ function delete_this(e){
     thing2 = thing1.parentElement.parentElement;
     children =thing2.childNodes;
 
-    var start = new Date(children [1].innerText);
-    var end = new Date(children[3].innerText);
+
+    var start = children [1].innerText;
+    var end = children[3].innerText;
     var type = children[5].innerText;
     str = [start,end,type].join('/');
 
@@ -14,8 +15,10 @@ function delete_this(e){
         if (this.readyState==4 && this.status==200){
             table.innerHTML=null;
             table.innerHTML=this.responseText;
-            console.log(this.responseText);
             stylizeHistory(table);
+            temp=document.getElementById("FileSuccess");
+            temp.innerText = "Η δηλωσή σας διαγράφτηκε επιτυχώς!";
+
         }
     }
     xmlhttp.open("GET","php_includes/del_personal_file.inc.php?str=" + str,true);
@@ -80,9 +83,13 @@ function stylizeHistory(table){
         //iterate through rows
         //rows would be accessed using the "row" variable assigned in the for loop
         end = row.cells[1];
-        var date = new Date(end.innerText);
+        text=end.innerText;
+        var datestr = text.split("-");
+        day = datestr[0]; month = datestr[1]; year = datestr[2];
+        datestr = month+"-"+day+"-"+year;
+
+        var date = new Date(datestr);
         var today = new Date();
-        
         if (date<today){
             row.setAttribute("class", "in-validDate");
         }else{
@@ -158,14 +165,16 @@ function createNewFile(){
 
     if (everythingGood){
         str = date_startValue+"/"+date_endValue+"/"+type_Value;
-        console.log(str);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function(){
             if (this.readyState==4 && this.status==200){
                 table.innerHTML=null;
                 table.innerHTML=this.responseText;
-                console.log(this.responseText);
+                
                 stylizeHistory(table);
+                temp=document.getElementById("FileSuccess");
+                temp.innerText = "Η δηλωσή σας ολοκληρώθηκε επιτυχώς!";
+
             }
         }
         xmlhttp.open("GET","php_includes/new_personal_file.inc.php?str=" + str,true);

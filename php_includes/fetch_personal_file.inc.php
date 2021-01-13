@@ -3,6 +3,7 @@
     $ref = $_SESSION['ref'];
 
     require 'config.php';
+    require 'fetch_history.inc.php';
 
     $string = $_GET["str"]; 
 
@@ -22,36 +23,13 @@
     //select diloseis
     $query = "SELECT * FROM forms WHERE username='$employee_username' ORDER BY end DESC";
     $rows= mysqli_query($conn, $query);
+    
+    
     if ($rows){
         $owner = $_SESSION['username'];        
-
-        foreach ($rows as $row) {
-            $start = $row['start'];
-            $start = date('Y-m-d', strtotime($start));
-
-            $end = $row['end'];
-            $end = date('Y-m-d', strtotime($end));
-
-
-            
-            $formType = $row['formType'];
-            $canModify = false;
-            if ($_SESSION['username']===$row['creator_username'])
-            $canModify = true;
-            else 
-            $canModify = false;            
-            echo	"
-            <tr>
-            <td>$start</td>
-            <td>$end</td>
-            <td>$formType</td>";
-            if ($canModify)	
-            echo "<td><h4><i class='center-text icofont-close text-danger' onclick='delete_this(event)'  onmouseover=''' style='cursor: pointer;'>Διαγραφή</i></h4></td>";
-            else{
-                echo "<td></td>";
-            }
-            echo "</tr>";
-        }
+        $today = date("Y-m-d");
+        //load
+        fetchHistory(($rows));
     }else{
         echo "failure";
     }

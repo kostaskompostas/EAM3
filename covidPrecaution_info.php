@@ -16,7 +16,6 @@
 		<title>Υπουργείο εργασίας - Οδηγίες πρόληψης στον εργασιακό τομέα</title>
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
 		<!-- bootstrap.min css -->
 		<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
@@ -384,7 +383,6 @@
 		<!-- Bootstrap 4.3.2 -->
 		<script src="plugins/bootstrap/js/popper.js"></script>
 		<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-		<script src="plugins/counterup/jquery.easing.js"></script>
 		<!-- Slick Slider -->
 		<script src="plugins/slick-carousel/slick/slick.min.js"></script>
 		<!-- Counterup -->
@@ -394,9 +392,7 @@
 		<script src="plugins/counterup/jquery.counterup.min.js"></script>
 		<!-- Google Map -->
 		<script src="plugins/google-map/map.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
-		<script src="js/script.js"></script>
 		<script src="js/contact.js"></script>
 	</body>
 </html>

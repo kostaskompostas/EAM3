@@ -26,7 +26,6 @@ function mysubmit(){
         var dateIsValid = true;
 
         var formDate = new Date(date_startValue);
-        console.log(formDate);
 
         if(dateIsValid){
             var today = new Date();
@@ -127,8 +126,13 @@ if (isOwner==undefined){ //if the user is an employee immedietly stylize the tex
         //iterate through rows
         //rows would be accessed using the "row" variable assigned in the for loop
         var end = row.cells[1];
-        text=end.textContent;
-        var date = new Date(text);
+
+        text=end.innerText;
+        var datestr = text.split("-");
+        day = datestr[0]; month = datestr[1]; year = datestr[2];
+        datestr = month+"-"+day+"-"+year;
+
+        var date = new Date(datestr);
         var today = new Date();
         
         if (date<today){
